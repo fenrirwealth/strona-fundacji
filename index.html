@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fundacja Lepszy Dom Lepsze Jutro — mieszkania i wyprawki dla rodzin w kryzysie</title>
+<meta name="description" content="Wynajmujemy, remontujemy i wyposażamy mieszkania dla rodzin, które straciły dach nad głową. Przekazujemy wyprawki dzieciom z placówek opiekuńczo-wychowawczych. Fundacja z Warszawy, KRS 0000971976.">
+<meta property="og:title" content="Fundacja Lepszy Dom Lepsze Jutro">
+<meta property="og:description" content="Wynajmujemy, remontujemy i wyposażamy mieszkania dla rodzin, które straciły dach nad głową.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"Fundacja Lepszy Dom Lepsze Jutro","url":"https://fundacjalepszydomlepszejutro.com","identifier":"KRS 0000971976","taxID":"5273002294","address":{"@type":"PostalAddress","addressLocality":"Warszawa","addressCountry":"PL"}}
+</script>
+<style>
+:root{
+  --papier:#F1F0EA; --papier-2:#E4E1D7; --biel:#FCFBF8;
+  --atrament:#16233C; --atrament-2:#3A4A6B;
+  --bursztyn:#E19B2E; --bursztyn-2:#A96A14;
+  --zielen:#3F6B54;
+  --linia:rgba(22,35,60,.15); --linia-mocna:rgba(22,35,60,.3);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--atrament);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;font-weight:800;line-height:1.06;letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em}
+a{color:var(--bursztyn-2);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--bursztyn);outline-offset:2px;border-radius:2px}
+img,svg{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:var(--bursztyn);color:var(--atrament);padding:10px 16px;z-index:99}
+
+/* nawigacja */
+header{border-bottom:1px solid var(--linia);background:var(--papier);position:sticky;top:0;z-index:20}
+.nawigacja{display:flex;align-items:center;gap:26px;padding:14px 0}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:17px;line-height:1.05;text-decoration:none;color:var(--atrament)}
+.logo small{display:block;font-family:"IBM Plex Sans";font-weight:400;font-size:11px;color:var(--atrament-2)}
+.nawigacja nav{display:flex;gap:22px;margin-left:auto;font-size:14.5px}
+.nawigacja nav a{color:var(--atrament-2);text-decoration:none}
+.nawigacja nav a:hover{color:var(--atrament);text-decoration:underline}
+.cta{background:var(--bursztyn);color:var(--atrament);text-decoration:none;font-weight:600;font-size:14.5px;padding:9px 18px;border-radius:3px}
+.cta:hover{background:var(--bursztyn-2);color:var(--biel)}
+
+/* hero */
+.hero{background:var(--atrament);color:var(--papier);padding:64px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(32px,5vw,54px);margin-bottom:18px}
+.hero p{color:rgba(241,240,234,.76);font-size:17px;max-width:38ch}
+.hero .akcje{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.przycisk-jasny{background:none;border:1px solid rgba(241,240,234,.45);color:var(--papier);text-decoration:none;font-size:14.5px;padding:9px 18px;border-radius:3px}
+.przycisk-jasny:hover{background:rgba(241,240,234,.1)}
+.plan-podpis{font-size:12.5px;color:rgba(241,240,234,.55);margin-top:12px}
+
+/* pas liczb */
+.liczby{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--linia);background:var(--papier)}
+.liczby div{padding:22px 24px;border-right:1px solid var(--linia)}
+.liczby div:last-child{border-right:0}
+.liczby b{font-family:"Bricolage Grotesque",sans-serif;font-size:30px;display:block;line-height:1}
+.liczby span{font-size:13px;color:var(--atrament-2);display:block;margin-top:6px}
+
+section{padding:60px 0;border-bottom:1px solid var(--linia)}
+section h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:12px}
+.wstep{color:var(--atrament-2);max-width:62ch;font-size:16.5px}
+
+/* wsparcie */
+#wesprzyj{background:var(--biel)}
+.wsparcie{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;margin-top:30px;align-items:start}
+.konto{border:1px solid var(--linia-mocna);border-radius:4px;padding:24px;background:var(--papier)}
+.konto .etykieta{font-size:13px;color:var(--atrament-2);margin-bottom:4px}
+.konto .numer{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:clamp(17px,2.6vw,23px);letter-spacing:.01em;word-spacing:.15em;margin-bottom:14px}
+.kopiuj{background:var(--atrament);color:var(--papier);border:0;border-radius:3px;padding:11px 20px;font:600 15px "IBM Plex Sans",sans-serif;cursor:pointer}
+.kopiuj:hover{background:var(--atrament-2)}
+.kopiuj[data-stan="ok"]{background:var(--zielen)}
+.dane-przelewu{margin-top:18px;padding-top:16px;border-top:1px solid var(--linia);font-size:14px;line-height:1.8}
+.dane-przelewu b{font-weight:600}
+.qr{text-align:center;border:1px solid var(--linia-mocna);border-radius:4px;padding:24px;background:var(--papier)}
+.qr .ramka-qr{width:180px;height:180px;margin:0 auto 14px;background:var(--biel);border:1px dashed var(--linia-mocna);border-radius:3px;display:grid;place-items:center;font-size:12.5px;color:var(--atrament-2);padding:16px;line-height:1.5}
+.qr p{font-size:13.5px;color:var(--atrament-2);margin:0}
+.kwoty{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.kwota{border:1px solid var(--linia);border-radius:3px;padding:16px;background:var(--papier)}
+.kwota b{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;display:block;margin-bottom:4px}
+.kwota span{font-size:13px;color:var(--atrament-2);line-height:1.45}
+.pit{font-size:14px;color:var(--atrament-2);margin-top:24px;border-left:2px solid var(--bursztyn);padding-left:16px;max-width:66ch}
+
+/* programy */
+.programy{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:34px}
+.program{border-top:2px solid var(--atrament);padding-top:16px}
+.program h3{font-size:19px;margin-bottom:8px}
+.program p{font-size:15px;color:var(--atrament-2);margin:0}
+
+/* transparentność */
+.zasady{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+.zasada{background:var(--biel);border:1px solid var(--linia);border-radius:4px;padding:20px}
+.zasada h3{font-size:16px;margin-bottom:7px}
+.zasada p{font-size:14px;color:var(--atrament-2);margin:0}
+.dokumenty{width:100%;border-collapse:collapse;margin-top:26px;font-size:15px}
+.dokumenty th,.dokumenty td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--linia)}
+.dokumenty th{font-size:13px;font-weight:600;color:var(--atrament-2)}
+
+/* aktualności */
+.wpisy{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:30px}
+.wpis{background:var(--biel);border:1px solid var(--linia);border-radius:4px;padding:22px}
+.wpis .data{font-size:13px;color:var(--atrament-2);margin-bottom:6px}
+.wpis h3{font-size:18px;margin-bottom:8px}
+.wpis p{font-size:14.5px;color:var(--atrament-2);margin:0}
+
+/* pomoc */
+#pomoc{background:var(--atrament);color:var(--papier);border-bottom:0}
+#pomoc .wstep{color:rgba(241,240,234,.75)}
+.pomoc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px}
+.pomoc-grid h3{font-size:17px;margin-bottom:8px}
+.pomoc-grid p{font-size:15px;color:rgba(241,240,234,.75)}
+.pomoc-grid a{color:var(--bursztyn)}
+
+footer{background:var(--papier-2);padding:40px 0 30px;font-size:14px}
+.stopka{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:26px}
+.stopka b{display:block;font-weight:600;margin-bottom:8px;font-size:14px}
+.stopka p,.stopka li{color:var(--atrament-2);margin:0 0 4px}
+.stopka ul{list-style:none;margin:0;padding:0;line-height:1.9}
+.stopka a{color:var(--atrament-2)}
+.nota{margin-top:28px;padding-top:18px;border-top:1px solid var(--linia);font-size:13px;color:var(--atrament-2)}
+.brak{background:rgba(225,155,46,.22);padding:0 5px;border-radius:2px}
+
+@media (max-width:880px){
+  .nawigacja nav{display:none}
+  .hero .wrap{grid-template-columns:1fr;gap:32px}
+  .liczby{grid-template-columns:1fr 1fr}
+  .liczby div:nth-child(2n){border-right:0}
+  .liczby div:nth-child(-n+2){border-bottom:1px solid var(--linia)}
+  .wsparcie,.pomoc-grid,.wpisy{grid-template-columns:1fr}
+  .kwoty,.programy,.zasady{grid-template-columns:1fr 1fr}
+  .stopka{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){.kwoty,.programy,.zasady,.stopka{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
+
+<header>
+  <div class="wrap nawigacja">
+    <a class="logo" href="/">Lepszy Dom<small>Lepsze Jutro</small></a>
+    <nav>
+      <a href="#programy">Co robimy</a>
+      <a href="#transparentnosc">Transparentność</a>
+      <a href="#aktualnosci">Aktualności</a>
+      <a href="#pomoc">Potrzebuję pomocy</a>
+    </nav>
+    <a class="cta" href="#wesprzyj">Wesprzyj</a>
+  </div>
+</header>
+
+<main id="tresc">
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Zaczynamy od podłogi. Kończymy na domu.</h1>
+      <p>Wynajmujemy, remontujemy i wyposażamy mieszkania dla rodzin, które straciły dach nad głową. Pomieszczenie po pomieszczeniu, faktura po fakturze.</p>
+      <div class="akcje">
+        <a class="cta" href="#wesprzyj">Przekaż darowiznę</a>
+        <a class="przycisk-jasny" href="#transparentnosc">Zobacz, na co idą pieniądze</a>
+      </div>
+    </div>
+    <div>
+      <svg viewBox="0 0 660 380" role="img" aria-label="Rzut mieszkania: kuchnia sfinansowana, pokój dzieci w 62 procentach, łazienka w 30 procentach, salon jeszcze nie rozpoczęty">
+        <g fill="rgba(225,155,46,.85)">
+          <rect x="322" y="22" width="316" height="136"/>
+          <rect x="22" y="275" width="296" height="83"/>
+          <rect x="322" y="300" width="316" height="58"/>
+        </g>
+        <g stroke="rgba(241,240,234,.85)" stroke-width="3" fill="none">
+          <path d="M20 20 H640 V360 H20 Z"/>
+          <path d="M320 20 V90 M320 130 V220"/>
+          <path d="M20 220 H130 M190 220 H320 M320 160 H430 M490 160 H640"/>
+        </g>
+        <g font-family="IBM Plex Sans" font-size="16">
+          <text x="44" y="54" fill="rgba(241,240,234,.75)">Salon</text>
+          <text x="44" y="76" font-size="13.5" fill="rgba(241,240,234,.5)">zbieramy</text>
+          <text x="346" y="54" fill="#16233C">Kuchnia</text>
+          <text x="346" y="76" font-size="13.5" fill="rgba(22,35,60,.7)">sfinansowana</text>
+          <text x="44" y="252" fill="rgba(241,240,234,.9)">Pokój dzieci</text>
+          <text x="44" y="274" font-size="13.5" fill="rgba(241,240,234,.55)">62%</text>
+          <text x="346" y="192" fill="rgba(241,240,234,.9)">Łazienka</text>
+          <text x="346" y="214" font-size="13.5" fill="rgba(241,240,234,.55)">30%</text>
+        </g>
+      </svg>
+      <p class="plan-podpis">Mieszkanie w remoncie — rodzina z trojgiem dzieci. Stan na <span class="brak">[data]</span>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="liczby">
+  <div><b class="brak">3</b><span>mieszkania w remoncie</span></div>
+  <div><b class="brak">142</b><span>wyprawki przekazane dzieciom</span></div>
+  <div><b class="brak">86%</b><span>wpłat trafia wprost do programów</span></div>
+  <div><b>2022</b><span>rok powołania fundacji</span></div>
+</div>
+
+<section id="wesprzyj">
+  <div class="wrap">
+    <h2>Przekaż darowiznę</h2>
+    <p class="wstep">Zwykłym przelewem, bez pośredników i bez prowizji. Każda złotówka, która wpłynie na to konto, trafia do programów fundacji.</p>
+
+    <div class="wsparcie">
+      <div class="konto">
+        <div class="etykieta">Numer rachunku</div>
+        <div class="numer" id="numer-konta"><span class="brak">PL00 0000 0000 0000 0000 0000 0000</span></div>
+        <button class="kopiuj" id="kopiuj" type="button" data-numer="PL00000000000000000000000000">Skopiuj numer konta</button>
+        <div class="dane-przelewu">
+          <b>Odbiorca:</b> Fundacja Lepszy Dom Lepsze Jutro<br>
+          <b>Adres:</b> <span class="brak">[ulica i numer]</span>, Warszawa<br>
+          <b>Tytuł przelewu:</b> Darowizna na cele statutowe
+        </div>
+      </div>
+
+      <div class="qr">
+        <div class="ramka-qr">Kod QR z gotowym przelewem — wygenerujemy go, gdy poznamy numer rachunku</div>
+        <p>Zeskanuj aparatem w aplikacji swojego banku. Dane odbiorcy i tytuł wpiszą się same.</p>
+      </div>
+    </div>
+
+    <div class="kwoty">
+      <div class="kwota"><b>50 zł</b><span>Komplet pościeli dla dziecka</span></div>
+      <div class="kwota"><b>150 zł</b><span>Lampa i biurko do odrabiania lekcji</span></div>
+      <div class="kwota"><b>400 zł</b><span>Łóżko z materacem</span></div>
+      <div class="kwota"><b>1 000 zł</b><span>Kaucja za wynajem mieszkania</span></div>
+    </div>
+
+    <p class="pit">Darowiznę na cele statutowe fundacji możesz odliczyć od dochodu — osoby fizyczne do 6% dochodu w PIT, firmy do 10% w CIT. Zachowaj potwierdzenie przelewu, to jedyny dokument, jakiego potrzebujesz. Firmy, które chcą umowy darowizny, niech napiszą na <span class="brak">[adres e-mail]</span>.</p>
+  </div>
+</section>
+
+<section id="programy">
+  <div class="wrap">
+    <h2>Trzy rzeczy, które robimy</h2>
+    <p class="wstep">Działamy w granicach celu statutowego: pomoc finansowa i materialna osobom potrzebującym, w tym najem, remont, adaptacja i wyposażenie mieszkań.</p>
+    <div class="programy">
+      <div class="program">
+        <h3>Mieszkanie na start</h3>
+        <p>Rodzina dostaje lokal w stanie do remontu i nie ma z czego go wykończyć. Organizujemy najem, prowadzimy remont i wyposażamy wnętrze — od instalacji po łóżka.</p>
+      </div>
+      <div class="program">
+        <h3>Wyprawka</h3>
+        <p>Artykuły szkolne dla dzieci z placówek opiekuńczo-wychowawczych. Zbieramy przed wrześniem, przekazujemy tam, gdzie potrzeba jest największa.</p>
+      </div>
+      <div class="program">
+        <h3>Paczka</h3>
+        <p>Żywność i artykuły pierwszej potrzeby. Pierwszą akcję przeprowadziliśmy dla hospicjum onkologicznego w Warszawie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="transparentnosc">
+  <div class="wrap">
+    <h2>Na co idą pieniądze</h2>
+    <p class="wstep">Nie mamy nic do ukrycia i nie zamierzamy niczego upraszczać. Dokumenty są do pobrania, zasady są krótkie.</p>
+
+    <div class="zasady">
+      <div class="zasada">
+        <h3>Nie prowadzimy działalności gospodarczej</h3>
+        <p>Zakazuje jej nasz statut. Nie sprzedajemy niczego — każda wpłata jest darowizną na cele statutowe.</p>
+      </div>
+      <div class="zasada">
+        <h3>Nie kupujemy od podmiotów powiązanych</h3>
+        <p>Żadnych zleceń dla firm członków Zarządu ani osób im bliskich. To również zapis statutowy, nie deklaracja.</p>
+      </div>
+      <div class="zasada">
+        <h3>Publikujemy koszty remontów</h3>
+        <p>Przy każdym mieszkaniu podajemy pozycje kosztorysu i stan ich opłacenia.</p>
+      </div>
+    </div>
+
+    <table class="dokumenty">
+      <caption class="skip">Dokumenty fundacji do pobrania</caption>
+      <tr><th>Dokument</th><th>Okres</th><th>Plik</th></tr>
+      <tr><td>Statut fundacji</td><td>tekst jednolity</td><td><span class="brak">[do wgrania]</span></td></tr>
+      <tr><td>Odpis z KRS</td><td>aktualny</td><td><span class="brak">[do wgrania]</span></td></tr>
+      <tr><td>Sprawozdanie merytoryczne</td><td>2025</td><td><span class="brak">[do wgrania]</span></td></tr>
+      <tr><td>Sprawozdanie finansowe</td><td>2025</td><td><span class="brak">[do wgrania]</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="aktualnosci">
+  <div class="wrap">
+    <h2>Co się u nas dzieje</h2>
+    <p class="wstep">Krótkie relacje z tego, co udało się zrobić. Bez zdjęć twarzy dzieci — chronimy wizerunek osób, którym pomagamy.</p>
+    <div class="wpisy">
+      <article class="wpis">
+        <div class="data"><span class="brak">[data]</span></div>
+        <h3>Wyprawki szkolne trafiły do dzieci z placówek</h3>
+        <p>Zbiórka w Polish Airport Academy zakończona. Przekazanie odbyło się z udziałem dyrekcji szkoły i Wiceprezes Fundacji. Artykuły trafiły tam, gdzie były najbardziej potrzebne.</p>
+      </article>
+      <article class="wpis">
+        <div class="data"><span class="brak">[data]</span></div>
+        <h3>Paczki dla hospicjum onkologicznego w Warszawie</h3>
+        <p>Pierwsza akcja fundacji. Żywność i artykuły pierwszej potrzeby dla pacjentów i ich rodzin.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="pomoc">
+  <div class="wrap">
+    <h2>Potrzebujesz pomocy albo chcesz pomóc inaczej</h2>
+    <p class="wstep">Odpowiadamy na każde zgłoszenie, zwykle w ciągu tygodnia.</p>
+    <div class="pomoc-grid">
+      <div>
+        <h3>Zgłoś potrzebę</h3>
+        <p>Formularz dla placówek opiekuńczo-wychowawczych, ośrodków pomocy społecznej i rodzin. Pomagamy w zakresie: najem i remont mieszkania, wyposażenie wnętrz, wyprawki szkolne, żywność. Nie finansujemy leczenia ani rehabilitacji.</p>
+        <p>Napisz na <a href="mailto:"><span class="brak">[adres e-mail]</span></a> albo zadzwoń: <span class="brak">[telefon]</span>.</p>
+      </div>
+      <div>
+        <h3>Przekaż rzeczy albo swój czas</h3>
+        <p>Przyjmujemy sprawne meble, sprzęt AGD i nowe artykuły szkolne. Przy remontach przydaje się każda para rąk, transport i fachowiec — elektryk, hydraulik, glazurnik.</p>
+        <p>Napisz, co masz albo co umiesz, na <a href="mailto:"><span class="brak">[adres e-mail]</span></a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stopka">
+      <div>
+        <a class="logo" href="/">Lepszy Dom<small>Lepsze Jutro</small></a>
+        <p style="margin-top:10px">Fundacja Lepszy Dom Lepsze Jutro<br><span class="brak">[ulica i numer]</span><br>Warszawa</p>
+      </div>
+      <div>
+        <b>Dane rejestrowe</b>
+        <p>KRS 0000971976<br>NIP 5273002294<br>REGON <span class="brak">[numer]</span></p>
+      </div>
+      <div>
+        <b>Kontakt</b>
+        <p><span class="brak">[adres e-mail]</span><br><span class="brak">[telefon]</span></p>
+      </div>
+      <div>
+        <b>Dokumenty</b>
+        <ul>
+          <li><a href="#transparentnosc">Statut i sprawozdania</a></li>
+          <li><a href="/polityka-prywatnosci">Polityka prywatności</a></li>
+          <li><a href="/deklaracja-dostepnosci">Deklaracja dostępności</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="nota">Fundacja nie prowadzi działalności gospodarczej. Wpłaty na rachunek fundacji stanowią darowizny na cele statutowe i nie są zbiórką publiczną w rozumieniu ustawy z dnia 14 marca 2014 r. o zasadach prowadzenia zbiórek publicznych.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var przycisk=document.getElementById('kopiuj');
+  if(!przycisk||!navigator.clipboard) { if(przycisk) przycisk.hidden=true; return; }
+  var tekst=przycisk.textContent;
+  przycisk.addEventListener('click',function(){
+    navigator.clipboard.writeText(przycisk.dataset.numer).then(function(){
+      przycisk.textContent='Skopiowano';
+      przycisk.dataset.stan='ok';
+      setTimeout(function(){przycisk.textContent=tekst;przycisk.removeAttribute('data-stan');},2500);
+    });
+  });
+})();
+</script>
+</body>
+</html>
