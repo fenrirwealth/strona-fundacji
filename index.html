@@ -4,35 +4,100 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fundacja Lepszy Dom Lepsze Jutro — Warszawa</title>
-<meta name="description" content="Fundacja Lepszy Dom Lepsze Jutro z Warszawy. Pomoc osobom w trudnej sytuacji mieszkaniowej oraz wsparcie dzieci z placówek opiekuńczo-wychowawczych. KRS 0000971976.">
+<meta name="description" content="Fundacja Lepszy Dom Lepsze Jutro z Warszawy. Pomagamy osobom w trudnej sytuacji mieszkaniowej: najem, remont i wyposażenie mieszkań. Wspieramy dzieci z placówek opiekuńczo-wychowawczych. KRS 0000971976.">
 <meta property="og:title" content="Fundacja Lepszy Dom Lepsze Jutro">
-<meta property="og:description" content="Pomoc osobom w trudnej sytuacji mieszkaniowej oraz wsparcie dzieci z placówek opiekuńczo-wychowawczych.">
+<meta property="og:description" content="Pomagamy osobom w trudnej sytuacji mieszkaniowej. Wspieramy dzieci z placówek opiekuńczo-wychowawczych.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"Fundacja Lepszy Dom Lepsze Jutro","url":"https://fundacjalepszydomlepszejutro.pl","identifier":"KRS 0000971976","taxID":"5273002294","foundingDate":"2022-05-17","telephone":"+48570747779","email":"fundacjalepszydomlepszejutro@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Złota 75A/7","postalCode":"00-819","addressLocality":"Warszawa","addressCountry":"PL"}}
+</script>
 <style>
-:root{--papier:#F1F0EA;--atrament:#16233C;--bursztyn:#E19B2E}
+:root{--papier:#F1F0EA;--papier2:#E4E1D7;--biel:#FCFBF8;--atrament:#16233C;--atrament2:#3A4A6B;--bursztyn:#E19B2E;--linia:rgba(22,35,60,.15)}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:var(--atrament);color:var(--papier);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.65;display:flex;align-items:center;justify-content:center;padding:36px}
-main{max-width:620px}
-.znak{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px;line-height:1.05;margin-bottom:46px}
-.znak span{display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:12px;color:rgba(241,240,234,.6)}
-h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.05;letter-spacing:-.02em;margin:0 0 22px}
-p{margin:0 0 18px;color:rgba(241,240,234,.8);max-width:52ch}
-.pasek{width:56px;height:3px;background:var(--bursztyn);margin:34px 0 26px}
-.dane{font-size:14px;color:rgba(241,240,234,.55);line-height:1.9}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--atrament);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;font-weight:800;line-height:1.06;letter-spacing:-.02em;margin:0}
+p{margin:0 0 1em}
+a{color:var(--bursztyn);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--bursztyn);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--linia);position:sticky;top:0;background:var(--papier);z-index:20}
+.nawig{display:flex;align-items:center;gap:26px;padding:15px 0}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:17px;line-height:1.05;text-decoration:none;color:var(--atrament)}
+.logo span{display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11px;color:var(--atrament2)}
+nav{margin-left:auto;display:flex;gap:22px;font-size:14.5px}
+nav a{color:var(--atrament2);text-decoration:none}
+nav a:hover{color:var(--atrament)}
+.hero{background:var(--atrament);color:var(--papier);padding:70px 0 62px}
+.hero h1{font-size:clamp(31px,5.2vw,52px);max-width:17ch;margin-bottom:20px}
+.hero p{color:rgba(241,240,234,.78);font-size:17.5px;max-width:50ch}
+.kreska{width:56px;height:3px;background:var(--bursztyn);margin:30px 0 0}
+section{padding:58px 0;border-bottom:1px solid var(--linia)}
+section h2{font-size:clamp(23px,3.4vw,32px);margin-bottom:10px}
+.wstep{color:var(--atrament2);max-width:62ch;font-size:16.5px}
+.trzy{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:34px}
+.kafel{border-top:2px solid var(--atrament);padding-top:15px}
+.kafel h3{font-size:18px;margin-bottom:8px}
+.kafel p{font-size:15px;color:var(--atrament2);margin:0}
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:30px}
+.karta{background:var(--biel);border:1px solid var(--linia);border-radius:4px;padding:24px}
+.karta h3{font-size:18px;margin-bottom:10px}
+.karta p{font-size:15px;color:var(--atrament2)}
+.karta .kontakt{font-size:15.5px;line-height:2;margin-top:14px;padding-top:14px;border-top:1px solid var(--linia)}
+footer{background:var(--papier2);padding:40px 0 28px;font-size:14.5px}
+.stopka{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+.stopka b{display:block;font-weight:600;margin-bottom:8px}
+.stopka p{color:var(--atrament2);margin:0;line-height:1.85}
+.nota{margin-top:26px;padding-top:16px;border-top:1px solid var(--linia);font-size:13px;color:var(--atrament2)}
+@media(max-width:860px){nav{display:none}.trzy,.dwie,.stopka{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<main>
-<p class="znak">Lepszy Dom<span>Lepsze Jutro</span></p>
-<h1>Strona w budowie</h1>
-<p>Fundacja Lepszy Dom Lepsze Jutro pomaga osobom w trudnej sytuacji mieszkaniowej: organizujemy najem, remont i wyposażenie mieszkań. Wspieramy także dzieci z placówek opiekuńczo-wychowawczych.</p>
-<p>Nowy serwis przygotowujemy. Wkrótce znajdą się tu informacje o naszych działaniach, sprawozdania oraz dane do wpłat.</p>
-<p class="pasek"></p>
-<p class="dane">Fundacja Lepszy Dom Lepsze Jutro, Warszawa<br>KRS 0000971976 &nbsp;·&nbsp; NIP 5273002294 &nbsp;·&nbsp; REGON 522030190</p>
-</main>
+<header><div class="wrap nawig">
+<a class="logo" href="/">Lepszy Dom<span>Lepsze Jutro</span></a>
+<nav><a href="#co-robimy">Co robimy</a><a href="#pomoc">Pomoc</a><a href="#kontakt">Kontakt</a></nav>
+</div></header>
+<div class="hero"><div class="wrap">
+<h1>Dom to punkt, od którego można zacząć od nowa.</h1>
+<p>Pomagamy osobom w trudnej sytuacji mieszkaniowej i wspieramy dzieci z placówek opiekuńczo-wychowawczych. Fundacja z Warszawy, działa od 2022 roku.</p>
+<p class="kreska"></p>
+</div></div>
+<section id="co-robimy"><div class="wrap">
+<h2>Co robimy</h2>
+<p class="wstep">Zakres naszych działań wynika wprost z celów statutowych fundacji.</p>
+<div class="trzy">
+<div class="kafel"><h3>Mieszkania</h3><p>Organizujemy najem, remont, adaptację i wyposażenie mieszkań dla osób, które znalazły się bez własnego kąta.</p></div>
+<div class="kafel"><h3>Wsparcie dzieci</h3><p>Pomagamy dzieciom z placówek opiekuńczo-wychowawczych — wyprawki szkolne i artykuły codziennego użytku.</p></div>
+<div class="kafel"><h3>Pomoc doraźna</h3><p>Wsparcie finansowe, rzeczowe i organizacyjne, w tym pomoc w zakupie żywności i artykułów pierwszej potrzeby.</p></div>
+</div>
+</div></section>
+<section id="pomoc"><div class="wrap">
+<h2>Potrzebujesz pomocy albo chcesz pomóc</h2>
+<p class="wstep">Odpowiadamy na każde zgłoszenie. Najszybciej skontaktujesz się z nami telefonicznie.</p>
+<div class="dwie">
+<div class="karta">
+<h3>Potrzebuję pomocy</h3>
+<p>Zgłoszenia przyjmujemy od placówek opiekuńczo-wychowawczych, ośrodków pomocy społecznej oraz osób prywatnych. Opisz krótko sytuację i rodzaj potrzeby.</p>
+<p class="kontakt"><a href="tel:+48570747779">+48 570 747 779</a><br><a href="mailto:fundacjalepszydomlepszejutro@gmail.com">fundacjalepszydomlepszejutro@gmail.com</a></p>
+</div>
+<div class="karta">
+<h3>Chcę pomóc</h3>
+<p>Przyjmujemy wsparcie rzeczowe: sprawne meble, sprzęt AGD, nowe artykuły szkolne. Przy remontach przydaje się każda para rąk, transport oraz fachowcy. Firmy zapraszamy do współpracy przy zbiórkach.</p>
+<p class="kontakt">Napisz, co możesz przekazać albo co umiesz robić — dobierzemy zadanie.</p>
+</div>
+</div>
+</div></section>
+<footer><div class="wrap">
+<div class="stopka">
+<div><a class="logo" href="/">Lepszy Dom<span>Lepsze Jutro</span></a><p style="margin-top:12px">Fundacja Lepszy Dom Lepsze Jutro<br>Złota 75A/7<br>00-819 Warszawa</p></div>
+<div id="kontakt"><b>Kontakt</b><p><a href="tel:+48570747779">+48 570 747 779</a><br><a href="mailto:fundacjalepszydomlepszejutro@gmail.com">fundacjalepszydomlepszejutro@gmail.com</a></p></div>
+<div><b>Dane rejestrowe</b><p>KRS 0000971976<br>NIP 5273002294<br>REGON 522030190<br>Rejestracja: 17 maja 2022</p></div>
+</div>
+<p class="nota">Fundacja nie prowadzi działalności gospodarczej. Serwis jest w rozbudowie — wkrótce udostępnimy tu sprawozdania oraz dane do wpłat.</p>
+</div></footer>
 </body>
 </html>
