@@ -1,8 +1,9 @@
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY index.html archiwum.html /usr/share/nginx/html/
-COPY robots.txt sitemap.xml favicon.svg site.webmanifest /usr/share/nginx/html/
+COPY index.html archiwum.html 404.html /usr/share/nginx/html/
+COPY archiwum/ /usr/share/nginx/html/archiwum/
+COPY robots.txt sitemap.xml site.webmanifest /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 8080
