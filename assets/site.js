@@ -22,6 +22,8 @@ if(menu&&nav){
   });
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  document.addEventListener('click',e=>{if(!nav.contains(e.target)&&!menu.contains(e.target))close()});
+  nav.querySelectorAll('a[href="/#mikolaj"]').forEach(a=>a.href='/listy-do-swietego-mikolaja');
 }
 if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
   const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{
@@ -31,14 +33,36 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 }else{
   document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 }
-document.querySelectorAll('[role="tab"]').forEach(tab=>tab.addEventListener('click',()=>{
-  document.querySelectorAll('[role="tab"]').forEach(item=>{
+const tabs=[...document.querySelectorAll('[role="tab"]')];
+function selectTab(tab,focus=false){
+  tabs.forEach(item=>{
     const selected=item===tab;
     item.setAttribute('aria-selected',String(selected));
+    item.tabIndex=selected?0:-1;
     const panel=document.getElementById(item.getAttribute('aria-controls'));
     if(panel) panel.hidden=!selected;
   });
-}));
+  if(focus) tab.focus();
+}
+tabs.forEach((tab,index)=>{
+  tab.tabIndex=tab.getAttribute('aria-selected')==='true'?0:-1;
+  tab.addEventListener('click',()=>selectTab(tab));
+  tab.addEventListener('keydown',event=>{
+    let next=index;
+    if(event.key==='ArrowRight') next=(index+1)%tabs.length;
+    else if(event.key==='ArrowLeft') next=(index-1+tabs.length)%tabs.length;
+    else if(event.key==='Home') next=0;
+    else if(event.key==='End') next=tabs.length-1;
+    else return;
+    event.preventDefault();selectTab(tabs[next],true);
+  });
+});
+const campaign=document.querySelector('#mikolaj .featurebox > div:first-child');
+if(campaign&&!campaign.querySelector('a[href="/listy-do-swietego-mikolaja"]')){
+  const link=document.createElement('a');
+  link.className='post-link';link.href='/listy-do-swietego-mikolaja';link.textContent='Jak działa akcja →';
+  campaign.append(link);
+}
 const dialog=document.querySelector('#lightbox');
 if(dialog){
   const img=dialog.querySelector('img'),caption=dialog.querySelector('.lightcaption');
