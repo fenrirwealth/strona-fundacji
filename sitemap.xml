@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://fundacjalepszydomlepszejutro.pl/</loc>
-  </url>
-  <url>
-    <loc>https://fundacjalepszydomlepszejutro.pl/archiwum</loc>
-  </url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/archiwum</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/archiwum/swiateczne-paczki</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/archiwum/plecak-pelen-odwagi</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/archiwum/pomoc-po-powodzi</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/archiwum/zebrane-dary</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://fundacjalepszydomlepszejutro.pl/archiwum/za-kulisami-dzialan</loc><lastmod>2026-09-14</lastmod></url>
 </urlset>
