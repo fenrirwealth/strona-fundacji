@@ -2,7 +2,7 @@ FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY index.html archiwum.html /usr/share/nginx/html/
-COPY robots.txt sitemap.xml /usr/share/nginx/html/
+COPY robots.txt sitemap.xml favicon.svg site.webmanifest /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 8080
