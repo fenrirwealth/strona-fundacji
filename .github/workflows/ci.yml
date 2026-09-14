@@ -21,7 +21,7 @@ jobs:
       - run: docker build --tag strona-fundacji:ci .
       - name: Sprawdz konfiguracje nginx
         run: docker run --rm strona-fundacji:ci nginx -t
-      - name: Sprawdz obraz, archiwum i SEO
+      - name: Sprawdz obraz, linkowanie i SEO
         run: |
           docker run -d --name strona-fundacji-ci -p 18080:8080 strona-fundacji:ci
           trap 'docker rm -f strona-fundacji-ci >/dev/null 2>&1 || true' EXIT
@@ -32,11 +32,13 @@ jobs:
           curl -fsS http://127.0.0.1:18080/healthz | grep -qx 'ok'
           curl -fsS http://127.0.0.1:18080/ > /tmp/index.html
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
-          curl -fsS http://127.0.0.1:18080/favicon.svg | grep -q '<svg'
-          curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'Fundacja Lepszy Dom Lepsze Jutro'
+          grep -q '/assets/logo-fundacji.webp' /tmp/index.html
+          grep -q 'twitter:card' /tmp/index.html
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
-          grep -q '/assets/archiwum/swiateczne-paczki.webp' /tmp/index.html
-          grep -q 'og:image' /tmp/index.html
-          grep -q '/favicon.svg' /tmp/index.html
-          grep -q '/site.webmanifest' /tmp/index.html
-          grep -q 'Historia zapisana w materiałach' /tmp/archiwum.html
+          for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
+            curl -fsS "http://127.0.0.1:18080/archiwum/$path" | grep -q 'Materiał archiwalny'
+          done
+          curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
+          curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
+          test "$(curl -s -o /tmp/404.html -w '%{http_code}' http://127.0.0.1:18080/nie-ma-takiej-strony)" = "404"
+          grep -q 'Ta strona nie istnieje' /tmp/404.html
