@@ -19,3 +19,19 @@ jobs:
           node-version: 22
       - run: node --test tests/*.mjs
       - run: docker build --tag strona-fundacji:ci .
+      - name: Sprawdz konfiguracje nginx
+        run: docker run --rm strona-fundacji:ci nginx -t
+      - name: Sprawdz obraz i lokalne archiwum
+        run: |
+          docker run -d --name strona-fundacji-ci -p 18080:8080 strona-fundacji:ci
+          trap 'docker rm -f strona-fundacji-ci >/dev/null 2>&1 || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:18080/healthz >/dev/null; then break; fi
+            sleep 0.5
+          done
+          curl -fsS http://127.0.0.1:18080/healthz | grep -qx 'ok'
+          curl -fsS http://127.0.0.1:18080/ > /tmp/index.html
+          curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
+          ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
+          grep -q '/assets/archiwum/swiateczne-paczki.webp' /tmp/index.html
+          grep -q 'Historia zapisana w materiałach' /tmp/archiwum.html
