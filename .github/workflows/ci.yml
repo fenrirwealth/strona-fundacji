@@ -32,9 +32,13 @@ jobs:
           curl -fsS http://127.0.0.1:18080/healthz | grep -qx 'ok'
           curl -fsS http://127.0.0.1:18080/ > /tmp/index.html
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
+          curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
           grep -q '/assets/logo-fundacji.webp' /tmp/index.html
           grep -q 'twitter:card' /tmp/index.html
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
+          grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
+          grep -q 'FAQPage' /tmp/mikolaj.html
+          grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
             curl -fsS "http://127.0.0.1:18080/archiwum/$path" | grep -q 'Materiał archiwalny'
           done
