@@ -4,6 +4,7 @@ import fs from "node:fs";
 
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const archive = fs.readFileSync(new URL("../archiwum.html", import.meta.url), "utf8");
+const campaign = fs.readFileSync(new URL("../listy-do-swietego-mikolaja.html", import.meta.url), "utf8");
 const sitemap = fs.readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
 const manifest = JSON.parse(fs.readFileSync(new URL("../site.webmanifest", import.meta.url), "utf8"));
 
@@ -42,6 +43,25 @@ test("linkowanie archiwum jest kompletne", () => {
   ]) {
     assert.match(archive, new RegExp(path.replaceAll("/", "\\/")));
     assert.match(sitemap, new RegExp(path.replaceAll("/", "\\/")));
+  }
+});
+
+test("strona akcji Mikolajowej opisuje tylko potwierdzony mechanizm", () => {
+  assert.equal((campaign.match(/<h1(?:\s|>)/g) || []).length, 1);
+  assert.match(campaign, /placówek opiekuńczo-wychowawczych/);
+  assert.match(campaign, /Wybierz list/);
+  assert.match(campaign, /Zarezerwuj go/);
+  assert.match(campaign, /Przygotuj prezent/);
+  assert.match(campaign, /https:\/\/portal\.fundacjalepszydomlepszejutro\.pl/);
+  assert.match(campaign, /FAQPage/);
+  assert.match(sitemap, /\/listy-do-swietego-mikolaja/);
+  assert.doesNotMatch(campaign, /1[,.]5%/);
+  assert.doesNotMatch(campaign, /działalno(?:ść|sci) gospodarcza.{0,30}(prowadzimy|prowadzi)/i);
+});
+
+test("na stronach nie ma niepotwierdzonej informacji o 1,5 procent podatku", () => {
+  for (const source of [html, archive, campaign]) {
+    assert.doesNotMatch(source, /1[,.]5\s*%/);
   }
 });
 
