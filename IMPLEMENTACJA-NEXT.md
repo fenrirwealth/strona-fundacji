@@ -1,4 +1,4 @@
-# Strona Fundacji — koncept B2B
+# Strona Fundacji — wersja dla darczyńców
 
 Next.js App Router, Tailwind CSS 4, Framer Motion. Punkt wejścia: `app/page.tsx`; treści: `lib/content.ts`; komponenty: `components/`. Fonty są dostarczane lokalnie w pakiecie aplikacji.
 
