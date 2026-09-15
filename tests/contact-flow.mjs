@@ -35,3 +35,13 @@ test('publikowane sa tylko zweryfikowane profile spolecznosciowe', () => {
   assert.match(social, /instagram\.com\/lepszy_dom_lepsze_jutro/);
   assert.doesNotMatch(social, /tiktok\.com/);
 });
+
+test('formularz odrzuca błędne typy oraz odziedziczone nazwy tematów', () => {
+  const valid = { name: 'Jan', email: 'jan@example.com', topic: 'inne', message: 'Pytanie o wolontariat.', consent: 'on' };
+  for (const input of [null, [], 'tekst', 123, { ...valid, name: {} }, { ...valid, email: ['jan@example.com'] }, { ...valid, topic: 'constructor' }, { ...valid, topic: '__proto__' }]) {
+    assert.equal(validateContact(input).ok, false);
+  }
+  assert.equal(validateContact({ ...valid, message: 'a'.repeat(3001) }).ok, false);
+  assert.equal(validateContact({ ...valid, consent: '' }).ok, false);
+  assert.equal(validateContact({ ...valid, website: 'spam.example' }).spam, true);
+});
