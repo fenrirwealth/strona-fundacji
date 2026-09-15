@@ -1,0 +1,26 @@
+# Zaleznosci i artefakty narzedzi
+node_modules/
+package-lock.json
+
+# Sekrety — nic z tego nie moze trafic do repozytorium
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logi i pliki tymczasowe
+*.log
+npm-debug.log*
+tmp/
+*.tmp
+*.bak
+*~
+
+# Smieci systemu i edytorow
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
