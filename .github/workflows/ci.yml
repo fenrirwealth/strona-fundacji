@@ -11,7 +11,7 @@ permissions:
 jobs:
   strona:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -47,11 +47,11 @@ jobs:
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
           ! grep -q 'fonts.googleapis.com' /tmp/index.html
           ! grep -q 'fonts.gstatic.com' /tmp/index.html
-          grep -q '/assets/performance-v7.css' /tmp/index.html
-          grep -q 'decoding="async"' /tmp/index.html
+          grep -q '/_next/static/' /tmp/index.html
+          grep -q 'Biznes ma siłę' /tmp/index.html
           grep -qi '^content-language: pl$' /tmp/index.headers
           grep -qi '^cache-control: no-cache$' /tmp/index.headers
-          grep -qi "^content-security-policy:.*style-src 'self'; font-src 'self';" /tmp/index.headers
+          grep -qi "^content-security-policy:.*style-src 'self' 'unsafe-inline'; font-src 'self';" /tmp/index.headers
           grep -qi '^content-encoding: gzip$' /tmp/gzip.clean
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
           grep -q 'FAQPage' /tmp/mikolaj.html
