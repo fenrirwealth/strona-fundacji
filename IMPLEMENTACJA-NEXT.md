@@ -20,8 +20,8 @@ Publikacja wymaga odrębnej zgody na scalenie PR. Poprzednia próba scalenia PR 
 
 Przywrócono działającą fotografię z galeria/galeria-16.jpg w miejsce uszkodzonego assets/akcja-fundacji-grupa.webp. Nowe pliki w assets/premium są lokalnymi kopiami materiałów z paczki użytkownika, przygotowanymi w formacie WebP.
 
-## Przekazanie kodu a zdjęcia
+## Zatwierdzone materiały graficzne
 
-Kod jest gotowy do lokalnego zbudowania z dostarczoną paczką grafik. Automatyczna kontrola uprawnień zablokowała umieszczenie nowych plików graficznych w publicznym repozytorium. Do czasu odrębnej zgody gałąź zawiera kod i importer, a publikacja obrazów oraz scalenie pozostają zablokowane. Nie uruchamiaj wdrożenia gałęzi bez przygotowania assetów i zatwierdzenia danych.
+Użytkownik wyraźnie zatwierdził dodanie zdjęć i logotypów ze swojej paczki do publicznego repozytorium fenrirwealth/strona-fundacji. Zasoby znajdują się w assets/premium; projekt można zbudować po npm ci bez ponownego importowania paczki. Zgoda dotyczy publikacji plików w repozytorium. Scalenie i wdrożenie strony oraz zastąpienie demonstracyjnych danych wymagają osobnego zakończenia prac redakcyjnych i akceptacji.
 
-Aby odtworzyć zasoby lokalnie: zainstaluj Pillow, uruchom `python scripts/import-assets.py /ścieżka/grafiki-fundacja-lepszy-dom.zip`, następnie `npm ci` i `npm run build`. Importer nie pobiera ani nie wysyła danych; czyta wyłącznie archiwum użytkownika.
+Opcjonalne odtworzenie zasobów z oryginałów: zainstaluj Pillow, uruchom `python scripts/import-assets.py /ścieżka/grafiki-fundacja-lepszy-dom.zip`, następnie `npm ci` i `npm run build`. Importer nie pobiera ani nie wysyła danych; czyta wyłącznie archiwum użytkownika.
