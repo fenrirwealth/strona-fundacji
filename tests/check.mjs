@@ -40,7 +40,7 @@ test("dane strukturalne organizacji sa poprawnym JSON", () => {
 
 test("produkcja korzysta z obecnego logo i lokalnych materialow", () => {
   assert.match(html, /\/assets\/logo-fundacji-transparent\.svg/);
-  assert.match(html, /\/assets\/site\.css\?v=donations-2/);
+  assert.match(html, /\/assets\/site\.css\?v=social-1/);
   assert.match(siteCss, /header \.brand-logo,footer \.brand-logo\{display:block;mix-blend-mode:normal\}/);
   assert.ok(fs.existsSync(new URL("../assets/logo-fundacji-transparent.svg", import.meta.url)));
   assert.match(html, /\/assets\/archiwum\/swiateczne-paczki\.webp/);
@@ -106,7 +106,7 @@ test("strona kontaktowa zawiera oficjalne dane kontaktowe", () => {
   assert.match(contact, /kontakt@fundacjalepszydomlepszejutro\.pl/);
   assert.match(contact, /Złota 75A\/7/);
   assert.match(contact, /data-copy-account="51109025900000000150742996"/);
-  assert.match(contact, /\/assets\/site\.js\?v=donations-2/);
+  assert.match(contact, /\/assets\/site\.js\?v=donor-1/);
   assert.match(contact, /<dt>Odbiorca<\/dt><dd>Fundacja Lepszy Dom Lepsze Jutro<\/dd>/);
   assert.doesNotMatch(contact, /<form/);
 });
@@ -157,7 +157,10 @@ test("wszystkie podstrony maja spójne logo i nawigacje", () => {
 
 test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
   assert.equal((privacy.match(/<h1(?:\s|>)/g) || []).length, 1);
-  assert.match(privacy, /nie ma formularza kontaktowego/);
+  assert.match(privacy, /<h2>Formularz kontaktowy<\/h2>/);
+  assert.match(privacy, /<h2>Newsletter<\/h2>/);
+  assert.match(privacy, /linkiem potwierdzającym/);
+  assert.match(privacy, /<h2>Twoje prawa<\/h2>/);
   assert.match(privacy, /nie ma narzędzi reklamowych ani systemu analitycznego/);
   assert.match(privacy, /krojów pisma dostępnych w systemie użytkownika/);
   assert.match(privacy, /Nie pobiera fontów z Google Fonts/);

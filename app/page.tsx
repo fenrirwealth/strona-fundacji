@@ -9,6 +9,7 @@ import { MagneticButton } from '@/components/magnetic-button';
 import { Reveal } from '@/components/motion';
 import { Partners } from '@/components/partners';
 import { Footer } from '@/components/footer';
+import { NewsletterSignup } from '@/components/newsletter-signup';
 // Server-rendered content; only animation, counters and navigation hydrate on the client.
 export default function Home() {
   return <>
@@ -20,6 +21,7 @@ export default function Home() {
       <News />
       <CurrentNeeds />
       <Donations />
+      <NewsletterSignup />
       <section id="partnerstwo" className="partnership section-space"><div className="shell">
         <Reveal className="partnership-heading"><p className="eyebrow">05 / Pomagamy razem</p><h2>Razem możemy zrobić<br /><em>więcej dobrego.</em></h2><p>Chcesz przekazać dary, wesprzeć akcję albo pomóc jako wolontariusz? Napisz do nas. Jeśli reprezentujesz firmę, również zapraszamy do wspólnego działania.</p><MagneticButton href="/kontakt?temat=chce-pomoc#formularz" variant="light">Chcę pomóc</MagneticButton></Reveal>
         <Partners />

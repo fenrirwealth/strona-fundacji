@@ -14,5 +14,15 @@ assert.doesNotMatch(html, /fonts\.(googleapis|gstatic)\.com/);
 for (const [, url] of html.matchAll(/(?:src|href)="(\/[^"#?]*)"/g)) {
   assert.ok(['out' + url, 'out' + url + '.html', 'out' + url + '/index.html'].some(existsSync), `Missing exported resource: ${url}`);
 }
-for (const file of ['archiwum.html', 'o-fundacji.html', 'kontakt.html', 'polityka-prywatnosci.html', 'listy-do-swietego-mikolaja.html', 'archiwum/plecak-pelen-odwagi/index.html']) assert.ok(existsSync('out/' + file));
+for (const file of [
+  'archiwum.html',
+  'o-fundacji.html',
+  'kontakt.html',
+  'polityka-prywatnosci.html',
+  'listy-do-swietego-mikolaja.html',
+  'archiwum/plecak-pelen-odwagi/index.html',
+  'dziekujemy.html',
+  'newsletter/potwierdz.html',
+  'newsletter/potwierdzono.html',
+]) assert.ok(existsSync('out/' + file), `Missing exported page: ${file}`);
 console.log('Export checked: content, preview labels, local assets and existing routes.');
