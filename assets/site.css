@@ -24,7 +24,7 @@ header{position:sticky;top:0;z-index:50;padding:11px 0;background:rgba(248,246,2
 header.scrolled{box-shadow:0 8px 28px rgba(23,38,60,.07)}
 .navrow{display:flex;align-items:center;gap:25px;position:relative}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:max-content}
-.brand-logo{width:48px;height:48px;border-radius:14px;object-fit:cover;background:#fff;box-shadow:0 4px 14px rgba(23,38,60,.08)}
+.brand-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 4px 14px rgba(23,38,60,.08)}
 .brandcopy{font:700 16px/1.05 "DM Sans",system-ui,sans-serif}
 .brandcopy small{display:block;font:700 8px "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
 nav{margin-left:auto;display:flex;align-items:center;gap:17px}
@@ -183,7 +183,7 @@ footer p,footer a{color:rgba(255,255,255,.68);font-size:13px;text-decoration:non
 @media(max-width:620px){
   .wrap{width:min(100% - 26px,1180px)}
   .brandcopy{font-size:14px}
-  .brand-logo{width:42px;height:42px;border-radius:12px}
+  .brand-logo{width:42px;height:42px;border-radius:50%}
   .hero{padding-top:45px}
   .hero h1{font-size:48px}
   .photo{min-height:390px}
