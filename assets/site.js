@@ -76,7 +76,7 @@ if(campaign&&!campaign.querySelector('a[href="/listy-do-swietego-mikolaja"]')){
 const stats=document.querySelector('#o-nas .statsgrid');
 if(stats&&!document.querySelector('#o-nas-link')){
   const holder=document.createElement('div');
-  holder.id='o-nas-link';holder.className='wrap';holder.style.marginTop='18px';
+  holder.id='o-nas-link';holder.className='wrap';
   const link=document.createElement('a');
   link.className='post-link';link.href='/o-fundacji';link.textContent='Poznaj Fundację i dane rejestrowe →';
   holder.append(link);stats.parentElement?.after(holder);
