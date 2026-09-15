@@ -1,1 +1,0 @@
-Canonical URL cleanup is enforced in nginx; robots.txt remains intentionally minimal and points to sitemap.xml.
