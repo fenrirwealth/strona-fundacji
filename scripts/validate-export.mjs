@@ -2,7 +2,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import assert from 'node:assert/strict';
 const html = readFileSync('out/index.html', 'utf8');
 assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1);
-assert.match(html, /Wersja koncepcyjna/);
+assert.match(html, /Dane demonstracyjne/);
 assert.match(html, /noindex/);
 assert.match(html, /Wyprawka na lepsze jutro/);
 assert.match(html, /Magiczne Święta/);

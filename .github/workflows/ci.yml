@@ -48,7 +48,7 @@ jobs:
           ! grep -q 'fonts.googleapis.com' /tmp/index.html
           ! grep -q 'fonts.gstatic.com' /tmp/index.html
           grep -q '/_next/static/' /tmp/index.html
-          grep -q 'Biznes ma siłę' /tmp/index.html
+          grep -q 'Każdy gest ma siłę' /tmp/index.html
           grep -qi '^content-language: pl$' /tmp/index.headers
           grep -qi '^cache-control: no-cache$' /tmp/index.headers
           grep -qi "^content-security-policy:.*style-src 'self' 'unsafe-inline'; font-src 'self';" /tmp/index.headers

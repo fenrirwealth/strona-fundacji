@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { foundation } from '@/lib/content';
-const links = [['O Fundacji', '/o-fundacji'], ['Nasz wpływ', '#wplyw'], ['Kampanie', '#dzialania'], ['Partnerstwo', '#partnerstwo']];
+const links = [['O Fundacji', '/o-fundacji'], ['Jak pomagamy', '#dzialania'], ['Nasza pomoc', '#wplyw'], ['Dla firm', '#partnerstwo']];
 export function Header() {
   const [open, setOpen] = useState(false);
   const header = useRef<HTMLElement>(null);

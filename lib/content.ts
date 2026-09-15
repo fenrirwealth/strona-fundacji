@@ -15,8 +15,8 @@ export const impact = [
   { value: 180, suffix: ' tys. zł', label: 'wartości przekazanej pomocy', note: 'Przykładowy wskaźnik finansowy' },
 ];
 export const campaigns = [
-  { id: '01', category: 'Edukacja · równy start', title: 'Wyprawka na lepsze jutro', description: 'Dobry początek roku szkolnego to coś więcej niż zeszyty. Zapraszamy firmy do rozmowy o wsparciu, które odpowiada na konkretne potrzeby dzieci.', image: '/assets/premium/edukacja.webp', alt: 'Książki na półkach — zdjęcie z archiwum Fundacji', detail: 'Porozmawiajmy o wsparciu edukacji', imageNote: 'Zdjęcie archiwalne Fundacji' },
-  { id: '02', category: 'Bliskość · dziecięce marzenia', title: 'Magiczne Święta', description: 'Za każdym listem stoi dziecko i jego marzenie. Wspólna akcja świąteczna może połączyć zaangażowanie pracowników z konkretną pomocą.', image: '/assets/premium/listy.webp', alt: 'Ręcznie napisane listy — zdjęcie z archiwum Fundacji', detail: 'Porozmawiajmy o akcji świątecznej', imageNote: 'Materiał z archiwum Fundacji' },
+  { id: '01', category: 'Edukacja · równy start', title: 'Wyprawka na lepsze jutro', description: 'Pomóż przygotować dzieci do nowego roku szkolnego. Wspólnie możemy przekazać potrzebne przybory, książki i rzeczy, które ułatwią im dobry start.', image: '/assets/premium/edukacja.webp', alt: 'Książki na półkach — zdjęcie z archiwum Fundacji', detail: 'Pomóż w przygotowaniu wyprawki szkolnej', imageNote: 'Zdjęcie archiwalne Fundacji' },
+  { id: '02', category: 'Bliskość · dziecięce marzenia', title: 'Magiczne Święta', description: 'Za każdym listem stoi dziecko i jego marzenie. Wybierz list, przygotuj prezent i spraw, aby te Święta stały się naprawdę wyjątkowe.', image: '/assets/premium/listy.webp', alt: 'Ręcznie napisane listy — zdjęcie z archiwum Fundacji', detail: 'Poznaj listy dzieci i zasady akcji', imageNote: 'Materiał z archiwum Fundacji' },
 ];
 export type Partner = { name: string; logo?: string; href?: string; placeholder?: boolean };
 // Logos from the user-supplied archive: grafiki-fundacja-lepszy-dom.zip, partnerzy/.

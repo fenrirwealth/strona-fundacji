@@ -1,8 +1,8 @@
-# Projekt B2B — architektura i decyzje projektowe
+# Strona dla darczyńców — architektura i decyzje projektowe
 
 ## Cel i kierunek
 
-Strona otwiera rozmowę o partnerstwie strategicznym i CSR. Główne CTA prowadzi do kontaktu biznesowego. Portal pozostaje odrębną aplikacją dostępną z menu i stopki. Hero, wskaźniki, projekty i relacje partnerskie tworzą kolejność: cel → sposób oceny wpływu → obszary współpracy → kontakt.
+Strona prowadzi zwykłych ludzi od poznania Fundacji do wyboru konkretnej formy pomocy. Firmy pozostają ważną grupą wspierającą, ale główne CTA kieruje do działania indywidualnych darczyńców. Portal pozostaje odrębną aplikacją dostępną z menu i stopki. Hero, wskaźniki, projekty i relacje z partnerami tworzą kolejność: potrzeba → skala pomocy → sposób działania → kontakt.
 
 Układ ma duże marginesy, czytelne kontrasty i typografię DM Sans z akcentem Cormorant Garamond. Ograniczona paleta obejmuje jasny papier, grafit i przygaszone złoto. Oryginalne zdjęcia są dokumentacją archiwalną; nie sugerują nowych, niepotwierdzonych realizacji.
 
@@ -10,7 +10,7 @@ Układ ma duże marginesy, czytelne kontrasty i typografię DM Sans z akcentem C
 
 | Plik | Odpowiedzialność |
 |---|---|
-| `app/page.tsx` | Serwerowe składanie sekcji widoku B2B |
+| `app/page.tsx` | Serwerowe składanie sekcji strony głównej |
 | `app/layout.tsx` | Metadane, lokalne fonty, dostępny szkielet i provider |
 | `app/globals.css` | Układ, breakpointy, maski i stany interakcji |
 | `tailwind.config.ts` | Kolory, fonty, odstępy i nazwane krzywe animacji |
@@ -24,7 +24,7 @@ Układ ma duże marginesy, czytelne kontrasty i typografię DM Sans z akcentem C
 | `components/impact.tsx` | Wskaźniki z opisem statusu i źródła danych |
 | `components/campaigns.tsx` | Karty kampanii, maska, rozmycie i link kontaktowy |
 | `components/partners.tsx` | Zapętlona karuzela, pauza i dostępna lista logotypów |
-| `components/footer.tsx` | Kontakt B2B, KRS i dokumenty |
+| `components/footer.tsx` | Kontakt, KRS i dokumenty |
 | `scripts/prepare-public.mjs` | Kopiowanie lokalnych zasobów |
 | `scripts/finalize-export.mjs` | Zachowanie dotychczasowych podstron i adresów |
 | `scripts/validate-export.mjs` | Sprawdzenie eksportu, linków i plików |
