@@ -206,6 +206,29 @@ footer p,footer a{color:rgba(255,255,255,.68);font-size:13px;text-decoration:non
   .article h1{font-size:44px}
   .current-strip{padding:28px 22px}
 }
+
+.news-index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.news-card{overflow:hidden;border:1px solid var(--line);border-radius:26px;background:var(--paper);box-shadow:0 10px 30px rgba(23,38,60,.05)}
+.news-card>a{display:flex;flex-direction:column;height:100%;text-decoration:none}
+.news-card-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e3e8ed}
+.news-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.news-card-media span{position:absolute;left:16px;top:16px;padding:7px 10px;background:rgba(23,38,60,.82);color:#fff;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.news-card:hover .news-card-media img{transform:scale(1.035)}
+.news-card-body{display:flex;flex-direction:column;flex:1;padding:25px}
+.news-card-meta{display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:11px}
+.news-card-meta span{color:#158f98;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.news-card h2{font:700 29px/1.08 "DM Sans",system-ui,sans-serif;margin:15px 0 12px}
+.news-card p{margin:0;color:var(--muted);font-size:14px}
+.news-card .post-link{margin-top:auto;padding-top:18px}
+.article-content ul{margin:0 0 22px;padding-left:22px;color:#4b5563}
+.article-content li+li{margin-top:8px}
+.source-note{margin-top:28px!important;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)!important}
+.article-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.article-gallery figure{margin:0;border-radius:20px;box-shadow:none;aspect-ratio:4/5}
+.article-gallery figure:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.article-gallery img{width:100%;height:100%;object-fit:cover;max-height:none}
+@media(max-width:900px){.news-index-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.news-card-body{padding:20px}.news-card-meta{flex-direction:column;gap:4px}.article-gallery{grid-template-columns:1fr}.article-gallery figure:first-child{grid-column:auto;aspect-ratio:4/5}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
 .error-actions{justify-content:center}
 

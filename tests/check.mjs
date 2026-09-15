@@ -4,6 +4,8 @@ import fs from "node:fs";
 
 const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const archive = fs.readFileSync(new URL("../archiwum.html", import.meta.url), "utf8");
+const newsIndex = fs.readFileSync(new URL("../aktualnosci.html", import.meta.url), "utf8");
+const dayOfChild = fs.readFileSync(new URL("../aktualnosci/dzien-dziecka-dla-ciebie/index.html", import.meta.url), "utf8");
 const campaign = fs.readFileSync(new URL("../listy-do-swietego-mikolaja.html", import.meta.url), "utf8");
 const about = fs.readFileSync(new URL("../o-fundacji.html", import.meta.url), "utf8");
 const contact = fs.readFileSync(new URL("../kontakt.html", import.meta.url), "utf8");
@@ -14,7 +16,7 @@ const donations = fs.readFileSync(new URL("../components/donations.tsx", import.
 const content = fs.readFileSync(new URL("../lib/content.ts", import.meta.url), "utf8");
 const siteCss = fs.readFileSync(new URL("../assets/site.css", import.meta.url), "utf8");
 
-const publicPages = [html, archive, campaign, about, contact, privacy];
+const publicPages = [html, archive, newsIndex, dayOfChild, campaign, about, contact, privacy];
 
 test("strona ma podstawowe metadane i jeden naglowek glowny", () => {
   assert.match(html, /<html lang="pl">/);
@@ -36,12 +38,29 @@ test("dane strukturalne organizacji sa poprawnym JSON", () => {
 
 test("produkcja korzysta z obecnego logo i lokalnych materialow", () => {
   assert.match(html, /\/assets\/logo-fundacji\.webp/);
-  assert.match(html, /\/assets\/site\.css\?v=165c3df4/);
+  assert.match(html, /\/assets\/site\.css\?v=facebook-posts-1/);
   assert.match(siteCss, /header \.brand-logo\{mix-blend-mode:multiply\}/);
   assert.match(siteCss, /footer \.brand-logo\{display:none\}/);
   assert.match(html, /\/assets\/archiwum\/swiateczne-paczki\.webp/);
   assert.doesNotMatch(html, /horizons-cdn\.hostinger\.com/);
   assert.doesNotMatch(archive, /horizons-cdn\.hostinger\.com/);
+});
+
+test("aktualnosci zawieraja potwierdzone relacje i lokalne zdjecia", () => {
+  for (const path of [
+    "/aktualnosci/dary-dla-rodzinnego-domu-dziecka",
+    "/aktualnosci/zbiorka-polish-airports-academy",
+    "/aktualnosci/wracamy-z-nowa-energia",
+    "/aktualnosci/dzien-dziecka-dla-ciebie"
+  ]) {
+    assert.match(newsIndex, new RegExp(path.replaceAll("/", "\\/")));
+    assert.match(sitemap, new RegExp(path.replaceAll("/", "\\/")));
+  }
+  assert.match(newsIndex, /\/assets\/aktualnosci\/przekazanie-darow\.webp/);
+  assert.match(dayOfChild, /dzien-dziecka-5\.webp/);
+  assert.match(dayOfChild, /facebook\.com\/LEPSZYDOMLEPSZEJUTRO\/posts/);
+  assert.ok(fs.existsSync(new URL("../assets/aktualnosci/przekazanie-darow.webp", import.meta.url)));
+  assert.ok(fs.existsSync(new URL("../assets/aktualnosci/zbiorka-polish-airports-academy.webp", import.meta.url)));
 });
 
 test("linkowanie archiwum jest kompletne", () => {

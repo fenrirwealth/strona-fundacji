@@ -19,3 +19,22 @@
 
 @media(max-width:800px){.donation-section{padding-bottom:76px}.donation-panel{grid-template-columns:1fr;gap:38px;padding:40px}.donation-copy{position:static}.bank-card,.siepomaga-card{padding:28px}}
 @media(max-width:520px){.donation-panel{padding:28px 20px}.bank-brand{margin-bottom:28px}.bank-brand img{width:150px;height:auto}.account-number{font-size:24px}.siepomaga-heading{align-items:flex-start;flex-direction:column}.siepomaga-heading img{width:170px}.siepomaga-actions{align-items:flex-start;flex-direction:column}}
+
+.updates-section{background:#fff;border-block:1px solid var(--line)}
+.updates-heading .text-link{margin-top:20px}
+.updates-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.updates-grid>div,.update-card,.update-card>a{height:100%}
+.update-card{background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.update-card>a{display:flex;flex-direction:column}
+.update-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e4e9ed}
+.update-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1),filter .7s}
+.update-media>span{position:absolute;left:18px;top:18px;padding:6px 9px;background:rgba(23,38,60,.8);color:#fff;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.update-copy{display:flex;flex-direction:column;flex:1;padding:26px}
+.update-meta{display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:11px}
+.update-meta span{color:var(--teal);font-weight:650;text-transform:uppercase;letter-spacing:.08em}
+.update-card h3{margin:15px 0 13px;font-size:clamp(25px,2.3vw,34px);line-height:1.12;letter-spacing:-.035em;font-weight:550}
+.update-card p{color:var(--muted);font-size:14px;line-height:1.75;margin-bottom:24px}
+.update-copy>.text-link{margin-top:auto}
+.update-card:hover .update-media img{transform:scale(1.035);filter:saturate(1.05)}
+@media(max-width:980px){.updates-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.update-copy{padding:21px}.update-meta{align-items:flex-start;flex-direction:column;gap:5px}.update-media{aspect-ratio:4/3}}
