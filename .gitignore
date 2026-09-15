@@ -1,6 +1,5 @@
 # Zaleznosci i artefakty narzedzi
 node_modules/
-package-lock.json
 
 # Sekrety — nic z tego nie moze trafic do repozytorium
 .env
@@ -24,3 +23,11 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+.next/
+out/
+public/assets/
+public/robots.txt
+public/sitemap.xml
+public/site.webmanifest
+*.tsbuildinfo
