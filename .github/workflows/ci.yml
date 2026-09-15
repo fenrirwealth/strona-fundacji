@@ -32,14 +32,19 @@ jobs:
           done
           curl -fsS http://127.0.0.1:18080/healthz | grep -qx 'ok'
           curl -fsS http://127.0.0.1:18080/ > /tmp/index.html
+          curl -fsSI http://127.0.0.1:18080/ | tr -d '\r' > /tmp/index.headers
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
           curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
           curl -fsS http://127.0.0.1:18080/o-fundacji > /tmp/about.html
           curl -fsS http://127.0.0.1:18080/kontakt > /tmp/contact.html
           curl -fsS http://127.0.0.1:18080/polityka-prywatnosci > /tmp/privacy.html
+          curl -fsS http://127.0.0.1:18080/robots.txt > /tmp/robots.txt
+          curl -fsS http://127.0.0.1:18080/sitemap.xml > /tmp/sitemap.xml
           grep -q '/assets/logo-fundacji.webp' /tmp/index.html
           grep -q 'twitter:card' /tmp/index.html
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
+          grep -qi '^content-language: pl$' /tmp/index.headers
+          grep -qi '^cache-control: no-cache$' /tmp/index.headers
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
           grep -q 'FAQPage' /tmp/mikolaj.html
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
@@ -47,10 +52,13 @@ jobs:
           grep -q 'KRS 0000971976' /tmp/about.html
           grep -q '+48 570 747 779' /tmp/contact.html
           grep -q 'Google Fonts' /tmp/privacy.html
+          grep -q '^Sitemap: https://fundacjalepszydomlepszejutro.pl/sitemap.xml$' /tmp/robots.txt
+          grep -q '<loc>https://fundacjalepszydomlepszejutro.pl/o-fundacji</loc>' /tmp/sitemap.xml
           for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
             curl -fsS "http://127.0.0.1:18080/archiwum/$path" | grep -q 'Materiał archiwalny'
           done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
+          curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q '"lang": "pl"'
           curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
           curl -fsS http://127.0.0.1:18080/assets/pages.css >/dev/null
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "302"
