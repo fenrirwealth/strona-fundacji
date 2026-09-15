@@ -81,6 +81,19 @@ test("strona kontaktowa zawiera oficjalne dane kontaktowe", () => {
   assert.doesNotMatch(contact, /<form/);
 });
 
+test("rachunek darowizn jest poprawny i przypisany do Erste Bank Polska", () => {
+  const account = "51109025900000000150742996";
+  const iban = `PL${account}`;
+  const rearranged = `${iban.slice(4)}${iban.slice(0, 4)}`;
+  const numeric = rearranged.replace(/[A-Z]/g, (letter) => String(letter.charCodeAt(0) - 55));
+  assert.equal(BigInt(numeric) % 97n, 1n, "nieprawidłowa suma kontrolna rachunku");
+  assert.equal(account.slice(2, 6), "1090");
+  assert.match(contact, /51 1090 2590 0000 0001 5074 2996/);
+  assert.match(contact, /Erste Bank Polska/);
+  assert.match(contact, /\/assets\/banks\/erste-bank-polska\.svg/);
+  assert.ok(fs.existsSync(new URL("../assets/banks/erste-bank-polska.svg", import.meta.url)));
+});
+
 test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
   assert.equal((privacy.match(/<h1(?:\s|>)/g) || []).length, 1);
   assert.match(privacy, /nie ma formularza kontaktowego/);

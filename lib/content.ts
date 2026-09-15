@@ -6,6 +6,8 @@ export const foundation = {
   portal: 'https://portal.fundacjalepszydomlepszejutro.pl',
   address: 'Złota 75A/7, 00-819 Warszawa',
   krs: '0000971976', nip: '5273002294', regon: '522030190',
+  bankName: 'Erste Bank Polska',
+  bankAccount: '51 1090 2590 0000 0001 5074 2996',
 };
 export const partnershipMail = `mailto:${foundation.email}?subject=${encodeURIComponent('Współpraca partnerska z Fundacją')}`;
 // Explicitly fictional figures for this requested visual concept; never publish as outcomes.
