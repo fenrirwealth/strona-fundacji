@@ -36,6 +36,7 @@ jobs:
           curl -fsS -H 'Accept-Encoding: gzip' -D /tmp/gzip.headers -o /dev/null http://127.0.0.1:18080/
           tr -d '\r' < /tmp/gzip.headers > /tmp/gzip.clean
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
+          curl -fsS http://127.0.0.1:18080/aktualnosci > /tmp/aktualnosci.html
           curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
           curl -fsS http://127.0.0.1:18080/o-fundacji > /tmp/about.html
           curl -fsS http://127.0.0.1:18080/kontakt > /tmp/contact.html
@@ -54,6 +55,7 @@ jobs:
           grep -qi "^content-security-policy:.*style-src 'self' 'unsafe-inline'; font-src 'self';" /tmp/index.headers
           grep -qi '^content-encoding: gzip$' /tmp/gzip.clean
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
+          grep -q 'Dary trafiły do rodzinnego domu dziecka' /tmp/aktualnosci.html
           grep -q 'FAQPage' /tmp/mikolaj.html
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           grep -q 'O Fundacji' /tmp/about.html
@@ -66,6 +68,9 @@ jobs:
           for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
             curl -fsS "http://127.0.0.1:18080/archiwum/$path" | grep -q 'Materiał archiwalny'
           done
+          for path in dary-dla-rodzinnego-domu-dziecka zbiorka-polish-airports-academy wracamy-z-nowa-energia dzien-dziecka-dla-ciebie; do
+            curl -fsS "http://127.0.0.1:18080/aktualnosci/$path" | grep -q 'Oryginalny post'
+          done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q '"lang": "pl"'
           curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
@@ -74,6 +79,7 @@ jobs:
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "302"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/index.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/aktualnosci.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja/)" = "301"
@@ -84,5 +90,6 @@ jobs:
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/polityka-prywatnosci.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/polityka-prywatnosci/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/swiateczne-paczki/index.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/aktualnosci/dary-dla-rodzinnego-domu-dziecka/index.html)" = "301"
           test "$(curl -s -o /tmp/404.html -w '%{http_code}' http://127.0.0.1:18080/nie-ma-takiej-strony)" = "404"
           grep -q 'Ta strona nie istnieje' /tmp/404.html

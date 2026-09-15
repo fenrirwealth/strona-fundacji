@@ -23,6 +23,53 @@ export const campaigns = [
   { id: '02', category: 'Bliskość · dziecięce marzenia', title: 'Magiczne Święta', description: 'Za każdym listem stoi dziecko i jego marzenie. Wybierz list, przygotuj prezent i spraw, aby te Święta stały się naprawdę wyjątkowe.', image: '/assets/generated/magiczne-swieta-v1.webp', alt: 'Wolontariusze wspólnie pakujący świąteczny prezent — zdjęcie ilustracyjne', detail: 'Poznaj listy dzieci i zasady akcji', imageNote: 'Zdjęcie ilustracyjne' },
   { id: '03', category: 'Codzienna pomoc · aktualne potrzeby', title: 'Wsparcie na co dzień', description: 'Nie każda potrzeba może czekać na kolejną kampanię. Zapytaj nas, czego dzieci i rodziny potrzebują teraz — od ubrań i artykułów codziennych po rzeczy dopasowane do ich aktualnej sytuacji.', image: '/assets/generated/wsparcie-na-co-dzien-v1.webp', alt: 'Wolontariusze pakują ubrania i codzienne artykuły dla dzieci — zdjęcie ilustracyjne', detail: 'Zapytaj o aktualne potrzeby dzieci i rodzin', imageNote: 'Zdjęcie ilustracyjne' },
 ];
+export type NewsItem = {
+  date: string;
+  label: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  alt: string;
+  href: string;
+};
+export const news: NewsItem[] = [
+  {
+    date: '26 sierpnia 2026',
+    label: 'Przekazanie pomocy',
+    title: 'Dary trafiły do rodzinnego domu dziecka',
+    excerpt: 'Artykuły szkolne, środki czystości, rzeczy dla najmłodszych, gry i zabawki przekazaliśmy placówce z województwa mazowieckiego.',
+    image: '/assets/aktualnosci/przekazanie-darow.webp',
+    alt: 'Przekazanie darów do rodzinnego domu dziecka w województwie mazowieckim',
+    href: '/aktualnosci/dary-dla-rodzinnego-domu-dziecka',
+  },
+  {
+    date: '7 sierpnia 2026',
+    label: 'Wyprawka szkolna',
+    title: 'Zbiórka w Polish Airports Academy zakończona',
+    excerpt: 'Pracownicy Polish Airports Academy zebrali artykuły szkolne dla dzieci z placówek opiekuńczo-wychowawczych.',
+    image: '/assets/aktualnosci/zbiorka-polish-airports-academy.webp',
+    alt: 'Zespół Polish Airports Academy i Fundacji przy zebranych artykułach szkolnych',
+    href: '/aktualnosci/zbiorka-polish-airports-academy',
+  },
+  {
+    date: '6 sierpnia 2026',
+    label: 'O Fundacji',
+    title: 'Wracamy z nową energią',
+    excerpt: 'Pomagamy osobom i rodzinom w trudnej sytuacji, domom dziecka oraz ośrodkom pomocy. Każde wsparcie kierujemy tam, gdzie jest potrzebne.',
+    image: '/assets/aktualnosci/wracamy-z-nowa-energia.webp',
+    alt: 'Grafika Fundacji informująca o formach pomocy',
+    href: '/aktualnosci/wracamy-z-nowa-energia',
+  },
+  {
+    date: '1 czerwca 2026',
+    label: 'Dzień Dziecka',
+    title: '„Dla Ciebie” — prezenty przygotowane z sercem',
+    excerpt: 'Puzzle, książeczki, klocki, kredki, zestawy kreatywne i ubranka zostały przygotowane z myślą o dzieciach w różnym wieku.',
+    image: '/assets/aktualnosci/dzien-dziecka-1.webp',
+    alt: 'Prezenty, gry, książki i ubrania przygotowane dla dzieci',
+    href: '/aktualnosci/dzien-dziecka-dla-ciebie',
+  },
+];
 export type Partner = { name: string; logo?: string; href?: string; placeholder?: boolean };
 // Logos from the user-supplied archive: grafiki-fundacja-lepszy-dom.zip, partnerzy/.
 export const partners: Partner[] = [
