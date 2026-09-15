@@ -5,7 +5,7 @@ export function Footer() {
     <div className="footer-main">
       <div><p className="eyebrow">Fundacja</p><h2>Lepszy Dom.<br /><em>Lepsze Jutro.</em></h2><p className="footer-mission">Dobro zaczyna się od gestu.<br />Razem możemy zmieniać jutro.</p></div>
       <div><h3>Skontaktuj się</h3><a className="footer-email" href={`mailto:${foundation.email}`}>{foundation.email}</a><a href="tel:+48570747779">{foundation.phone}</a><p>{foundation.address}</p></div>
-      <div><h3>Dowiedz się więcej</h3><a href="/o-fundacji">O Fundacji</a><a href="/aktualnosci">Aktualności</a><a href="/archiwum">Archiwum działań</a>{reports.map(report => <a key={report.href} href={report.href}>{report.title} {report.year}</a>)}{reports.length === 0 && <a href={`mailto:${foundation.email}?subject=Pro%C5%9Bba%20o%20raport%20merytoryczny`}>Zapytaj o raport merytoryczny ↗</a>}<a href="/polityka-prywatnosci">Polityka prywatności</a><a href={foundation.portal}>Portal Fundacji ↗</a></div>
+      <div><h3>Dowiedz się więcej</h3><a href="/o-fundacji">O Fundacji</a><a href="/jak-pomagamy">Jak pomagamy</a><a href="/aktualnosci">Aktualności</a><a href="/archiwum">Archiwum działań</a><a href="/przejrzystosc">Przejrzystość</a>{reports.map(report => <a key={report.href} href={report.href}>{report.title} {report.year}</a>)}<a href="/polityka-prywatnosci">Polityka prywatności</a><a href={foundation.portal}>Portal Fundacji ↗</a></div>
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} {foundation.name}</span><span>KRS {foundation.krs} · NIP {foundation.nip} · REGON {foundation.regon}</span></div>
   </div></footer>;

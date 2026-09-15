@@ -39,11 +39,13 @@ jobs:
           curl -fsS http://127.0.0.1:18080/aktualnosci > /tmp/aktualnosci.html
           curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
           curl -fsS http://127.0.0.1:18080/o-fundacji > /tmp/about.html
+          curl -fsS http://127.0.0.1:18080/jak-pomagamy > /tmp/how.html
           curl -fsS http://127.0.0.1:18080/kontakt > /tmp/contact.html
+          curl -fsS http://127.0.0.1:18080/przejrzystosc > /tmp/transparency.html
           curl -fsS http://127.0.0.1:18080/polityka-prywatnosci > /tmp/privacy.html
           curl -fsS http://127.0.0.1:18080/robots.txt > /tmp/robots.txt
           curl -fsS http://127.0.0.1:18080/sitemap.xml > /tmp/sitemap.xml
-          grep -q '/assets/logo-fundacji.webp' /tmp/index.html
+          grep -q '/assets/logo-fundacji-transparent.svg' /tmp/index.html
           grep -q 'twitter:card' /tmp/index.html
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
           ! grep -q 'fonts.googleapis.com' /tmp/index.html
@@ -60,7 +62,10 @@ jobs:
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           grep -q 'O Fundacji' /tmp/about.html
           grep -q 'KRS 0000971976' /tmp/about.html
+          grep -q 'Pomoc zaczyna się od konkretnej potrzeby' /tmp/how.html
           grep -q '+48 570 747 779' /tmp/contact.html
+          grep -q '51 1090 2590 0000 0001 5074 2996' /tmp/contact.html
+          grep -q 'Statut i sprawozdania' /tmp/transparency.html
           grep -q 'krojów pisma dostępnych w systemie użytkownika' /tmp/privacy.html
           ! grep -q 'fonts.googleapis.com' /tmp/privacy.html
           grep -q '^Sitemap: https://fundacjalepszydomlepszejutro.pl/sitemap.xml$' /tmp/robots.txt
@@ -73,7 +78,7 @@ jobs:
           done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q '"lang": "pl"'
-          curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
+          curl -fsS http://127.0.0.1:18080/assets/logo-fundacji-transparent.svg >/dev/null
           curl -fsS http://127.0.0.1:18080/assets/pages.css >/dev/null
           curl -fsS http://127.0.0.1:18080/assets/performance-v7.css | grep -q -- '--font-sans'
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "302"
@@ -85,8 +90,12 @@ jobs:
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/o-fundacji.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/o-fundacji/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/jak-pomagamy.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/jak-pomagamy/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/kontakt.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/kontakt/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/przejrzystosc.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/przejrzystosc/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/polityka-prywatnosci.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/polityka-prywatnosci/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/swiateczne-paczki/index.html)" = "301"

@@ -1,6 +1,6 @@
 import { cpSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 // Preserve every established URL and archived article during the home-page migration.
-for (const file of ['aktualnosci.html', 'archiwum.html', 'listy-do-swietego-mikolaja.html', 'o-fundacji.html', 'kontakt.html', 'polityka-prywatnosci.html', '404.html']) cpSync(file, `out/${file}`);
+for (const file of ['aktualnosci.html', 'archiwum.html', 'listy-do-swietego-mikolaja.html', 'o-fundacji.html', 'jak-pomagamy.html', 'kontakt.html', 'przejrzystosc.html', 'polityka-prywatnosci.html', '404.html']) cpSync(file, `out/${file}`);
 cpSync('aktualnosci', 'out/aktualnosci', { recursive: true });
 cpSync('archiwum', 'out/archiwum', { recursive: true });
 function optimize(dir) {

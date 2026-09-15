@@ -12,7 +12,9 @@ const notFound = read("../404.html");
 const pages = [
   ["/", "../index.html"],
   ["/o-fundacji", "../o-fundacji.html"],
+  ["/jak-pomagamy", "../jak-pomagamy.html"],
   ["/kontakt", "../kontakt.html"],
+  ["/przejrzystosc", "../przejrzystosc.html"],
   ["/polityka-prywatnosci", "../polityka-prywatnosci.html"],
   ["/listy-do-swietego-mikolaja", "../listy-do-swietego-mikolaja.html"],
   ["/aktualnosci", "../aktualnosci.html"],
