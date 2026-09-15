@@ -41,3 +41,54 @@
 
 /* Zweryfikowane profile społecznościowe. */
 .social-links{display:flex;gap:10px;margin-top:24px}.social-links a{display:grid!important;place-items:center;width:44px;height:44px;margin:0!important;border:1px solid var(--line);border-radius:50%;color:var(--ink)!important;transition:background .2s,color .2s,border-color .2s}.social-links a:hover{background:var(--ink);border-color:var(--ink);color:#fff!important;text-decoration:none}.social-links svg{width:19px;height:19px;fill:currentColor}.social-links svg rect,.social-links svg circle{fill:none;stroke:currentColor;stroke-width:1.8}.social-links svg .social-dot{fill:currentColor;stroke:none}
+
+
+/* Bieżące potrzeby — konkretna pomoc bez tworzenia fałszywej pilności. */
+.current-needs{position:relative;overflow:hidden;background:var(--navy);color:#fff}
+.current-needs::before{content:"";position:absolute;width:560px;height:560px;right:-190px;top:-260px;border:1px solid rgba(255,255,255,.08);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.018);pointer-events:none}
+.current-needs .shell{position:relative;z-index:1}
+.current-needs-heading{display:grid;grid-template-columns:1.05fr .8fr;gap:80px;align-items:end}
+.current-needs h2{color:#fff}
+.current-needs h2 em{color:#d7bc86}
+.current-needs-intro>p:first-child{font-size:17px;line-height:1.75;color:rgba(255,255,255,.76)}
+.current-needs-caution{display:flex;gap:12px;align-items:flex-start;margin:24px 0 0;color:rgba(255,255,255,.68);font-size:13px;line-height:1.6}
+.current-needs-caution span{display:grid;flex:0 0 24px;width:24px;height:24px;place-items:center;border:1px solid rgba(215,188,134,.6);border-radius:50%;color:#d7bc86;font-size:12px;font-weight:700}
+.current-needs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:64px}
+.current-needs-grid>div,.current-need-card{height:100%}
+.current-need-card{display:flex;flex-direction:column;min-height:330px;padding:30px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.055);backdrop-filter:blur(8px);transition:transform .35s ease,border-color .35s ease,background .35s ease}
+.current-need-card:hover{transform:translateY(-5px);border-color:rgba(215,188,134,.55);background:rgba(255,255,255,.08)}
+.current-need-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:54px}
+.current-need-number{color:#d7bc86;font-size:11px;font-weight:650;letter-spacing:.12em}
+.current-need-icon{display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.17);border-radius:50%;color:#d7bc86}
+.current-need-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.current-need-card h3{margin:0 0 14px;font-size:27px;font-weight:520;line-height:1.15;letter-spacing:-.025em}
+.current-need-card>p{margin-bottom:28px;color:rgba(255,255,255,.68);font-size:14px;line-height:1.7}
+.current-need-status{margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.72);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.current-needs-action{display:flex;align-items:center;justify-content:space-between;gap:40px;margin-top:44px;padding-top:36px;border-top:1px solid rgba(255,255,255,.13)}
+.current-needs-action>p{max-width:580px;margin:0;color:rgba(255,255,255,.7)}
+@media(max-width:900px){.current-needs-heading{grid-template-columns:1fr;gap:32px}.current-needs-grid{grid-template-columns:1fr}.current-need-card{min-height:0}.current-need-top{margin-bottom:34px}}
+@media(max-width:620px){.current-needs-action{align-items:flex-start;flex-direction:column}.current-need-card{padding:24px}.current-needs-grid{margin-top:46px}}
+
+/* Potwierdzenie wysłania formularza. */
+.thank-you-page{background:var(--paper)}
+.thank-you-hero{position:relative;overflow:hidden;padding:112px 0 104px;border-bottom:1px solid var(--line)}
+.thank-you-hero::after{content:"";position:absolute;width:520px;height:520px;right:-150px;bottom:-310px;border:1px solid rgba(23,38,60,.12);border-radius:50%;box-shadow:0 0 0 72px rgba(23,38,60,.025),0 0 0 144px rgba(23,38,60,.018);pointer-events:none}
+.thank-you-shell{position:relative;z-index:1;max-width:900px;text-align:center}
+.thank-you-mark{display:grid;width:72px;height:72px;margin:0 auto 30px;place-items:center;border-radius:50%;background:var(--navy);color:#fff;box-shadow:0 18px 40px rgba(23,38,60,.18)}
+.thank-you-mark svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.thank-you-page h1{margin:0;font-size:clamp(48px,7vw,86px);font-weight:450;letter-spacing:-.055em;line-height:1.02}
+.thank-you-page h1 em,.thank-you-page h2 em{font:inherit;font-style:normal;color:var(--gold)}
+.thank-you-lead{max-width:650px;margin:30px auto 0;color:var(--muted);font-size:18px;line-height:1.75}
+.thank-you-actions{display:flex;align-items:center;justify-content:center;gap:26px;margin-top:40px}
+.thank-you-secondary{font-size:13px;font-weight:650;border-bottom:1px solid var(--ink);padding-bottom:3px}
+.thank-you-secondary span{margin-left:8px}
+.thank-you-next{padding:92px 0 112px}
+.thank-you-next h2{max-width:780px}
+.thank-you-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:54px}
+.thank-you-options a{display:flex;min-height:210px;flex-direction:column;padding:26px;border:1px solid var(--line);background:#fff;transition:transform .3s ease,border-color .3s ease}
+.thank-you-options a:hover{transform:translateY(-4px);border-color:var(--gold)}
+.thank-you-options span{color:var(--gold);font-size:11px;letter-spacing:.12em}
+.thank-you-options strong{margin-top:42px;font-size:20px;line-height:1.2}
+.thank-you-options small{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.6}
+@media(max-width:800px){.thank-you-options{grid-template-columns:1fr}.thank-you-options a{min-height:180px}.thank-you-options strong{margin-top:30px}}
+@media(max-width:560px){.thank-you-hero{padding:72px 0}.thank-you-actions{align-items:center;flex-direction:column}.thank-you-page h1{font-size:48px}.thank-you-next{padding:70px 0}}

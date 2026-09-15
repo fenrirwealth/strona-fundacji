@@ -3,6 +3,7 @@ import { Hero } from '@/components/hero';
 import { Impact } from '@/components/impact';
 import { Campaigns } from '@/components/campaigns';
 import { News } from '@/components/news';
+import { CurrentNeeds } from '@/components/current-needs';
 import { Donations } from '@/components/donations';
 import { MagneticButton } from '@/components/magnetic-button';
 import { Reveal } from '@/components/motion';
@@ -17,6 +18,7 @@ export default function Home() {
       <Impact />
       <Campaigns />
       <News />
+      <CurrentNeeds />
       <Donations />
       <section id="partnerstwo" className="partnership section-space"><div className="shell">
         <Reveal className="partnership-heading"><p className="eyebrow">05 / Pomagamy razem</p><h2>Razem możemy zrobić<br /><em>więcej dobrego.</em></h2><p>Chcesz przekazać dary, wesprzeć akcję albo pomóc jako wolontariusz? Napisz do nas. Jeśli reprezentujesz firmę, również zapraszamy do wspólnego działania.</p><MagneticButton href="/kontakt?temat=chce-pomoc#formularz" variant="light">Chcę pomóc</MagneticButton></Reveal>

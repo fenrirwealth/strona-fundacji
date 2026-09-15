@@ -16,7 +16,7 @@ function normalize(path) {
     .replaceAll('href="/#pomoc"', 'href="/#wsparcie"')
     .replaceAll('href="/#kontakt"', 'href="/kontakt"')
     .replace(/\/assets\/site\.css\?v=[^"']+/g, '/assets/site.css?v=social-1')
-    .replace(/\/assets\/site\.js(?:\?v=[^"']+)?/g, '/assets/site.js?v=contact-1')
+    .replace(/\/assets\/site\.js(?:\?v=[^"']+)?/g, '/assets/site.js?v=donor-1')
     .replace(/\/assets\/pages\.css(?:\?v=[^"']+)?/g, '/assets/pages.css?v=contact-1')
     .replace('<section><h2>Kontakt bez formularza</h2><p>Na stronie nie ma formularza kontaktowego ani kont użytkowników. Jeżeli piszesz do Fundacji przez e-mail albo dzwonisz, przekazujesz dane bezpośrednio w wybranym przez siebie kanale.</p><p>Dane przekazane w wiadomości lub rozmowie są wykorzystywane do obsługi kontaktu i odpowiedzi na Twoją sprawę.</p></section>', '<section><h2>Formularz kontaktowy</h2><p>W formularzu możesz podać imię i nazwisko, adres e-mail, opcjonalny numer telefonu, temat oraz treść wiadomości. Dane wykorzystujemy wyłącznie do obsługi kontaktu i udzielenia odpowiedzi.</p><p>Wiadomości z formularza są dostarczane za pośrednictwem usługi Resend, która pełni funkcję technicznego dostawcy wysyłki e-mail. Formularz zapisuje też ograniczone dane techniczne potrzebne do ochrony przed spamem i nadużyciami.</p><p>Możesz również skontaktować się z Fundacją telefonicznie lub bezpośrednio przez e-mail.</p></section>');
   if (updated !== source) writeFileSync(path, updated);

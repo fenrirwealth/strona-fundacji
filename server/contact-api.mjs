@@ -9,6 +9,7 @@ const topicLabels = {
   'chce-pomoc': 'Chcę pomóc Fundacji',
   wolontariat: 'Wolontariat',
   wspolpraca: 'Współpraca',
+  dokumenty: 'Statut i sprawozdania',
   inne: 'Inny temat',
 };
 
