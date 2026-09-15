@@ -136,8 +136,8 @@ if(contactLayout&&location.pathname.replace(/\/$/,'')==='/kontakt'){
     try{
       const response=await fetch(form.action,{method:'POST',headers:{'content-type':'application/json','accept':'application/json'},body:JSON.stringify(payload)});
       const data=await response.json().catch(()=>({}));
-      if(!response.ok) throw new Error(data.message||'Nie udało się wysłać wiadomości.');
-      form.reset();status.dataset.state='success';status.textContent='Dziękujemy. Wiadomość dotarła do Fundacji.';
+      if(!response.ok||data.ok!==true) throw new Error(data.message||'Nie udało się wysłać wiadomości.');
+      form.reset();status.dataset.state='success';status.textContent='Dziękujemy. Wiadomość została przyjęta do wysłania do Fundacji.';
     }catch(error){
       status.dataset.state='error';status.textContent=`${error.message||'Nie udało się wysłać wiadomości.'} Możesz też zadzwonić: +48 570 747 779.`;
     }finally{submit.disabled=false}
