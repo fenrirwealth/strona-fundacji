@@ -15,7 +15,8 @@ Układ ma duże marginesy, czytelne kontrasty i spójną typografię opartą wy�
 | `app/globals.css` | Układ, breakpointy, maski i stany interakcji |
 | `tailwind.config.ts` | Kolory, fonty, odstępy i nazwane krzywe animacji |
 | `lib/design.ts` | Wspólne tokeny ruchu i identyfikacji |
-| `lib/content.ts` | Oddzielone treści, partnerzy, wskaźniki i raporty |
+| `lib/content.ts` | Oddzielone treści, partnerzy i raporty |
+| `lib/impact.ts` | Zatwierdzone dane szacunkowe o skali pomocy |
 | `components/experience-provider.tsx` | Lenis zsynchronizowany z zegarem Framer Motion |
 | `components/header.tsx` | Nawigacja mobilna, klawiatura i osobny portal |
 | `components/hero.tsx` | Typografia kinetyczna i paralaksa fotografii |
@@ -46,7 +47,7 @@ Tailwind 4 korzysta z jawnego `@config` do odczytu wymaganego pliku TypeScript. 
 
 ## Dane i granice wersji
 
-Liczby są demonstracyjne, jawnie opisane. Strona ma `noindex` do czasu wprowadzenia zatwierdzonych danych. Nazwy kampanii pochodzą z briefu użytkownika. Logotypy pochodzą z katalogu partnerzy w archiwum wcześniejszej witryny. Raportów nie otrzymano: zamiast martwych PDF-ów działa link „Zapytaj o raport merytoryczny”.
+Wskaźniki są zatwierdzonymi wartościami szacunkowymi i są opisane jako podsumowanie od początku działalności. Strona główna może być indeksowana. Nazwy kampanii pochodzą z briefu użytkownika. Logotypy pochodzą z katalogu partnerzy w archiwum wcześniejszej witryny. Raportów nie otrzymano: zamiast martwych PDF-ów działa link „Zapytaj o raport merytoryczny”.
 
 Techniczne przygotowanie do wdrożenia nie oznacza zatwierdzenia publikacji wyników ani aktualności partnerstw. Nie można uczciwie zagwarantować całkowitego braku błędów; podstawą odbioru są zakończony build, sprawdzenie typów, eksportu i testy w przeglądarce.
 

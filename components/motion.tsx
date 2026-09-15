@@ -11,7 +11,7 @@ export function Reveal({ children, className = '', delay = 0 }: { children: Reac
 }
 
 /** Screen readers receive the final number, never every animation frame. */
-export function Counter({ value, suffix = '' }: { value: number; suffix?: string }) {
+export function Counter({ value, prefix = '', suffix = '' }: { value: number; prefix?: string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const visible = useInView(ref, { once: true, amount: .6 });
   const reduce = useReducedMotion();
@@ -21,5 +21,5 @@ export function Counter({ value, suffix = '' }: { value: number; suffix?: string
     const controls = animate(0, value, { duration: 1.6, ease: [.22, 1, .36, 1], onUpdate: v => setDisplay(Math.round(v)) });
     return () => controls.stop();
   }, [visible, value, reduce]);
-  return <span ref={ref}><span className="sr-only">{value.toLocaleString('pl-PL')}{suffix}</span><span aria-hidden="true">{display.toLocaleString('pl-PL')}<span className="counter-suffix">{suffix}</span></span></span>;
+  return <span ref={ref}><span className="sr-only">{prefix}{value.toLocaleString('pl-PL')}{suffix}</span><span aria-hidden="true"><span className="counter-prefix">{prefix}</span>{display.toLocaleString('pl-PL')}<span className="counter-suffix">{suffix}</span></span></span>;
 }

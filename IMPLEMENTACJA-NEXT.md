@@ -1,6 +1,6 @@
 # Strona Fundacji — wersja dla darczyńców
 
-Next.js App Router, Tailwind CSS 4, Framer Motion. Punkt wejścia: `app/page.tsx`; treści: `lib/content.ts`; komponenty: `components/`. Fonty są dostarczane lokalnie w pakiecie aplikacji.
+Next.js App Router, Tailwind CSS 4, Framer Motion. Punkt wejścia: `app/page.tsx`; treści: `lib/content.ts`; dane o skali pomocy: `lib/impact.ts`; komponenty: `components/`. Fonty są dostarczane lokalnie w pakiecie aplikacji.
 
 ## Uruchomienie
 
@@ -8,9 +8,9 @@ Wymagany Node 22. `npm ci`, następnie `npm run dev` (port 3000). `npm run build
 
 ## Materiały redakcyjne
 
-To **wersja koncepcyjna**, zgodna z prośbą o placeholdery. Liczby 250, 12 i 180 tys. zł są demonstracyjne i NIE są wynikami Fundacji. Są oznaczone na stronie, a strona ma `noindex`. Logotypy partnerów pochodzą z katalogu partnerzy w przekazanej przez użytkownika paczce grafiki-fundacja-lepszy-dom.zip. Na stronie są opisane jako materiały z wcześniejszej witryny; nie deklarujemy aktualnego zakresu współpracy. Nazwy „Wyprawka na lepsze jutro” i „Magiczne Święta” pochodzą z briefu; opisy są propozycją copywritingu. Zdjęcia są opisane jako archiwalne i nie dowodzą realizacji tych kampanii.
+Sekcja „Nasza pomoc” pokazuje zatwierdzone wartości szacunkowe od początku działalności Fundacji: około 470 dzieci, około 60 placówek i rodzin oraz około 260 tys. zł wartości udzielonej pomocy. Wartości są jawnie oznaczone jako szacunkowe. Logotypy partnerów pochodzą z katalogu partnerzy w przekazanej przez użytkownika paczce grafiki-fundacja-lepszy-dom.zip. Nie deklarujemy aktualnego zakresu współpracy bez dodatkowego potwierdzenia. Zdjęcia ilustracyjne są wyraźnie oznaczone.
 
-Przed publikacją zastąp liczniki potwierdzonymi wynikami z okresem i źródłem, potwierdź aktualność partnerstw i uzupełnij prawdziwe pliki raportów w `lib/content.ts`. Dopiero wtedy usuń oznaczenia wersji koncepcyjnej i zmień `robots` w `app/layout.tsx` na indeksowanie. Pusta lista raportów pokazuje działające zapytanie e-mail, nie fikcyjny PDF.
+Po otrzymaniu statutu i sprawozdań należy opublikować prawdziwe pliki dokumentów i doprecyzować dane liczbowe, jeżeli dokumenty pozwolą ustalić wartości dokładne. Strona główna jest indeksowana, ponieważ nie zawiera fikcyjnych wyników.
 
 Archiwum i informacyjne podstrony HTML zachowują adresy oraz dotychczasową treść. `scripts/finalize-export.mjs` kopiuje je do eksportu. W tej iteracji projektowane jest nowe wejście główne, nie pełna migracja każdej podstrony do React.
 
