@@ -1,3 +1,10 @@
+@font-face{
+  font-family:"DM Sans";
+  src:url("/assets/dm-sans-variable.woff2") format("woff2");
+  font-style:normal;
+  font-weight:100 1000;
+  font-display:swap
+}
 :root{
   --ink:#20242a;--ink2:#17263c;--ivory:#f8f6f1;--paper:#ffffff;
   --gold:#b8955a;--gold2:#d7bc86;--soft:#e7eef2;--muted:#616873;
