@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import '@fontsource-variable/dm-sans';
-import '@fontsource/cormorant-garamond/400.css';
-import '@fontsource/cormorant-garamond/400-italic.css';
 import './globals.css';
 import { ExperienceProvider } from '@/components/experience-provider';
 export const metadata: Metadata = {

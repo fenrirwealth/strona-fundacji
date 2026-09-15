@@ -12,7 +12,7 @@ export function Hero() {
   return <section ref={ref} className="hero shell" aria-labelledby="hero-title">
     <div className="hero-intro"><p className="eyebrow">Pomagamy razem · od 2022</p><span className="edition">WSPÓLNIE OD 2022</span></div>
     <div className="hero-grid">
-      <div className="hero-copy"><h1 id="hero-title"><motion.span initial={false} animate={{ y: reduced ? 0 : [14, 0], opacity: reduced ? 1 : [.75, 1] }} transition={{ duration: .8, ease: design.ease.editorial }} className="headline-first">Każdy gest ma siłę.</motion.span><motion.span initial={false} animate={{ y: reduced ? 0 : [20, 0], opacity: reduced ? 1 : [.75, 1] }} transition={{ duration: reduced ? 0 : 1.2 }} className="headline-serif">Razem zmieniamy<br /><em>jutro.</em></motion.span></h1>
+      <div className="hero-copy"><h1 id="hero-title"><motion.span initial={false} animate={{ y: reduced ? 0 : [14, 0], opacity: reduced ? 1 : [.75, 1] }} transition={{ duration: .8, ease: design.ease.editorial }} className="headline-first">Każdy gest ma siłę.</motion.span><motion.span initial={false} animate={{ y: reduced ? 0 : [20, 0], opacity: reduced ? 1 : [.75, 1] }} transition={{ duration: reduced ? 0 : 1.2 }} className="headline-main">Razem zmieniamy<br /><em>jutro.</em></motion.span></h1>
         <p className="hero-description">Pomagamy dzieciom i rodzinom, które znalazły się w trudnej sytuacji. Możesz wybrać list, przekazać potrzebne rzeczy, wesprzeć akcję albo podarować swój czas.</p>
         <div className="hero-actions"><MagneticButton href="#dzialania">Chcę pomóc</MagneticButton><a href="/o-fundacji" className="text-link">Poznaj Fundację <span aria-hidden="true">↓</span></a></div>
       </div>
