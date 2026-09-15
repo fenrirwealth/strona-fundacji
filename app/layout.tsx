@@ -17,7 +17,7 @@ const organizationSchema = {
   url: 'https://fundacjalepszydomlepszejutro.pl/',
   logo: 'https://fundacjalepszydomlepszejutro.pl/assets/logo-fundacji.webp',
   identifier: 'KRS 0000971976', taxID: '5273002294', foundingDate: '2022-05-17',
-  telephone: '+48570747779', email: 'fundacjalepszydomlepszejutro@gmail.com',
+  telephone: '+48570747779', email: 'kontakt@fundacjalepszydomlepszejutro.pl',
   address: { '@type': 'PostalAddress', streetAddress: 'Złota 75A/7', postalCode: '00-819', addressLocality: 'Warszawa', addressCountry: 'PL' },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

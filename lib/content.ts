@@ -1,7 +1,7 @@
 /** Editorial content is isolated from UI. Replace demo data only with approved sources. */
 export const foundation = {
   name: 'Fundacja Lepszy Dom Lepsze Jutro',
-  email: 'fundacjalepszydomlepszejutro@gmail.com',
+  email: 'kontakt@fundacjalepszydomlepszejutro.pl',
   phone: '+48 570 747 779',
   portal: 'https://portal.fundacjalepszydomlepszejutro.pl',
   address: 'Złota 75A/7, 00-819 Warszawa',
