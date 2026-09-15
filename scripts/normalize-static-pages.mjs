@@ -13,7 +13,8 @@ function normalize(path) {
     .replace(/<footer>[\s\S]*?<\/footer>/, footer)
     .replaceAll('href="/#pomoc"', 'href="/#wsparcie"')
     .replaceAll('href="/#kontakt"', 'href="/kontakt"')
-    .replace(/\/assets\/site\.css\?v=[^"']+/g, '/assets/site.css?v=donations-2');
+    .replace(/\/assets\/site\.css\?v=[^"']+/g, '/assets/site.css?v=donations-2')
+    .replace(/\/assets\/site\.js(?:\?v=[^"']+)?/g, '/assets/site.js?v=donations-2');
   if (updated !== source) writeFileSync(path, updated);
 }
 
