@@ -1,7 +1,7 @@
 const header=document.querySelector('header');
 const progress=document.querySelector('.progress span');
 const menu=document.querySelector('.menu');
-const nav=document.querySelector('nav');
+const nav=header?.querySelector('nav')||null;
 function updateChrome(){
   const y=window.scrollY||document.documentElement.scrollTop;
   if(header) header.classList.toggle('scrolled',y>8);
@@ -23,7 +23,17 @@ if(menu&&nav){
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   document.addEventListener('click',e=>{if(!nav.contains(e.target)&&!menu.contains(e.target))close()});
+
   nav.querySelectorAll('a[href="/#mikolaj"]').forEach(a=>a.href='/listy-do-swietego-mikolaja');
+  nav.querySelectorAll('a[href="/#o-nas"]').forEach(a=>{a.href='/o-fundacji';a.textContent='O Fundacji'});
+  nav.querySelectorAll('a[href="/#kontakt"]').forEach(a=>a.href='/kontakt');
+
+  const path=location.pathname.replace(/\/$/,'')||'/';
+  nav.querySelectorAll('a').forEach(a=>{
+    const url=new URL(a.href,location.origin);
+    const target=url.pathname.replace(/\/$/,'')||'/';
+    if(url.origin===location.origin&&target===path&&!a.classList.contains('navcta')) a.setAttribute('aria-current','page');
+  });
 }
 if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
   const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{
@@ -62,6 +72,23 @@ if(campaign&&!campaign.querySelector('a[href="/listy-do-swietego-mikolaja"]')){
   const link=document.createElement('a');
   link.className='post-link';link.href='/listy-do-swietego-mikolaja';link.textContent='Jak działa akcja →';
   campaign.append(link);
+}
+const stats=document.querySelector('#o-nas .statsgrid');
+if(stats&&!document.querySelector('#o-nas-link')){
+  const holder=document.createElement('div');
+  holder.id='o-nas-link';holder.className='wrap';holder.style.marginTop='18px';
+  const link=document.createElement('a');
+  link.className='post-link';link.href='/o-fundacji';link.textContent='Poznaj Fundację i dane rejestrowe →';
+  holder.append(link);stats.parentElement?.after(holder);
+}
+const footerLinks=document.querySelector('footer .footerlinks');
+if(footerLinks){
+  const wanted=[['/o-fundacji','O Fundacji'],['/kontakt','Kontakt'],['/polityka-prywatnosci','Prywatność']];
+  wanted.forEach(([href,label])=>{
+    if(!footerLinks.querySelector(`a[href="${href}"]`)){
+      const a=document.createElement('a');a.href=href;a.textContent=label;footerLinks.append(a);
+    }
+  });
 }
 const dialog=document.querySelector('#lightbox');
 if(dialog){
