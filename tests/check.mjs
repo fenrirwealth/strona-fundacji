@@ -10,6 +10,8 @@ const contact = fs.readFileSync(new URL("../kontakt.html", import.meta.url), "ut
 const privacy = fs.readFileSync(new URL("../polityka-prywatnosci.html", import.meta.url), "utf8");
 const sitemap = fs.readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
 const manifest = JSON.parse(fs.readFileSync(new URL("../site.webmanifest", import.meta.url), "utf8"));
+const donations = fs.readFileSync(new URL("../components/donations.tsx", import.meta.url), "utf8");
+const content = fs.readFileSync(new URL("../lib/content.ts", import.meta.url), "utf8");
 
 const publicPages = [html, archive, campaign, about, contact, privacy];
 
@@ -92,6 +94,13 @@ test("rachunek darowizn jest poprawny i przypisany do Erste Bank Polska", () => 
   assert.match(contact, /Erste Bank Polska/);
   assert.match(contact, /\/assets\/banks\/erste-bank-polska\.svg/);
   assert.ok(fs.existsSync(new URL("../assets/banks/erste-bank-polska.svg", import.meta.url)));
+});
+
+test("strona prowadzi do oficjalnego profilu i aktualnych zbiorek Siepomaga", () => {
+  assert.match(content, /https:\/\/www\.siepomaga\.pl\/lepszy-dom-lepsze-jutro/);
+  assert.match(content, /https:\/\/www\.siepomaga\.pl\/lepszy-dom-lepsze-jutro\/zbiorki/);
+  assert.match(donations, /\/assets\/partners\/siepomaga\.svg/);
+  assert.ok(fs.existsSync(new URL("../assets/partners/siepomaga.svg", import.meta.url)));
 });
 
 test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
