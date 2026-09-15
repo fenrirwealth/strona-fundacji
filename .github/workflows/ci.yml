@@ -44,5 +44,11 @@ jobs:
           done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
           curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "200"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/index.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja/)" = "301"
           test "$(curl -s -o /tmp/404.html -w '%{http_code}' http://127.0.0.1:18080/nie-ma-takiej-strony)" = "404"
           grep -q 'Ta strona nie istnieje' /tmp/404.html
