@@ -6,12 +6,15 @@ COPY archiwum/ /usr/share/nginx/html/archiwum/
 COPY robots.txt sitemap.xml site.webmanifest /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
+USER root
 RUN find /usr/share/nginx/html -name '*.html' -type f -exec sed -i \
   -e '/fonts.googleapis.com/d' \
   -e '/fonts.gstatic.com/d' \
   -e 's#</head>#<link rel="stylesheet" href="/assets/performance-v7.css">\n</head>#' \
   -e 's/loading="lazy"/loading="lazy" decoding="async"/g' \
-  -e 's/fetchpriority="high"/decoding="async" fetchpriority="high"/g' {} +
+  -e 's/fetchpriority="high"/decoding="async" fetchpriority="high"/g' {} + \
+  && chown -R 101:101 /usr/share/nginx/html
+USER 101
 
 EXPOSE 8080
 
