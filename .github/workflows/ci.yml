@@ -33,6 +33,8 @@ jobs:
           curl -fsS http://127.0.0.1:18080/healthz | grep -qx 'ok'
           curl -fsS http://127.0.0.1:18080/ > /tmp/index.html
           curl -fsSI http://127.0.0.1:18080/ | tr -d '\r' > /tmp/index.headers
+          curl -fsS -H 'Accept-Encoding: gzip' -D /tmp/gzip.headers -o /dev/null http://127.0.0.1:18080/
+          tr -d '\r' < /tmp/gzip.headers > /tmp/gzip.clean
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
           curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
           curl -fsS http://127.0.0.1:18080/o-fundacji > /tmp/about.html
@@ -43,15 +45,22 @@ jobs:
           grep -q '/assets/logo-fundacji.webp' /tmp/index.html
           grep -q 'twitter:card' /tmp/index.html
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
+          ! grep -q 'fonts.googleapis.com' /tmp/index.html
+          ! grep -q 'fonts.gstatic.com' /tmp/index.html
+          grep -q '/assets/performance-v7.css' /tmp/index.html
+          grep -q 'decoding="async"' /tmp/index.html
           grep -qi '^content-language: pl$' /tmp/index.headers
           grep -qi '^cache-control: no-cache$' /tmp/index.headers
+          grep -qi "^content-security-policy:.*style-src 'self'; font-src 'self';" /tmp/index.headers
+          grep -qi '^content-encoding: gzip$' /tmp/gzip.clean
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
           grep -q 'FAQPage' /tmp/mikolaj.html
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           grep -q 'O Fundacji' /tmp/about.html
           grep -q 'KRS 0000971976' /tmp/about.html
           grep -q '+48 570 747 779' /tmp/contact.html
-          grep -q 'Google Fonts' /tmp/privacy.html
+          grep -q 'krojów pisma dostępnych w systemie użytkownika' /tmp/privacy.html
+          ! grep -q 'fonts.googleapis.com' /tmp/privacy.html
           grep -q '^Sitemap: https://fundacjalepszydomlepszejutro.pl/sitemap.xml$' /tmp/robots.txt
           grep -q '<loc>https://fundacjalepszydomlepszejutro.pl/o-fundacji</loc>' /tmp/sitemap.xml
           for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
@@ -61,6 +70,7 @@ jobs:
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q '"lang": "pl"'
           curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
           curl -fsS http://127.0.0.1:18080/assets/pages.css >/dev/null
+          curl -fsS http://127.0.0.1:18080/assets/performance-v7.css | grep -q -- '--font-sans'
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "302"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/index.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum.html)" = "301"
