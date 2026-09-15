@@ -103,7 +103,7 @@ test("strona O Fundacji zawiera tylko potwierdzone dane", () => {
 test("strona kontaktowa zawiera oficjalne dane kontaktowe", () => {
   assert.equal((contact.match(/<h1(?:\s|>)/g) || []).length, 1);
   assert.match(contact, /tel:\+48570747779/);
-  assert.match(contact, /fundacjalepszydomlepszejutro@gmail\.com/);
+  assert.match(contact, /kontakt@fundacjalepszydomlepszejutro\\.pl/);
   assert.match(contact, /Złota 75A\/7/);
   assert.match(contact, /data-copy-account="51109025900000000150742996"/);
   assert.match(contact, /\/assets\/site\.js\?v=donations-2/);
