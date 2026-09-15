@@ -106,6 +106,7 @@ test("strona kontaktowa zawiera oficjalne dane kontaktowe", () => {
   assert.match(contact, /fundacjalepszydomlepszejutro@gmail\.com/);
   assert.match(contact, /Złota 75A\/7/);
   assert.match(contact, /data-copy-account="51109025900000000150742996"/);
+  assert.match(contact, /\/assets\/site\.js\?v=donations-2/);
   assert.match(contact, /<dt>Odbiorca<\/dt><dd>Fundacja Lepszy Dom Lepsze Jutro<\/dd>/);
   assert.doesNotMatch(contact, /<form/);
 });
