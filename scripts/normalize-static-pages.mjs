@@ -16,7 +16,7 @@ function normalize(path) {
     .replaceAll('href="/#pomoc"', 'href="/#wsparcie"')
     .replaceAll('href="/#kontakt"', 'href="/kontakt"')
     .replace(/\/assets\/site\.css\?v=[^"']+/g, '/assets/site.css?v=social-1')
-    .replace(/\/assets\/site\.js(?:\?v=[^"']+)?/g, '/assets/site.js?v=donor-1')
+    .replace(/\/assets\/site\.js(?:\?v=[^"']+)?/g, '/assets/site.js?v=donor-2')
     .replace(/\/assets\/pages\.css(?:\?v=[^"']+)?/g, '/assets/pages.css?v=contact-1');
   if (updated !== source) writeFileSync(path, updated);
 }
