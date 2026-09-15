@@ -10,6 +10,8 @@ const contact = fs.readFileSync(new URL("../kontakt.html", import.meta.url), "ut
 const privacy = fs.readFileSync(new URL("../polityka-prywatnosci.html", import.meta.url), "utf8");
 const sitemap = fs.readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
 const manifest = JSON.parse(fs.readFileSync(new URL("../site.webmanifest", import.meta.url), "utf8"));
+const donations = fs.readFileSync(new URL("../components/donations.tsx", import.meta.url), "utf8");
+const content = fs.readFileSync(new URL("../lib/content.ts", import.meta.url), "utf8");
 
 const publicPages = [html, archive, campaign, about, contact, privacy];
 
@@ -79,6 +81,26 @@ test("strona kontaktowa zawiera oficjalne dane kontaktowe", () => {
   assert.match(contact, /fundacjalepszydomlepszejutro@gmail\.com/);
   assert.match(contact, /Złota 75A\/7/);
   assert.doesNotMatch(contact, /<form/);
+});
+
+test("rachunek darowizn jest poprawny i przypisany do Erste Bank Polska", () => {
+  const account = "51109025900000000150742996";
+  const iban = `PL${account}`;
+  const rearranged = `${iban.slice(4)}${iban.slice(0, 4)}`;
+  const numeric = rearranged.replace(/[A-Z]/g, (letter) => String(letter.charCodeAt(0) - 55));
+  assert.equal(BigInt(numeric) % 97n, 1n, "nieprawidłowa suma kontrolna rachunku");
+  assert.equal(account.slice(2, 6), "1090");
+  assert.match(contact, /51 1090 2590 0000 0001 5074 2996/);
+  assert.match(contact, /Erste Bank Polska/);
+  assert.match(contact, /\/assets\/banks\/erste-bank-polska\.svg/);
+  assert.ok(fs.existsSync(new URL("../assets/banks/erste-bank-polska.svg", import.meta.url)));
+});
+
+test("strona prowadzi do oficjalnego profilu i aktualnych zbiorek Siepomaga", () => {
+  assert.match(content, /https:\/\/www\.siepomaga\.pl\/lepszy-dom-lepsze-jutro/);
+  assert.match(content, /https:\/\/www\.siepomaga\.pl\/lepszy-dom-lepsze-jutro\/zbiorki/);
+  assert.match(donations, /\/assets\/partners\/siepomaga\.svg/);
+  assert.ok(fs.existsSync(new URL("../assets/partners/siepomaga.svg", import.meta.url)));
 });
 
 test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
