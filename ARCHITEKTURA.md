@@ -4,7 +4,7 @@
 
 Strona prowadzi zwykłych ludzi od poznania Fundacji do wyboru konkretnej formy pomocy. Firmy pozostają ważną grupą wspierającą, ale główne CTA kieruje do działania indywidualnych darczyńców. Portal pozostaje odrębną aplikacją dostępną z menu i stopki. Hero, wskaźniki, projekty i relacje z partnerami tworzą kolejność: potrzeba → skala pomocy → sposób działania → kontakt.
 
-Układ ma duże marginesy, czytelne kontrasty i typografię DM Sans z akcentem Cormorant Garamond. Ograniczona paleta obejmuje jasny papier, grafit i przygaszone złoto. Oryginalne zdjęcia są dokumentacją archiwalną; nie sugerują nowych, niepotwierdzonych realizacji.
+Układ ma duże marginesy, czytelne kontrasty i spójną typografię opartą wyłącznie na DM Sans. Ograniczona paleta obejmuje jasny papier, grafit i przygaszone złoto. Oryginalne zdjęcia są dokumentacją archiwalną; nie sugerują nowych, niepotwierdzonych realizacji.
 
 ## Struktura
 
