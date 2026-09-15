@@ -80,3 +80,32 @@ a.contact-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(23,3
 .bank-mini dl>div{display:grid;grid-template-columns:80px 1fr;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:13px}.bank-mini dt{color:var(--muted)}.bank-mini dd{margin:0;font-weight:700}
 @media(max-width:800px){.help-paths,.evidence-grid,.transparency-grid{grid-template-columns:1fr}.evidence-card img{height:260px}}
 @media(max-width:520px){.transfer-details>div,.bank-mini dl>div{grid-template-columns:1fr;gap:2px}.help-path,.transparency-card{padding:24px}.evidence-card img{height:220px}}
+
+/* Formularz kontaktowy i profile społecznościowe. */
+.social-links{display:flex;gap:10px;margin-top:20px}.social-links a{display:grid;place-items:center;width:43px;height:43px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:.2s}.social-links a:hover{background:var(--ink);border-color:var(--ink);color:#fff}.social-links svg{width:18px;height:18px;fill:currentColor}.social-links svg rect,.social-links svg circle{fill:none;stroke:currentColor;stroke-width:1.8}.social-links svg .social-dot{fill:currentColor;stroke:none}
+.contact-form-intro h2{max-width:12ch}.quick-call{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:28px;padding:20px 22px;border-radius:18px;background:#eef2f5}.quick-call span{display:block;color:var(--muted);font-size:13px}.quick-call strong{display:block;font:700 21px/1.2 "DM Sans",system-ui,sans-serif}.quick-call a{flex:none;padding:11px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;text-decoration:none}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:17px}.form-field{display:grid;gap:7px}.form-field-wide{grid-column:1/-1}.form-field label,.consent-row{font-size:13px;font-weight:700}.form-field input,.form-field select,.form-field textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #cbd3dc;border-radius:12px;background:#fff;color:var(--ink);font:inherit}.form-field textarea{min-height:150px;resize:vertical}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid #158f98;outline-offset:2px;border-color:#158f98}.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.consent-row{display:flex;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}.consent-row input{flex:0 0 auto;margin-top:3px}.consent-row a{text-decoration:underline}.form-submit{justify-self:start;min-height:49px;padding:12px 20px;border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700}.form-submit:disabled{opacity:.55;cursor:wait}.form-status{min-height:1.5em;margin:0;color:var(--muted);font-size:13px}.form-status[data-state="success"]{color:#35745d}.form-status[data-state="error"]{color:#a23b3b}@media(max-width:700px){.contact-form{grid-template-columns:1fr}.form-field-wide{grid-column:auto}.quick-call{align-items:flex-start;flex-direction:column}}
+
+/* Formularz: paleta Fundacji, czytelna hierarchia i spokojne mikrointerakcje. */
+.contact-layout{gap:48px}
+#formularz{background:linear-gradient(145deg,#f8f6f1 0%,#eef2f5 100%);border:1px solid #cbd5df;border-radius:26px;padding:32px;box-shadow:0 20px 55px rgba(23,38,60,.08)}
+#formularz>h3{color:#17263c;font-size:28px;letter-spacing:-.03em;margin:26px 0}
+#formularz .quick-call{margin:0;padding:22px;background:#17263c;color:#fff;border:1px solid #334961;border-radius:18px;flex-wrap:wrap}
+#formularz .quick-call span{color:#d6dde5;font-size:12px;margin-bottom:6px}
+#formularz .quick-call strong{color:#fff;font-variant-numeric:tabular-nums}
+#formularz .quick-call a{display:inline-flex;align-items:center;gap:9px;background:#d7bc86;color:#17263c;min-height:46px;transition:background .2s,transform .2s}
+.contact-symbol{width:19px;height:19px;flex:0 0 19px;vertical-align:middle}
+.form-field label{display:flex;align-items:center;gap:8px;color:#17263c;font-weight:600}
+.form-field label .contact-symbol{color:#267b83}
+.form-field label span{font-weight:400;color:#566477;font-size:11px}
+.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,.65);border-color:#c3cdd7;transition:border-color .2s,box-shadow .2s,background .2s;color:#17263c}
+.form-field:focus-within label .contact-symbol{color:#126c75}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{background:#fff;border-color:#267b83;box-shadow:0 0 0 4px rgba(38,123,131,.1);outline:2px solid #267b83;outline-offset:2px}
+.consent-row input{width:18px;height:18px;accent-color:#267b83}
+.form-submit{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:52px;padding:14px 24px;border-radius:12px;background:#17263c;color:#fff;box-shadow:0 6px 18px rgba(23,38,60,.12);transition:background .2s,box-shadow .2s}
+.form-submit .contact-symbol{transition:transform .25s}
+.form-submit:disabled{cursor:progress;opacity:.7}
+.contact-form[aria-busy="true"] .form-submit .contact-symbol{animation:contact-pulse 1.2s ease-in-out infinite}
+@keyframes contact-pulse{50%{opacity:.35;transform:translate(2px,-2px)}}
+@media(hover:hover){.form-submit:not(:disabled):hover{background:#264362;box-shadow:0 9px 22px rgba(23,38,60,.18)}.form-submit:not(:disabled):hover .contact-symbol{transform:translate(3px,-3px)}#formularz .quick-call a:hover{background:#e6cea1;transform:translateY(-2px)}}
+@media(max-width:700px){#formularz{padding:22px 18px;border-radius:20px}#formularz .quick-call{padding:20px}.form-submit{width:100%}.contact-layout{gap:28px}}
+@media(prefers-reduced-motion:reduce){#formularz *,#formularz *::before,#formularz *::after{animation:none!important;transition:none!important}}
