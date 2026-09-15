@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://fundacjalepszydomlepszejutro.pl'),
   title: 'Razem zmieniamy jutro | Fundacja Lepszy Dom Lepsze Jutro',
   description: 'Pomagaj razem z Fundacją Lepszy Dom Lepsze Jutro. Poznaj nasze działania, wybierz akcję i sprawdź, jak możesz wesprzeć dzieci oraz rodziny.',
+  verification: { google: 'i4YKcpbmCKBDthyu7MHiKXgaQsJ_LpLArCfH--1wgO8' },
   alternates: { canonical: '/' }, robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   openGraph: { type: 'website', locale: 'pl_PL', url: '/', siteName: 'Fundacja Lepszy Dom Lepsze Jutro', title: 'Każdy gest ma siłę. Razem zmieniamy jutro.', description: 'Poznaj działania Fundacji i zobacz, jak możesz pomóc dzieciom oraz rodzinom.', images: [{ url: '/assets/generated/hero-wolontariusze-v1.webp', alt: 'Wolontariusze przygotowujący pomoc' }] },
   twitter: { card: 'summary_large_image' }, icons: { icon: '/assets/favicon-64.png', apple: '/assets/apple-touch-icon.png' },
