@@ -9,7 +9,6 @@ export const foundation = {
   bankName: 'Erste Bank Polska',
   bankAccount: '51 1090 2590 0000 0001 5074 2996',
   siepomagaProfile: 'https://www.siepomaga.pl/lepszy-dom-lepsze-jutro',
-  siepomagaFundraisers: 'https://www.siepomaga.pl/lepszy-dom-lepsze-jutro/zbiorki',
 };
 export const partnershipMail = `mailto:${foundation.email}?subject=${encodeURIComponent('Współpraca partnerska z Fundacją')}`;
 // Explicitly fictional figures for this requested visual concept; never publish as outcomes.

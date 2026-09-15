@@ -100,3 +100,19 @@ if(dialog){
   dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 }
 document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
+
+document.querySelectorAll('[data-copy-account]').forEach(button=>button.addEventListener('click',async()=>{
+  const account=button.dataset.copyAccount||'';
+  const feedback=button.parentElement?.querySelector('.copy-feedback');
+  try{
+    await navigator.clipboard.writeText(account);
+  }catch{
+    const input=document.createElement('textarea');
+    input.value=account;input.style.position='fixed';input.style.opacity='0';
+    document.body.append(input);input.select();document.execCommand('copy');input.remove();
+  }
+  const original=button.textContent;
+  button.textContent='Skopiowano numer konta ✓';
+  if(feedback) feedback.textContent='Numer rachunku został skopiowany.';
+  setTimeout(()=>{button.textContent=original;if(feedback) feedback.textContent=''},2200);
+}));

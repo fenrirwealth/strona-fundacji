@@ -1,4 +1,5 @@
 import './generate-news-pages.mjs';
+import './normalize-static-pages.mjs';
 import { cpSync, mkdirSync } from 'node:fs';
 mkdirSync('public', { recursive: true });
 cpSync('assets', 'public/assets', { recursive: true });

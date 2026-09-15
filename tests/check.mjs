@@ -8,7 +8,9 @@ const newsIndex = fs.readFileSync(new URL("../aktualnosci.html", import.meta.url
 const dayOfChild = fs.readFileSync(new URL("../aktualnosci/dzien-dziecka-dla-ciebie/index.html", import.meta.url), "utf8");
 const campaign = fs.readFileSync(new URL("../listy-do-swietego-mikolaja.html", import.meta.url), "utf8");
 const about = fs.readFileSync(new URL("../o-fundacji.html", import.meta.url), "utf8");
+const how = fs.readFileSync(new URL("../jak-pomagamy.html", import.meta.url), "utf8");
 const contact = fs.readFileSync(new URL("../kontakt.html", import.meta.url), "utf8");
+const transparency = fs.readFileSync(new URL("../przejrzystosc.html", import.meta.url), "utf8");
 const privacy = fs.readFileSync(new URL("../polityka-prywatnosci.html", import.meta.url), "utf8");
 const sitemap = fs.readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
 const manifest = JSON.parse(fs.readFileSync(new URL("../site.webmanifest", import.meta.url), "utf8"));
@@ -16,7 +18,7 @@ const donations = fs.readFileSync(new URL("../components/donations.tsx", import.
 const content = fs.readFileSync(new URL("../lib/content.ts", import.meta.url), "utf8");
 const siteCss = fs.readFileSync(new URL("../assets/site.css", import.meta.url), "utf8");
 
-const publicPages = [html, archive, newsIndex, dayOfChild, campaign, about, contact, privacy];
+const publicPages = [html, archive, newsIndex, dayOfChild, campaign, about, how, contact, transparency, privacy];
 
 test("strona ma podstawowe metadane i jeden naglowek glowny", () => {
   assert.match(html, /<html lang="pl">/);
@@ -37,10 +39,10 @@ test("dane strukturalne organizacji sa poprawnym JSON", () => {
 });
 
 test("produkcja korzysta z obecnego logo i lokalnych materialow", () => {
-  assert.match(html, /\/assets\/logo-fundacji\.webp/);
-  assert.match(html, /\/assets\/site\.css\?v=facebook-posts-1/);
-  assert.match(siteCss, /header \.brand-logo\{mix-blend-mode:multiply\}/);
-  assert.match(siteCss, /footer \.brand-logo\{display:none\}/);
+  assert.match(html, /\/assets\/logo-fundacji-transparent\.svg/);
+  assert.match(html, /\/assets\/site\.css\?v=donations-2/);
+  assert.match(siteCss, /header \.brand-logo,footer \.brand-logo\{display:block;mix-blend-mode:normal\}/);
+  assert.ok(fs.existsSync(new URL("../assets/logo-fundacji-transparent.svg", import.meta.url)));
   assert.match(html, /\/assets\/archiwum\/swiateczne-paczki\.webp/);
   assert.doesNotMatch(html, /horizons-cdn\.hostinger\.com/);
   assert.doesNotMatch(archive, /horizons-cdn\.hostinger\.com/);
@@ -103,7 +105,23 @@ test("strona kontaktowa zawiera oficjalne dane kontaktowe", () => {
   assert.match(contact, /tel:\+48570747779/);
   assert.match(contact, /fundacjalepszydomlepszejutro@gmail\.com/);
   assert.match(contact, /Złota 75A\/7/);
+  assert.match(contact, /data-copy-account="51109025900000000150742996"/);
+  assert.match(contact, /<dt>Odbiorca<\/dt><dd>Fundacja Lepszy Dom Lepsze Jutro<\/dd>/);
   assert.doesNotMatch(contact, /<form/);
+});
+
+test("jak pomagamy prowadzi do potwierdzonych form wsparcia", () => {
+  assert.equal((how.match(/<h1(?:\s|>)/g) || []).length, 1);
+  for (const text of ["Pomoc rzeczowa", "Wsparcie finansowe", "Akcje dla dzieci", "Wolontariat"]) assert.match(how, new RegExp(text));
+  assert.match(how, /\/kontakt#rachunek/);
+  assert.match(how, /\/aktualnosci\/dary-dla-rodzinnego-domu-dziecka/);
+});
+
+test("przejrzystosc pokazuje dane i nie udaje brakujacych dokumentow", () => {
+  assert.match(transparency, /KRS<\/dt><dd>0000971976/);
+  assert.match(transparency, /Statut i sprawozdania/);
+  assert.match(transparency, /po ich przekazaniu i weryfikacji/);
+  assert.doesNotMatch(transparency, /href="[^"]+\.pdf"/);
 });
 
 test("rachunek darowizn jest poprawny i przypisany do Erste Bank Polska", () => {
@@ -119,11 +137,21 @@ test("rachunek darowizn jest poprawny i przypisany do Erste Bank Polska", () => 
   assert.ok(fs.existsSync(new URL("../assets/banks/erste-bank-polska.svg", import.meta.url)));
 });
 
-test("strona prowadzi do oficjalnego profilu i aktualnych zbiorek Siepomaga", () => {
+test("strona prowadzi do oficjalnego profilu Siepomaga i uczciwie opisuje brak zbiorek", () => {
   assert.match(content, /https:\/\/www\.siepomaga\.pl\/lepszy-dom-lepsze-jutro/);
-  assert.match(content, /https:\/\/www\.siepomaga\.pl\/lepszy-dom-lepsze-jutro\/zbiorki/);
   assert.match(donations, /\/assets\/partners\/siepomaga\.svg/);
+  assert.match(donations, /Nowe zbiórki wkrótce/);
+  assert.doesNotMatch(donations, /Aktualne zbiórki/);
   assert.ok(fs.existsSync(new URL("../assets/partners/siepomaga.svg", import.meta.url)));
+});
+
+test("wszystkie podstrony maja spójne logo i nawigacje", () => {
+  for (const source of publicPages) {
+    assert.match(source, /src="\/assets\/logo-fundacji-transparent\.svg"/);
+    assert.match(source, /href="\/jak-pomagamy">Jak pomagamy<\/a>/);
+    assert.match(source, /href="\/#wsparcie">Jak pomóc<\/a>/);
+    assert.doesNotMatch(source, /href="\/#pomoc"/);
+  }
 });
 
 test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
@@ -136,7 +164,7 @@ test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
 });
 
 test("mapa strony zawiera strony informacyjne", () => {
-  for (const path of ["/o-fundacji", "/kontakt", "/polityka-prywatnosci"]) {
+  for (const path of ["/o-fundacji", "/jak-pomagamy", "/kontakt", "/przejrzystosc", "/polityka-prywatnosci"]) {
     assert.match(sitemap, new RegExp(path.replaceAll("/", "\\/")));
   }
 });
