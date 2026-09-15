@@ -116,3 +116,30 @@ document.querySelectorAll('[data-copy-account]').forEach(button=>button.addEvent
   if(feedback) feedback.textContent='Numer rachunku został skopiowany.';
   setTimeout(()=>{button.textContent=original;if(feedback) feedback.textContent=''},2200);
 }));
+
+const contactLayout=document.querySelector('.contact-layout');
+if(contactLayout&&location.pathname.replace(/\/$/,'')==='/kontakt'){
+  contactLayout.innerHTML=`<div class="contact-form-intro reveal visible"><p class="eyebrow">Napisz do nas</p><h2 class="display">Odpowiemy na Twoją wiadomość.</h2><p class="lead">Wybierz temat i opisz krótko, jak chcesz pomóc albo czego potrzebujesz. Wiadomość trafi bezpośrednio do Fundacji.</p><div class="quick-call"><div><span>Masz szybkie pytanie?</span><strong>+48 570 747 779</strong></div><a href="tel:+48570747779">Zadzwoń teraz</a></div></div><div class="contact-panel reveal visible" id="formularz"><h3>Formularz kontaktowy</h3><form class="contact-form" action="/api/kontakt" method="post" data-contact-form><div class="form-field"><label for="contact-name">Imię i nazwisko</label><input id="contact-name" name="name" autocomplete="name" required maxlength="120"></div><div class="form-field"><label for="contact-email">Adres e-mail</label><input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="180"></div><div class="form-field"><label for="contact-phone">Telefon <span>(opcjonalnie)</span></label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div><div class="form-field"><label for="contact-topic">Temat</label><select id="contact-topic" name="topic" required><option value="">Wybierz temat</option><option value="wyprawka-szkolna">Wyprawka szkolna</option><option value="paczka-swiateczna">Paczka świąteczna</option><option value="biezace-potrzeby">Bieżące potrzeby dzieci i rodzin</option><option value="wsparcie-materialne">Dary i wsparcie materialne</option><option value="chce-pomoc">Chcę pomóc Fundacji</option><option value="wolontariat">Wolontariat</option><option value="wspolpraca">Współpraca</option><option value="inne">Inny temat</option></select></div><div class="form-field form-field-wide"><label for="contact-message">Wiadomość</label><textarea id="contact-message" name="message" required minlength="10" maxlength="3000"></textarea></div><div class="form-honeypot" aria-hidden="true"><label for="contact-website">Strona internetowa</label><input id="contact-website" name="website" tabindex="-1" autocomplete="off"></div><label class="consent-row form-field-wide"><input type="checkbox" name="consent" required><span>Zgadzam się na przetwarzanie podanych danych w celu odpowiedzi na wiadomość. <a href="/polityka-prywatnosci">Polityka prywatności</a>.</span></label><button class="form-submit form-field-wide" type="submit">Wyślij wiadomość</button><p class="form-status form-field-wide" data-form-status aria-live="polite"></p></form></div>`;
+  const topic=document.querySelector('#contact-topic');
+  const requestedTopic=new URLSearchParams(location.search).get('temat');
+  if(topic&&requestedTopic&&[...topic.options].some(option=>option.value===requestedTopic)) topic.value=requestedTopic;
+  const materialLink=document.querySelector('.bank-support a[href^="mailto:"]');
+  if(materialLink){materialLink.href='/kontakt?temat=wsparcie-materialne#formularz';materialLink.textContent='Zapytaj o aktualne potrzeby →'}
+  const form=document.querySelector('[data-contact-form]');
+  form?.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(!form.reportValidity()) return;
+    const submit=form.querySelector('.form-submit');
+    const status=form.querySelector('[data-form-status]');
+    const payload=Object.fromEntries(new FormData(form).entries());
+    submit.disabled=true;status.dataset.state='';status.textContent='Wysyłamy wiadomość…';
+    try{
+      const response=await fetch(form.action,{method:'POST',headers:{'content-type':'application/json','accept':'application/json'},body:JSON.stringify(payload)});
+      const data=await response.json().catch(()=>({}));
+      if(!response.ok) throw new Error(data.message||'Nie udało się wysłać wiadomości.');
+      form.reset();status.dataset.state='success';status.textContent='Dziękujemy. Wiadomość dotarła do Fundacji.';
+    }catch(error){
+      status.dataset.state='error';status.textContent=`${error.message||'Nie udało się wysłać wiadomości.'} Możesz też zadzwonić: +48 570 747 779.`;
+    }finally{submit.disabled=false}
+  });
+}
