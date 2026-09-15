@@ -1,0 +1,55 @@
+.about-hero,.contact-hero{align-items:center}
+.page-section{padding-top:70px;padding-bottom:70px}
+.fact-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden;margin:18px 0 16px}
+.fact-strip>div{background:var(--paper);padding:24px;text-align:center}
+.fact-strip strong{display:block;font:700 24px/1.1 "Playfair Display",Georgia,serif}
+.fact-strip span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.principle{padding:25px;border:1px solid var(--line);border-radius:22px;background:var(--paper)}
+.principle>span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:700;margin-bottom:18px}
+.principle h3{font:700 24px/1.1 "Playfair Display",Georgia,serif;margin:0 0 9px}
+.principle p{margin:0;color:var(--muted);font-size:14px}
+.registry{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;padding:36px;border-radius:28px;background:linear-gradient(135deg,#211e1a,#342a1f);color:#fff;margin:14px 0 58px}
+.registry h2{font:700 42px/1.03 "Playfair Display",Georgia,serif;margin:0 0 10px}
+.registry p{margin:0;color:rgba(255,255,255,.68)}
+.registry dl,.contact-panel dl{margin:0;display:grid;gap:9px}
+.registry dl div,.contact-panel dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.registry dt{color:rgba(255,255,255,.58)}
+.registry dd,.contact-panel dd{margin:0;font-weight:700}
+.current-strip .actions{justify-content:flex-end}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 30px}
+.contact-card{display:flex;gap:15px;align-items:flex-start;padding:24px;border:1px solid var(--line);border-radius:22px;background:var(--paper);text-decoration:none;min-height:160px;transition:.2s ease}
+a.contact-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(52,39,22,.08)}
+.contact-icon{flex:0 0 42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--soft);color:#7a5722;font-weight:700}
+.contact-card small{display:block;color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.contact-card strong{display:block;word-break:break-word}
+.contact-card p{margin:7px 0 0;color:var(--muted);font-size:13px}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.contact-layout h2{font-size:clamp(40px,5vw,62px);margin:0 0 18px;max-width:10ch}
+.contact-panel{padding:28px;border:1px solid var(--line);border-radius:24px;background:var(--paper)}
+.contact-panel h3{font:700 27px/1.1 "Playfair Display",Georgia,serif;margin:0 0 18px}
+.contact-panel dl div{border-bottom:1px solid var(--line)}
+.contact-panel dt{color:var(--muted)}
+.contact-panel p{margin:18px 0 0;color:var(--muted);font-size:13px}
+.narrow{width:min(900px,calc(100% - 40px))}
+.policy-hero{padding:8px 0 30px}
+.policy-hero h1{font:700 clamp(48px,7vw,78px)/.98 "Playfair Display",Georgia,serif;letter-spacing:-.03em;margin:0 0 20px;max-width:10ch}
+.policy-hero>p:last-child{font-size:17px;color:var(--muted);max-width:65ch}
+.policy-body{display:grid;gap:14px;margin:10px 0 54px}
+.policy-body section{padding:24px 26px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
+.policy-body h2{font:700 25px/1.15 "Playfair Display",Georgia,serif;margin:0 0 10px}
+.policy-body p{margin:0;color:var(--muted)}
+.policy-body p+p{margin-top:10px}
+.policy-body a{font-weight:700;color:#7a5722}
+@media (max-width:900px){
+  .fact-strip,.principles,.contact-cards{grid-template-columns:1fr}
+  .registry,.contact-layout{grid-template-columns:1fr}
+  .registry{gap:24px;padding:28px}
+  .current-strip .actions{justify-content:flex-start}
+}
+@media (max-width:560px){
+  .fact-strip>div,.principle,.contact-card,.policy-body section{padding:20px}
+  .registry{padding:24px;border-radius:22px}
+  .registry dl div,.contact-panel dl div{grid-template-columns:1fr;gap:3px}
+  .contact-card{min-height:0}
+}

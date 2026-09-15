@@ -34,23 +34,37 @@ jobs:
           curl -fsS http://127.0.0.1:18080/ > /tmp/index.html
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
           curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
+          curl -fsS http://127.0.0.1:18080/o-fundacji > /tmp/about.html
+          curl -fsS http://127.0.0.1:18080/kontakt > /tmp/contact.html
+          curl -fsS http://127.0.0.1:18080/polityka-prywatnosci > /tmp/privacy.html
           grep -q '/assets/logo-fundacji.webp' /tmp/index.html
           grep -q 'twitter:card' /tmp/index.html
           ! grep -q 'horizons-cdn.hostinger.com' /tmp/index.html
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
           grep -q 'FAQPage' /tmp/mikolaj.html
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
+          grep -q 'O Fundacji' /tmp/about.html
+          grep -q 'KRS 0000971976' /tmp/about.html
+          grep -q '+48 570 747 779' /tmp/contact.html
+          grep -q 'Google Fonts' /tmp/privacy.html
           for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
             curl -fsS "http://127.0.0.1:18080/archiwum/$path" | grep -q 'Materiał archiwalny'
           done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
           curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
+          curl -fsS http://127.0.0.1:18080/assets/pages.css >/dev/null
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "302"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/index.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/o-fundacji.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/o-fundacji/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/kontakt.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/kontakt/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/polityka-prywatnosci.html)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/polityka-prywatnosci/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/swiateczne-paczki/index.html)" = "301"
           test "$(curl -s -o /tmp/404.html -w '%{http_code}' http://127.0.0.1:18080/nie-ma-takiej-strony)" = "404"
           grep -q 'Ta strona nie istnieje' /tmp/404.html
