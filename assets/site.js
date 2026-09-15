@@ -32,7 +32,7 @@ if(menu&&nav){
   nav.querySelectorAll('a').forEach(a=>{
     const url=new URL(a.href,location.origin);
     const target=url.pathname.replace(/\/$/,'')||'/';
-    if(url.origin===location.origin&&target===path&&!a.classList.contains('navcta')) a.setAttribute('aria-current','page');
+    if(url.origin===location.origin&&target===path&&!url.hash&&!a.classList.contains('navcta')) a.setAttribute('aria-current','page');
   });
 }
 if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
