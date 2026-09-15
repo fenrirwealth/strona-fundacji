@@ -36,6 +36,7 @@ test("dane strukturalne organizacji sa poprawnym JSON", () => {
 
 test("produkcja korzysta z obecnego logo i lokalnych materialow", () => {
   assert.match(html, /\/assets\/logo-fundacji\.webp/);
+  assert.match(html, /\/assets\/site\.css\?v=165c3df4/);
   assert.match(siteCss, /header \.brand-logo\{mix-blend-mode:multiply\}/);
   assert.match(siteCss, /footer \.brand-logo\{display:none\}/);
   assert.match(html, /\/assets\/archiwum\/swiateczne-paczki\.webp/);
