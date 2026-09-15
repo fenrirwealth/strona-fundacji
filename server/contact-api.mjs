@@ -1,5 +1,6 @@
 import { createServer } from 'node:http';
 import { pathToFileURL } from 'node:url';
+import { handleNewsletterConfirmation, handleNewsletterSubscription } from './newsletter.mjs';
 
 const topicLabels = {
   'wyprawka-szkolna': 'Wyprawka szkolna',
@@ -64,7 +65,7 @@ async function sendWithResend(apiKey, body) {
   if (!response.ok) throw new Error(`Resend: ${response.status}`);
 }
 
-async function handle(request) {
+async function handleContact(request) {
   const allowedOrigin = process.env.CONTACT_ALLOWED_ORIGIN || 'https://fundacjalepszydomlepszejutro.pl';
   const origin = request.headers.get('origin');
   const cors = { 'access-control-allow-origin': allowedOrigin, vary: 'Origin' };
@@ -122,7 +123,14 @@ const server = createServer(async (incoming, outgoing) => {
     headers: incoming.headers,
     body: ['GET', 'HEAD'].includes(incoming.method) ? undefined : Buffer.concat(chunks),
   });
-  const response = await handle(request);
+  const pathname = new URL(request.url).pathname;
+  const response = pathname === '/api/newsletter'
+    ? await handleNewsletterSubscription(request)
+    : pathname === '/api/newsletter/potwierdz'
+      ? await handleNewsletterConfirmation(request)
+      : pathname === '/api/kontakt'
+        ? await handleContact(request)
+        : json({ message: 'Nie znaleziono endpointu.' }, 404);
   outgoing.writeHead(response.status, Object.fromEntries(response.headers));
   outgoing.end(Buffer.from(await response.arrayBuffer()));
 });
