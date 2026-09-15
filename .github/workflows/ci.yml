@@ -23,6 +23,7 @@ jobs:
         run: docker run --rm strona-fundacji:ci nginx -t
       - name: Sprawdz obraz, linkowanie i SEO
         run: |
+          set -euxo pipefail
           docker run -d --name strona-fundacji-ci -p 18080:8080 strona-fundacji:ci
           trap 'docker rm -f strona-fundacji-ci >/dev/null 2>&1 || true' EXIT
           for i in {1..20}; do
@@ -44,11 +45,12 @@ jobs:
           done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
           curl -fsS http://127.0.0.1:18080/assets/logo-fundacji.webp >/dev/null
-          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "200"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/favicon.ico)" = "302"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/index.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja.html)" = "301"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/listy-do-swietego-mikolaja/)" = "301"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/archiwum/swiateczne-paczki/index.html)" = "301"
           test "$(curl -s -o /tmp/404.html -w '%{http_code}' http://127.0.0.1:18080/nie-ma-takiej-strony)" = "404"
           grep -q 'Ta strona nie istnieje' /tmp/404.html
