@@ -12,6 +12,7 @@ const sitemap = fs.readFileSync(new URL("../sitemap.xml", import.meta.url), "utf
 const manifest = JSON.parse(fs.readFileSync(new URL("../site.webmanifest", import.meta.url), "utf8"));
 const donations = fs.readFileSync(new URL("../components/donations.tsx", import.meta.url), "utf8");
 const content = fs.readFileSync(new URL("../lib/content.ts", import.meta.url), "utf8");
+const siteCss = fs.readFileSync(new URL("../assets/site.css", import.meta.url), "utf8");
 
 const publicPages = [html, archive, campaign, about, contact, privacy];
 
@@ -35,6 +36,8 @@ test("dane strukturalne organizacji sa poprawnym JSON", () => {
 
 test("produkcja korzysta z obecnego logo i lokalnych materialow", () => {
   assert.match(html, /\/assets\/logo-fundacji\.webp/);
+  assert.match(siteCss, /header \.brand-logo\{mix-blend-mode:multiply\}/);
+  assert.match(siteCss, /footer \.brand-logo\{display:none\}/);
   assert.match(html, /\/assets\/archiwum\/swiateczne-paczki\.webp/);
   assert.doesNotMatch(html, /horizons-cdn\.hostinger\.com/);
   assert.doesNotMatch(archive, /horizons-cdn\.hostinger\.com/);
