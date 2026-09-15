@@ -15,8 +15,8 @@ export const impact = [
   { value: 180, suffix: ' tys. zł', label: 'wartości przekazanej pomocy', note: 'Przykładowy wskaźnik finansowy' },
 ];
 export const campaigns = [
-  { id: '01', category: 'Edukacja · równy start', title: 'Wyprawka na lepsze jutro', description: 'Pomóż przygotować dzieci do nowego roku szkolnego. Wspólnie możemy przekazać potrzebne przybory, książki i rzeczy, które ułatwią im dobry start.', image: '/assets/premium/edukacja.webp', alt: 'Książki na półkach — zdjęcie z archiwum Fundacji', detail: 'Pomóż w przygotowaniu wyprawki szkolnej', imageNote: 'Zdjęcie archiwalne Fundacji' },
-  { id: '02', category: 'Bliskość · dziecięce marzenia', title: 'Magiczne Święta', description: 'Za każdym listem stoi dziecko i jego marzenie. Wybierz list, przygotuj prezent i spraw, aby te Święta stały się naprawdę wyjątkowe.', image: '/assets/premium/listy.webp', alt: 'Ręcznie napisane listy — zdjęcie z archiwum Fundacji', detail: 'Poznaj listy dzieci i zasady akcji', imageNote: 'Materiał z archiwum Fundacji' },
+  { id: '01', category: 'Edukacja · równy start', title: 'Wyprawka na lepsze jutro', description: 'Pomóż przygotować dzieci do nowego roku szkolnego. Wspólnie możemy przekazać potrzebne przybory, książki i rzeczy, które ułatwią im dobry start.', image: '/assets/generated/wyprawka-v1.webp', alt: 'Wolontariusze kompletujący wyprawki szkolne — zdjęcie ilustracyjne', detail: 'Pomóż w przygotowaniu wyprawki szkolnej', imageNote: 'Zdjęcie ilustracyjne' },
+  { id: '02', category: 'Bliskość · dziecięce marzenia', title: 'Magiczne Święta', description: 'Za każdym listem stoi dziecko i jego marzenie. Wybierz list, przygotuj prezent i spraw, aby te Święta stały się naprawdę wyjątkowe.', image: '/assets/generated/magiczne-swieta-v1.webp', alt: 'Wolontariusze wspólnie pakujący świąteczny prezent — zdjęcie ilustracyjne', detail: 'Poznaj listy dzieci i zasady akcji', imageNote: 'Zdjęcie ilustracyjne' },
 ];
 export type Partner = { name: string; logo?: string; href?: string; placeholder?: boolean };
 // Logos from the user-supplied archive: grafiki-fundacja-lepszy-dom.zip, partnerzy/.
