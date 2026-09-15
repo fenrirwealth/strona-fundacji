@@ -16,12 +16,19 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const requests = new Map();
 
 export function validateContact(input) {
-  const data = Object.fromEntries(Object.entries(input ?? {}).map(([key, value]) => [key, String(value).trim()]));
+  if (!input || typeof input !== 'object' || Array.isArray(input)) {
+    return { ok: false, message: 'Nieprawidłowe dane formularza.' };
+  }
+  const fields = ['name', 'email', 'phone', 'topic', 'message', 'consent', 'website'];
+  if (fields.some(key => input[key] !== undefined && typeof input[key] !== 'string')) {
+    return { ok: false, message: 'Nieprawidłowe dane formularza.' };
+  }
+  const data = Object.fromEntries(fields.map(key => [key, (input[key] || '').trim()]));
   if (data.website) return { ok: true, spam: true, data };
   if (!data.name || data.name.length > 120) return { ok: false, message: 'Podaj imię i nazwisko.' };
   if (!emailPattern.test(data.email || '') || data.email.length > 180) return { ok: false, message: 'Podaj poprawny adres e-mail.' };
   if (data.phone?.length > 40) return { ok: false, message: 'Numer telefonu jest za długi.' };
-  if (!topicLabels[data.topic]) return { ok: false, message: 'Wybierz temat wiadomości.' };
+  if (!Object.hasOwn(topicLabels, data.topic)) return { ok: false, message: 'Wybierz temat wiadomości.' };
   if (!data.message || data.message.length < 10 || data.message.length > 3000) return { ok: false, message: 'Wiadomość powinna mieć od 10 do 3000 znaków.' };
   if (data.consent !== 'on' && data.consent !== 'true') return { ok: false, message: 'Zaznacz zgodę na kontakt.' };
   return { ok: true, spam: false, data };
@@ -37,6 +44,10 @@ function json(response, status, headers = {}) {
 
 function allowRequest(ip) {
   const now = Date.now();
+  for (const [key, times] of requests) {
+    if (now - times.at(-1) >= 10 * 60 * 1000) requests.delete(key);
+  }
+  if (!requests.has(ip) && requests.size >= 10000) return false;
   const recent = (requests.get(ip) || []).filter(time => now - time < 10 * 60 * 1000);
   if (recent.length >= 5) return false;
   recent.push(now); requests.set(ip, recent); return true;
@@ -47,6 +58,7 @@ async function sendWithResend(apiKey, body) {
     method: 'POST',
     headers: { authorization: `Bearer ${apiKey}`, 'content-type': 'application/json' },
     body: JSON.stringify(body),
+    signal: AbortSignal.timeout(5000),
   });
   if (!response.ok) throw new Error(`Resend: ${response.status}`);
 }
@@ -86,6 +98,7 @@ async function handle(request) {
     await sendWithResend(apiKey, {
       from,
       to: [data.email],
+      reply_to: to,
       subject: 'Otrzymaliśmy Twoją wiadomość — Fundacja Lepszy Dom Lepsze Jutro',
       text: `Dzień dobry,\n\ndziękujemy za kontakt. Otrzymaliśmy Twoją wiadomość dotyczącą: ${topic}. Odpowiemy tak szybko, jak to możliwe.\n\nJeśli sprawa jest pilna, zadzwoń: +48 570 747 779.\n\nFundacja Lepszy Dom Lepsze Jutro`,
     }).catch(() => {});
@@ -113,6 +126,6 @@ const server = createServer(async (incoming, outgoing) => {
   outgoing.end(Buffer.from(await response.arrayBuffer()));
 });
 
-if (pathToFileURL(process.argv[1]).href === import.meta.url) {
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
   server.listen(Number(process.env.CONTACT_API_PORT || 3001), '127.0.0.1');
 }
