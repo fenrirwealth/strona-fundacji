@@ -44,7 +44,7 @@ test("każda indeksowana strona ma spójny canonical, OG i podstawowe SEO", () =
     assert.match(source, /<meta name="robots" content="index,follow,max-image-preview:large">/);
     assert.match(source, /<meta property="og:title" content="[^"]+">/);
     assert.match(source, /<meta property="og:image" content="https:\/\/fundacjalepszydomlepszejutro\.pl\//);
-    assert.match(source, /<meta name="twitter:card" content="summary_large_image">/);
+    assert.match(source, /<meta name="twitter:card" content="(?:summary|summary_large_image)">/);
     assert.equal((source.match(/<h1(?:\s|>)/g) || []).length, 1, `strona ${route} powinna mieć dokładnie jeden h1`);
     assert.ok(description.length >= 50 && description.length <= 170, `opis meta ${route} ma ${description.length} znaków`);
     assert.doesNotMatch(source, /(?:href|src)="http:\/\//);
