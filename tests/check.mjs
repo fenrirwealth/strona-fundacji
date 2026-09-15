@@ -85,7 +85,8 @@ test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
   assert.equal((privacy.match(/<h1(?:\s|>)/g) || []).length, 1);
   assert.match(privacy, /nie ma formularza kontaktowego/);
   assert.match(privacy, /nie ma narzędzi reklamowych ani systemu analitycznego/);
-  assert.match(privacy, /Google Fonts/);
+  assert.match(privacy, /krojów pisma dostępnych w systemie użytkownika/);
+  assert.match(privacy, /Nie pobiera fontów z Google Fonts/);
   assert.match(privacy, /logi techniczne/i);
 });
 
