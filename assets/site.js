@@ -1,3 +1,64 @@
+const reducePageMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let pageNavigationPending=false;
+let pageCurtain=null;
+function revealStaticPage(){
+  if(reducePageMotion) return;
+  if(!pageCurtain){
+    pageCurtain=document.createElement('div');
+    pageCurtain.className='static-page-curtain';
+    pageCurtain.setAttribute('aria-hidden','true');
+    document.body.append(pageCurtain);
+  }else{
+    pageCurtain.className='static-page-curtain';
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>pageCurtain.classList.add('is-revealing')));
+  setTimeout(()=>{
+    pageCurtain.classList.add('is-ready');
+    pageCurtain.classList.remove('is-revealing');
+    pageNavigationPending=false;
+    document.documentElement.removeAttribute('data-page-transition');
+  },820);
+}
+function navigateWithCurtain(href,replace=false){
+  if(pageNavigationPending) return;
+  const destination=new URL(href,location.href);
+  pageNavigationPending=true;
+  if(reducePageMotion){
+    if(replace) location.replace(destination.href); else location.assign(destination.href);
+    return;
+  }
+  document.documentElement.setAttribute('data-page-transition','covering');
+  pageCurtain.classList.remove('is-revealing');
+  pageCurtain.classList.add('is-ready','is-covering');
+  setTimeout(()=>{
+    if(replace) location.replace(destination.href); else location.assign(destination.href);
+  },640);
+}
+function transitionDestination(anchor,event){
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey) return null;
+  if(anchor.hasAttribute('download')||anchor.dataset.noTransition!==undefined||(anchor.target&&anchor.target!=='_self')) return null;
+  const href=anchor.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('mailto:')||href.startsWith('tel:')) return null;
+  const destination=new URL(anchor.href,location.href);
+  if(destination.origin!==location.origin) return null;
+  const currentPath=location.pathname.replace(/\/$/,'')||'/';
+  const destinationPath=destination.pathname.replace(/\/$/,'')||'/';
+  if(currentPath===destinationPath&&destination.search===location.search&&destination.hash) return null;
+  if(destination.href===location.href) return null;
+  return destination;
+}
+revealStaticPage();
+document.addEventListener('click',event=>{
+  if(event.defaultPrevented) return;
+  const anchor=event.target instanceof Element?event.target.closest('a'):null;
+  if(!(anchor instanceof HTMLAnchorElement)) return;
+  const destination=transitionDestination(anchor,event);
+  if(!destination) return;
+  event.preventDefault();
+  navigateWithCurtain(destination.href);
+});
+addEventListener('pageshow',event=>{if(event.persisted) revealStaticPage()});
+
 const header=document.querySelector('header');
 const progress=document.querySelector('.progress span');
 const menu=document.querySelector('.menu');
@@ -156,7 +217,7 @@ if(contactLayout&&location.pathname.replace(/\/$/,'')==='/kontakt'){
       const response=await fetch(form.action,{method:'POST',headers:{'content-type':'application/json','accept':'application/json'},body:JSON.stringify(payload)});
       const data=await response.json().catch(()=>({}));
       if(!response.ok||data.ok!==true) throw new Error(data.message||'Nie udało się wysłać wiadomości.');
-      form.reset();status.dataset.state='success';status.textContent='Dziękujemy. Wiadomość została wysłana do Fundacji.';window.setTimeout(()=>window.location.assign('/dziekujemy?wyslano=1'),650);
+      form.reset();status.dataset.state='success';status.textContent='Dziękujemy. Wiadomość została wysłana do Fundacji.';window.setTimeout(()=>navigateWithCurtain('/dziekujemy?wyslano=1'),650);
     }catch(error){
       status.dataset.state='error';status.textContent=`${error.message||'Nie udało się wysłać wiadomości.'} Możesz też zadzwonić: +48 570 747 779.`;
     }finally{submit.disabled=false;form.removeAttribute('aria-busy')}
