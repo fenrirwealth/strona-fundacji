@@ -4,8 +4,8 @@ import { cn } from '@/lib/cn';
 
 const stories = [
   {
-    src: '/assets/generated/wolontariat-cinematic-v1.jpg',
-    alt: 'Ręce wolontariuszy przygotowujących paczki dla dzieci i rodzin',
+    src: '/assets/generated/wolontariat-cinematic-v2.jpg',
+    alt: 'Wolontariusze przygotowują całoroczną pomoc dla dzieci i rodzin',
     label: 'Wolontariat',
     title: 'Dobro rośnie, kiedy działamy razem.',
     copy: 'Łączymy darczyńców, wolontariuszy i firmy wokół prawdziwych potrzeb.',
