@@ -16,6 +16,6 @@ export function Header({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
   return <header ref={header} className={`site-header${variant === 'dark' ? ' site-header-dark' : ''}`}><div className="shell flex items-center justify-between gap-6">
     <NavLink className="brand flex items-center gap-3" href="/" aria-label="Fundacja Lepszy Dom Lepsze Jutro — strona główna"><img src="/assets/logo-fundacji-transparent.svg" width="46" height="46" alt="" /><span>LEPSZY DOM<span>LEPSZE JUTRO</span><small>F U N D A C J A</small></span></NavLink>
     <button ref={toggle} className="menu-toggle" aria-expanded={open} aria-controls="main-navigation" aria-label={open ? 'Zamknij menu' : 'Otwórz menu'} onClick={() => setOpen(!open)}><span>{open ? 'Zamknij' : 'Menu'}</span><span aria-hidden="true">{open ? '×' : '+'}</span></button>
-    <nav id="main-navigation" aria-label="Główna nawigacja" className={open ? 'navigation is-open' : 'navigation'}>{links.map(([name, href]) => <NavLink key={name} href={href} onClick={() => setOpen(false)}>{name}</NavLink>)}<a className="portal-nav" href={foundation.portal}>Portal <span aria-hidden="true">↗</span></a></nav>
+    <nav id="main-navigation" aria-label="Główna nawigacja" className={open ? 'navigation is-open' : 'navigation'}>{links.map(([name, href]) => <NavLink key={name} href={href} onClick={() => setOpen(false)}>{name}</NavLink>)}<a className="portal-nav" href={foundation.portal} aria-label="Listy do Świętego Mikołaja — przejdź do portalu">Listy do Mikołaja <span aria-hidden="true">↗</span></a></nav>
   </div></header>;
 }

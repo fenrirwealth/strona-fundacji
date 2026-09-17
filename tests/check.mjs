@@ -17,6 +17,8 @@ const manifest = JSON.parse(fs.readFileSync(new URL("../site.webmanifest", impor
 const donations = fs.readFileSync(new URL("../components/donations.tsx", import.meta.url), "utf8");
 const content = fs.readFileSync(new URL("../lib/content.ts", import.meta.url), "utf8");
 const siteCss = fs.readFileSync(new URL("../assets/site.css", import.meta.url), "utf8");
+const staticNormalizer = fs.readFileSync(new URL("../scripts/normalize-static-pages.mjs", import.meta.url), "utf8");
+const newsGenerator = fs.readFileSync(new URL("../scripts/generate-news-pages.mjs", import.meta.url), "utf8");
 
 const publicPages = [html, archive, newsIndex, dayOfChild, campaign, about, how, contact, transparency, privacy];
 
@@ -153,6 +155,9 @@ test("wszystkie podstrony maja spójne logo i nawigacje", () => {
     assert.match(source, /href="\/#wsparcie">Jak pomóc<\/a>/);
     assert.doesNotMatch(source, /href="\/#pomoc"/);
   }
+  assert.match(staticNormalizer, /Listy do Mikołaja <span aria-hidden="true">↗<\/span>/);
+  assert.match(newsGenerator, /Listy do Mikołaja <span aria-hidden="true">↗<\/span>/);
+  assert.match(siteCss, /header \.portal-link\{[^}]*linear-gradient/);
 });
 
 test("strona prywatnosci odpowiada faktycznemu kodowi strony", () => {
