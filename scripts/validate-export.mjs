@@ -5,10 +5,13 @@ assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1);
 assert.doesNotMatch(html, /Dane demonstracyjne|Przykładowy wskaźnik/);
 assert.match(html, /name="robots" content="index, follow/);
 assert.match(html, /"@type":"NGO"/);
-assert.match(html, /counter-prefix">ok\. <\/span>470/);
-assert.match(html, /counter-prefix">ok\. <\/span>260/);
-assert.match(html, /Wyprawka na lepsze jutro/);
-assert.match(html, /Magiczne Święta/);
+assert.match(html, />470\+<\/dd>/);
+assert.match(html, />260 tys\. zł<\/dd>/);
+assert.match(html, /Prawdziwa zmiana zaczyna się od zauważenia człowieka/);
+assert.match(html, /Wesprzyj naszą misję/);
+assert.match(html, /51 1090 2590 0000 0001 5074 2996/);
+assert.match(html, /wolontariat-cinematic-v1\.jpg/);
+assert.match(html, /rodzina-cinematic-v1\.jpg/);
 assert.match(html, /portal\.fundacjalepszydomlepszejutro\.pl/);
 assert.doesNotMatch(html, /fonts\.(googleapis|gstatic)\.com/);
 for (const [, url] of html.matchAll(/(?:src|href)="(\/[^"#?]*)"/g)) {

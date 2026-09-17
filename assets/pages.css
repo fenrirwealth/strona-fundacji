@@ -2,15 +2,15 @@
 .page-section{padding-top:70px;padding-bottom:70px}
 .fact-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden;margin:18px 0 16px}
 .fact-strip>div{background:var(--paper);padding:24px;text-align:center}
-.fact-strip strong{display:block;font:700 24px/1.1 "DM Sans",system-ui,sans-serif}
+.fact-strip strong{display:block;font:700 24px/1.1 "Inter",system-ui,sans-serif}
 .fact-strip span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
 .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .principle{padding:25px;border:1px solid var(--line);border-radius:22px;background:var(--paper)}
 .principle>span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:700;margin-bottom:18px}
-.principle h3{font:700 24px/1.1 "DM Sans",system-ui,sans-serif;margin:0 0 9px}
+.principle h3{font:700 24px/1.1 "Inter",system-ui,sans-serif;margin:0 0 9px}
 .principle p{margin:0;color:var(--muted);font-size:14px}
 .registry{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;padding:36px;border-radius:28px;background:linear-gradient(135deg,#17263c,#203654);color:#fff;margin:14px 0 58px}
-.registry h2{font:700 42px/1.03 "DM Sans",system-ui,sans-serif;margin:0 0 10px}
+.registry h2{font:700 42px/1.03 "Inter",system-ui,sans-serif;margin:0 0 10px}
 .registry p{margin:0;color:rgba(255,255,255,.68)}
 .registry dl,.contact-panel dl{margin:0;display:grid;gap:9px}
 .registry dl div,.contact-panel dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -27,17 +27,17 @@ a.contact-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(23,3
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .contact-layout h2{font-size:clamp(40px,5vw,62px);margin:0 0 18px;max-width:10ch}
 .contact-panel{padding:28px;border:1px solid var(--line);border-radius:24px;background:var(--paper)}
-.contact-panel h3{font:700 27px/1.1 "DM Sans",system-ui,sans-serif;margin:0 0 18px}
+.contact-panel h3{font:700 27px/1.1 "Inter",system-ui,sans-serif;margin:0 0 18px}
 .contact-panel dl div{border-bottom:1px solid var(--line)}
 .contact-panel dt{color:var(--muted)}
 .contact-panel p{margin:18px 0 0;color:var(--muted);font-size:13px}
 .narrow{width:min(900px,calc(100% - 40px))}
 .policy-hero{padding:8px 0 30px}
-.policy-hero h1{font:700 clamp(48px,7vw,78px)/.98 "DM Sans",system-ui,sans-serif;letter-spacing:-.03em;margin:0 0 20px;max-width:10ch}
+.policy-hero h1{font:700 clamp(48px,7vw,78px)/.98 "Inter",system-ui,sans-serif;letter-spacing:-.03em;margin:0 0 20px;max-width:10ch}
 .policy-hero>p:last-child{font-size:17px;color:var(--muted);max-width:65ch}
 .policy-body{display:grid;gap:14px;margin:10px 0 54px}
 .policy-body section{padding:24px 26px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
-.policy-body h2{font:700 25px/1.15 "DM Sans",system-ui,sans-serif;margin:0 0 10px}
+.policy-body h2{font:700 25px/1.15 "Inter",system-ui,sans-serif;margin:0 0 10px}
 .policy-body p{margin:0;color:var(--muted)}
 .policy-body p+p{margin-top:10px}
 .policy-body a{font-weight:700;color:#158f98}
@@ -67,15 +67,15 @@ a.contact-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(23,3
 .help-paths{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:20px 0 30px}
 .help-path{padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--paper)}
 .help-path>span{display:grid;place-items:center;width:38px;height:38px;margin-bottom:22px;border-radius:50%;background:var(--ink2);color:#fff;font-size:11px;font-weight:700}
-.help-path h2{font:700 29px/1.1 "DM Sans",system-ui,sans-serif;margin:0 0 12px}.help-path p{margin:0;color:var(--muted);font-size:14px}.help-path .post-link{margin-top:16px}
+.help-path h2{font:700 29px/1.1 "Inter",system-ui,sans-serif;margin:0 0 12px}.help-path p{margin:0;color:var(--muted);font-size:14px}.help-path .post-link{margin-top:16px}
 .evidence-section{padding-bottom:22px}.evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .evidence-card{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--paper);text-decoration:none;transition:.25s}
 .evidence-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.evidence-card img{width:100%;height:300px;object-fit:cover}.evidence-card>div{padding:24px}
 .evidence-card small{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.evidence-card h3{font:700 27px/1.12 "DM Sans",system-ui,sans-serif;margin:8px 0 16px}.evidence-card span{font-size:13px;font-weight:700}
+.evidence-card h3{font:700 27px/1.12 "Inter",system-ui,sans-serif;margin:8px 0 16px}.evidence-card span{font-size:13px;font-weight:700}
 .transparency-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:18px}
 .transparency-card{padding:32px;border:1px solid var(--line);border-radius:24px;background:var(--paper)}
-.transparency-card h2{font:700 32px/1.12 "DM Sans",system-ui,sans-serif;margin:0 0 15px}.transparency-card>p:not(.eyebrow){color:var(--muted);margin:0}.transparency-card .post-link{margin-top:22px}
+.transparency-card h2{font:700 32px/1.12 "Inter",system-ui,sans-serif;margin:0 0 15px}.transparency-card>p:not(.eyebrow){color:var(--muted);margin:0}.transparency-card .post-link{margin-top:22px}
 .bank-mini h2{overflow-wrap:anywhere;font-size:clamp(22px,2.4vw,31px);font-variant-numeric:tabular-nums}.bank-mini dl{margin:20px 0}
 .bank-mini dl>div{display:grid;grid-template-columns:80px 1fr;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:13px}.bank-mini dt{color:var(--muted)}.bank-mini dd{margin:0;font-weight:700}
 @media(max-width:800px){.help-paths,.evidence-grid,.transparency-grid{grid-template-columns:1fr}.evidence-card img{height:260px}}
@@ -83,7 +83,7 @@ a.contact-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(23,3
 
 /* Formularz kontaktowy i profile społecznościowe. */
 .social-links{display:flex;gap:10px;margin-top:20px}.social-links a{display:grid;place-items:center;width:43px;height:43px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:.2s}.social-links a:hover{background:var(--ink);border-color:var(--ink);color:#fff}.social-links svg{width:18px;height:18px;fill:currentColor}.social-links svg rect,.social-links svg circle{fill:none;stroke:currentColor;stroke-width:1.8}.social-links svg .social-dot{fill:currentColor;stroke:none}
-.contact-form-intro h2{max-width:12ch}.quick-call{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:28px;padding:20px 22px;border-radius:18px;background:#eef2f5}.quick-call span{display:block;color:var(--muted);font-size:13px}.quick-call strong{display:block;font:700 21px/1.2 "DM Sans",system-ui,sans-serif}.quick-call a{flex:none;padding:11px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;text-decoration:none}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:17px}.form-field{display:grid;gap:7px}.form-field-wide{grid-column:1/-1}.form-field label,.consent-row{font-size:13px;font-weight:700}.form-field input,.form-field select,.form-field textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #cbd3dc;border-radius:12px;background:#fff;color:var(--ink);font:inherit}.form-field textarea{min-height:150px;resize:vertical}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid #158f98;outline-offset:2px;border-color:#158f98}.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.consent-row{display:flex;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}.consent-row input{flex:0 0 auto;margin-top:3px}.consent-row a{text-decoration:underline}.form-submit{justify-self:start;min-height:49px;padding:12px 20px;border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700}.form-submit:disabled{opacity:.55;cursor:wait}.form-status{min-height:1.5em;margin:0;color:var(--muted);font-size:13px}.form-status[data-state="success"]{color:#35745d}.form-status[data-state="error"]{color:#a23b3b}@media(max-width:700px){.contact-form{grid-template-columns:1fr}.form-field-wide{grid-column:auto}.quick-call{align-items:flex-start;flex-direction:column}}
+.contact-form-intro h2{max-width:12ch}.quick-call{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:28px;padding:20px 22px;border-radius:18px;background:#eef2f5}.quick-call span{display:block;color:var(--muted);font-size:13px}.quick-call strong{display:block;font:700 21px/1.2 "Inter",system-ui,sans-serif}.quick-call a{flex:none;padding:11px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;text-decoration:none}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:17px}.form-field{display:grid;gap:7px}.form-field-wide{grid-column:1/-1}.form-field label,.consent-row{font-size:13px;font-weight:700}.form-field input,.form-field select,.form-field textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #cbd3dc;border-radius:12px;background:#fff;color:var(--ink);font:inherit}.form-field textarea{min-height:150px;resize:vertical}.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid #158f98;outline-offset:2px;border-color:#158f98}.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.consent-row{display:flex;align-items:flex-start;gap:10px;font-weight:400;line-height:1.5}.consent-row input{flex:0 0 auto;margin-top:3px}.consent-row a{text-decoration:underline}.form-submit{justify-self:start;min-height:49px;padding:12px 20px;border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700}.form-submit:disabled{opacity:.55;cursor:wait}.form-status{min-height:1.5em;margin:0;color:var(--muted);font-size:13px}.form-status[data-state="success"]{color:#35745d}.form-status[data-state="error"]{color:#a23b3b}@media(max-width:700px){.contact-form{grid-template-columns:1fr}.form-field-wide{grid-column:auto}.quick-call{align-items:flex-start;flex-direction:column}}
 
 /* Formularz: paleta Fundacji, czytelna hierarchia i spokojne mikrointerakcje. */
 .contact-layout{gap:48px}
