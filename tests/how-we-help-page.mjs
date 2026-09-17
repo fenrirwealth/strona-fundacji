@@ -44,4 +44,7 @@ test('eksport i PageTransition traktują Jak pomagamy jako trase Next', () => {
   assert.ok(preservedFiles);
   assert.doesNotMatch(preservedFiles[1], /jak-pomagamy\.html/);
   assert.match(read('components/transitions/PageTransition.tsx'), /'\/jak-pomagamy'/);
+  const workflow = read('.github/workflows/ci.yml');
+  assert.match(workflow, /Pomoc przybiera wiele form/);
+  assert.doesNotMatch(workflow, /Pomoc zaczyna się od konkretnej potrzeby/);
 });
