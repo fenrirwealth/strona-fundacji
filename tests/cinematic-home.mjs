@@ -36,6 +36,15 @@ test('Lenis jest zsynchronizowany z GSAP i respektuje ograniczenie animacji', ()
   assert.match(smoothScroll, /pointer: fine/);
 });
 
+test('nawigacja eksponuje portal Listy do Mikolaja jako zlote CTA', () => {
+  const header = read('components/header.tsx');
+  const styles = read('app/globals.css');
+  assert.match(header, /Listy do Mikołaja/);
+  assert.match(header, /Listy do Świętego Mikołaja — przejdź do portalu/);
+  assert.match(styles, /\.portal-nav\{[^}]*background:var\(--gold\)/);
+  assert.match(styles, /\.site-header-dark \.navigation>a:not\(\.portal-nav\)\{color:rgba\(255,255,255,\.88\)/);
+});
+
 test('siatka historii korzysta z lokalnych zdjec i responsywnego bento', () => {
   const grid = read('components/StoryGrid.tsx');
   assert.match(grid, /wolontariat-cinematic-v2\.jpg/);
