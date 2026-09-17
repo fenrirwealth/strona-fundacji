@@ -20,6 +20,8 @@ test('hero animuje slowa z rozmyciem i przesunieciem', () => {
   assert.match(hero, /blur\(14px\)/);
   assert.match(hero, /y: reducedMotion \? 0 : 50/);
   assert.match(hero, /min-h-\[100svh\]/);
+  assert.match(hero, /rodzina-cinematic-v1\.jpg/);
+  assert.doesNotMatch(hero, /wolontariat-cinematic-v1\.jpg/);
 });
 
 test('cytat Prezesa ma poprawna tresc i podpis', () => {
