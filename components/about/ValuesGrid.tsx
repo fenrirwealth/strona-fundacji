@@ -24,7 +24,7 @@ const values: Value[] = [
   },
   {
     title: 'Bezpośrednia Pomoc',
-    description: 'Wsparcie odpowiada na konkretne, wcześniej rozpoznane potrzeby dzieci, rodzin i placówek.',
+    description: 'Każde wsparcie wynika z realnej, wcześniej rozpoznanej potrzeby — od codziennej pomocy dzieciom i rodzinom po reakcję na kryzysy i skutki klęsk żywiołowych.',
     eyebrow: 'Blisko potrzeb',
     icon: HandHeart,
     className: 'md:col-span-5',
@@ -32,7 +32,7 @@ const values: Value[] = [
   },
   {
     title: 'Zaangażowanie',
-    description: 'Łączymy ludzi, którzy chcą działać mądrze i odpowiedzialnie. Każdy wnosi coś ważnego do wspólnej zmiany.',
+    description: 'Łączymy darczyńców, wolontariuszy, firmy i instytucje, które chcą działać mądrze i odpowiedzialnie. Każdy wnosi coś ważnego do wspólnej zmiany.',
     eyebrow: 'Siła relacji',
     icon: HeartHandshake,
     className: 'md:col-span-5',

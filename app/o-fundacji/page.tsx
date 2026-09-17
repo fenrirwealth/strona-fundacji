@@ -8,7 +8,7 @@ import { Header } from '@/components/header';
 
 export const metadata: Metadata = {
   title: 'O Fundacji | Lepszy Dom Lepsze Jutro',
-  description: 'Poznaj historię, misję i wartości Fundacji Lepszy Dom Lepsze Jutro. Od 2022 roku pomagamy dzieciom, rodzinom oraz placówkom opiekuńczym.',
+  description: 'Poznaj Fundację Lepszy Dom Lepsze Jutro. Wspieramy dzieci, rodziny i placówki oraz pomagamy osobom dotkniętym kryzysami i skutkami klęsk żywiołowych.',
   alternates: { canonical: '/o-fundacji' },
   openGraph: {
     type: 'website',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: '/o-fundacji',
     siteName: 'Fundacja Lepszy Dom Lepsze Jutro',
     title: 'Za każdą pomocą stoją ludzie.',
-    description: 'Poznaj historię, misję i wartości Fundacji Lepszy Dom Lepsze Jutro.',
+    description: 'Pomagamy dzieciom, rodzinom i placówkom oraz reagujemy w sytuacjach kryzysowych i po klęskach żywiołowych.',
     images: [{
       url: '/assets/generated/rodzina-cinematic-v1.jpg',
       width: 1536,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Za każdą pomocą stoją ludzie.',
-    description: 'Poznaj historię, misję i wartości Fundacji Lepszy Dom Lepsze Jutro.',
+    description: 'Pomagamy dzieciom, rodzinom i placówkom oraz reagujemy w sytuacjach kryzysowych i po klęskach żywiołowych.',
     images: ['/assets/generated/rodzina-cinematic-v1.jpg'],
   },
 };

@@ -22,6 +22,7 @@ test('hero animuje slowa z rozmyciem i przesunieciem', () => {
   assert.match(hero, /min-h-\[100svh\]/);
   assert.match(hero, /rodzina-cinematic-v1\.jpg/);
   assert.doesNotMatch(hero, /wolontariat-cinematic-v1\.jpg/);
+  for (const area of ['Dzieci i młodzież', 'Rodziny', 'Placówki', 'Pomoc kryzysowa']) assert.match(hero, new RegExp(area));
 });
 
 test('cytat Prezesa ma poprawna tresc i podpis', () => {
@@ -38,6 +39,15 @@ test('timeline korzysta z GSAP ScrollTrigger i wszystkich kamieni milowych', () 
   assert.match(timeline, /scrub: 0\.6/);
   for (const year of ['2022', '2025', '2026']) assert.match(timeline, new RegExp(year));
   assert.match(timeline, /scaleY: 1/);
+  assert.match(timeline, /klęskach żywiołowych/);
+});
+
+test('opis misji pokazuje szeroki i potwierdzony zakres pomocy', () => {
+  const page = read('app/o-fundacji/page.tsx');
+  const values = read('components/about/ValuesGrid.tsx');
+  assert.match(page, /dzieci, rodziny i placówki/);
+  assert.match(page, /kryzysami i skutkami klęsk żywiołowych/);
+  assert.match(values, /reakcję na kryzysy i skutki klęsk żywiołowych/);
 });
 
 test('bento wartosci posiada glassmorphism i interaktywny tilt', () => {
