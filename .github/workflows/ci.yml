@@ -78,10 +78,12 @@ jobs:
           grep -q '^Sitemap: https://fundacjalepszydomlepszejutro.pl/sitemap.xml$' /tmp/robots.txt
           grep -q '<loc>https://fundacjalepszydomlepszejutro.pl/o-fundacji</loc>' /tmp/sitemap.xml
           for path in swiateczne-paczki plecak-pelen-odwagi pomoc-po-powodzi zebrane-dary za-kulisami-dzialan; do
-            curl -fsS "http://127.0.0.1:18080/archiwum/$path" | grep -q 'Materiał archiwalny'
+            curl -fsS "http://127.0.0.1:18080/archiwum/$path" -o "/tmp/archiwum-$path.html"
+            grep -q 'Materiał archiwalny' "/tmp/archiwum-$path.html"
           done
           for path in dary-dla-rodzinnego-domu-dziecka zbiorka-polish-airports-academy wracamy-z-nowa-energia dzien-dziecka-dla-ciebie; do
-            curl -fsS "http://127.0.0.1:18080/aktualnosci/$path" | grep -q 'Oryginalny post'
+            curl -fsS "http://127.0.0.1:18080/aktualnosci/$path" -o "/tmp/aktualnosci-$path.html"
+            grep -q 'Oryginalny post' "/tmp/aktualnosci-$path.html"
           done
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q 'icon-192.png'
           curl -fsS http://127.0.0.1:18080/site.webmanifest | grep -q '"lang": "pl"'

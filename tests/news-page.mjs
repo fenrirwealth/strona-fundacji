@@ -39,15 +39,14 @@ test('filtry i magazynowa siatka są interaktywne', () => {
   assert.match(grid, /AnimatePresence mode="popLayout"/);
 });
 
-test('karta ma efekt obrazu i magnetyczny wskaźnik', () => {
+test('karta ma efekt obrazu bez zasłaniającego treść wskaźnika', () => {
   const card = read('components/news/NewsCard.tsx');
   assert.match(card, /group-hover:scale-105/);
   assert.match(card, /group-hover:brightness-\[\.82\]/);
-  assert.match(card, /onPointerMove=\{handlePointerMove\}/);
-  assert.match(card, /useSpring/);
   assert.match(card, /ScrollTrigger/);
   assert.match(card, /scrub: 0\.7/);
-  assert.match(card, />Odkryj /);
+  assert.doesNotMatch(card, />Odkryj /);
+  assert.doesNotMatch(card, /useSpring/);
 });
 
 test('nowy indeks aktualności zastępuje statyczny, a relacje pozostają kopiowane', () => {

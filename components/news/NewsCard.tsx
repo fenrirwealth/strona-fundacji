@@ -3,20 +3,14 @@
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { useEffect, useRef, useState, type PointerEvent } from 'react';
+import { useReducedMotion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import type { NewsItem } from './NewsGrid';
 
 export function NewsCard({ item }: { item: NewsItem }) {
-  const [isHovered, setIsHovered] = useState(false);
   const reducedMotion = useReducedMotion();
   const articleRef = useRef<HTMLElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
-  const cursorX = useMotionValue(-120);
-  const cursorY = useMotionValue(-120);
-  const springX = useSpring(cursorX, { stiffness: 500, damping: 38, mass: 0.35 });
-  const springY = useSpring(cursorY, { stiffness: 500, damping: 38, mass: 0.35 });
 
   useEffect(() => {
     const article = articleRef.current;
@@ -39,29 +33,9 @@ export function NewsCard({ item }: { item: NewsItem }) {
     return () => context.revert();
   }, [reducedMotion]);
 
-  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
-    if (event.pointerType !== 'mouse' || reducedMotion) return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    cursorX.set(event.clientX - bounds.left);
-    cursorY.set(event.clientY - bounds.top);
-  };
-
-  const handlePointerEnter = (event: PointerEvent<HTMLElement>) => {
-    if (event.pointerType === 'mouse' && !reducedMotion) setIsHovered(true);
-  };
-
-  const handlePointerLeave = () => {
-    setIsHovered(false);
-    cursorX.set(-120);
-    cursorY.set(-120);
-  };
-
   return <article
     ref={articleRef}
     className="group relative h-full min-h-[560px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.045] shadow-[0_32px_100px_rgba(0,0,0,.28)] backdrop-blur-md sm:min-h-[620px]"
-    onPointerMove={handlePointerMove}
-    onPointerEnter={handlePointerEnter}
-    onPointerLeave={handlePointerLeave}
   >
     <div ref={mediaRef} className="absolute -inset-8 overflow-hidden">
       <Image
@@ -87,14 +61,5 @@ export function NewsCard({ item }: { item: NewsItem }) {
       </div>
     </div>
 
-    <motion.div
-      aria-hidden="true"
-      className="pointer-events-none absolute left-0 top-0 z-20 hidden h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-gold/45 bg-gold text-night shadow-[0_0_45px_rgba(216,174,99,.32)] backdrop-blur-md lg:grid"
-      style={{ x: springX, y: springY }}
-      animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.68 }}
-      transition={{ opacity: { duration: 0.22 }, scale: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }}
-    >
-      <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-[.14em]">Odkryj <ArrowUpRight className="h-3.5 w-3.5" /></span>
-    </motion.div>
   </article>;
 }
