@@ -30,6 +30,9 @@ test('wezwania do pomocy prowadza do formularza z wybranym tematem', () => {
 test('kontakt jest trasa App Router ze split-screen i pelnymi danymi Fundacji', () => {
   assert.match(contactPage, /canonical: '\/kontakt'/);
   assert.match(contactPage, /min-h-screen bg-\[#050505\] text-white flex flex-col lg:flex-row/);
+  assert.match(contactPage, /overflow-x-hidden relative/);
+  assert.match(contactPage, /w-full lg:w-1\/2 p-6 lg:p-16 flex flex-col justify-center/);
+  assert.match(contactPage, /w-full lg:w-1\/2 p-6 lg:p-16 flex items-center justify-center relative z-10/);
   assert.match(contactPage, /<ContactInfo \/>/);
   assert.match(contactPage, /<InteractiveForm \/>/);
   assert.match(contactInfo, /kontakt@fundacjalepszydomlepszejutro\.pl|foundation\.email/);
@@ -49,6 +52,10 @@ test('formularz konwersacyjny ma wymagane pola, walidacje i stan sukcesu', () =>
   assert.match(interactiveForm, /aria-live="polite"/);
   assert.match(interactiveForm, /polityka-prywatnosci/);
   assert.match(interactiveForm, /topicFromQuery/);
+  assert.match(interactiveForm, /flex min-w-0 flex-wrap items-baseline/);
+  assert.match(interactiveForm, /inline-block min-w-\[120px\] max-w-full/);
+  assert.match(interactiveForm, /backdrop-blur-md/);
+  assert.match(contactInfo, /break-all/);
 });
 
 test('walidacja odrzuca niepelna wiadomosc i akceptuje poprawna', () => {

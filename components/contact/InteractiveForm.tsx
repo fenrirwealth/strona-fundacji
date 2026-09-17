@@ -17,7 +17,7 @@ const topicFromQuery: Record<string, Topic> = {
   inne: 'inne',
 };
 
-const fieldClass = 'mx-1 inline-block min-w-[8ch] border-0 border-b border-white/25 bg-transparent px-1.5 py-1 text-center font-medium text-white outline-none transition-colors placeholder:text-white/25 focus:border-amber-500 focus:ring-0';
+const fieldClass = 'inline-block min-w-[120px] max-w-full border-0 border-b border-neutral-600 bg-transparent px-2 py-1 text-center font-medium text-amber-500 outline-none transition-colors placeholder:text-neutral-500 focus:border-amber-500 focus:ring-0';
 
 export function InteractiveForm() {
   const reducedMotion = useReducedMotion();
@@ -47,14 +47,14 @@ export function InteractiveForm() {
   }
 
   return <motion.section
-    className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#080808] px-5 py-20 sm:px-10 lg:px-14 lg:py-28 xl:px-20"
+    className="relative flex w-full min-w-0 items-center justify-center py-16 lg:min-h-[calc(100svh-8rem)] lg:py-20"
     initial={reducedMotion ? false : { opacity: 0, x: 42 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: reducedMotion ? 0 : 0.9, delay: reducedMotion ? 0 : 0.12, ease: [0.22, 1, 0.36, 1] }}
     aria-labelledby="form-heading"
   >
     <motion.div
-      className="absolute right-[-12rem] top-[8%] h-[34rem] w-[34rem] rounded-full bg-amber-500/[.09] blur-[160px]"
+      className="pointer-events-none absolute right-[-12rem] top-[8%] h-[34rem] w-[34rem] rounded-full bg-amber-500/[.09] blur-[160px]"
       animate={reducedMotion ? undefined : { x: [0, -55, 0], y: [0, 42, 0], scale: [1, 1.08, 1] }}
       transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
       aria-hidden="true"
@@ -63,7 +63,7 @@ export function InteractiveForm() {
 
     <motion.div
       id="formularz"
-      className="relative z-10 w-full max-w-3xl scroll-mt-32 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.05] p-6 shadow-[0_35px_120px_rgba(0,0,0,.48)] backdrop-blur-xl sm:p-10 lg:p-12 xl:p-14"
+      className="relative z-10 w-full min-w-0 max-w-2xl scroll-mt-32 overflow-hidden rounded-2xl border border-white/10 bg-white/[.05] p-6 shadow-[0_35px_120px_rgba(0,0,0,.48)] backdrop-blur-md lg:p-12"
       initial={reducedMotion ? false : { opacity: 0, y: 40, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: reducedMotion ? 0 : 0.85, delay: reducedMotion ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -85,7 +85,7 @@ export function InteractiveForm() {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: reducedMotion ? 0 : 0.55 }}
-          className="flex min-h-[25rem] flex-col items-start justify-center"
+          className="flex min-h-[22rem] flex-col items-center justify-center text-center"
           role="status"
           aria-live="polite"
         >
@@ -109,8 +109,8 @@ export function InteractiveForm() {
           exit={{ opacity: 0, y: -16 }}
           noValidate={false}
         >
-          <p className="font-display text-[clamp(1.75rem,3vw,2.65rem)] leading-[1.55] tracking-[-.02em] text-white/88">
-            Cześć, mam na imię
+          <div className="flex min-w-0 flex-wrap items-baseline gap-x-1.5 gap-y-3 font-display text-2xl leading-loose tracking-[-.02em] text-white/88 sm:text-3xl lg:text-4xl">
+            <span>Cześć, mam na imię</span>
             <label className="sr-only" htmlFor="contact-name">Imię</label>
             <input
               id="contact-name"
@@ -122,35 +122,35 @@ export function InteractiveForm() {
               value={name}
               onChange={event => setName(event.target.value)}
               placeholder="Imię"
-              className={`${fieldClass} w-[7.5em]`}
+              className={`${fieldClass} w-36`}
             />.
-            Piszę w imieniu
+            <span>Piszę w imieniu</span>
             <label className="sr-only" htmlFor="contact-representation">Reprezentuję</label>
             <select
               id="contact-representation"
               name="representation"
               value={representation}
               onChange={event => setRepresentation(event.target.value as Representation)}
-              className={`${fieldClass} cursor-pointer`}
+              className={`${fieldClass} w-36 cursor-pointer`}
             >
               <option className="bg-[#111]" value="siebie">Siebie</option>
               <option className="bg-[#111]" value="firmy">Firmy</option>
             </select>
-            i chciałbym porozmawiać o
+            <span>i chciałbym porozmawiać o</span>
             <label className="sr-only" htmlFor="contact-topic">Temat rozmowy</label>
             <select
               id="contact-topic"
               name="topic"
               value={topic}
               onChange={event => setTopic(event.target.value as Topic)}
-              className={`${fieldClass} max-w-full cursor-pointer`}
+              className={`${fieldClass} w-full min-w-0 cursor-pointer sm:w-auto sm:min-w-[220px]`}
             >
               <option className="bg-[#111]" value="wsparcie-zbiorki">Wsparciu zbiórki</option>
               <option className="bg-[#111]" value="wolontariat">Wolontariacie</option>
               <option className="bg-[#111]" value="przekazanie-darow">Przekazaniu darów</option>
               <option className="bg-[#111]" value="inne">Innym</option>
             </select>.
-            Możecie skontaktować się ze mną pod adresem
+            <span>Możecie skontaktować się ze mną pod adresem</span>
             <label className="sr-only" htmlFor="contact-email">Adres e-mail</label>
             <input
               id="contact-email"
@@ -163,18 +163,20 @@ export function InteractiveForm() {
               value={email}
               onChange={event => setEmail(event.target.value)}
               placeholder="E-mail"
-              className={`${fieldClass} w-[12em] max-w-full`}
+              className={`${fieldClass} w-full min-w-0 sm:w-60 sm:min-w-[120px]`}
             />.
-          </p>
+          </div>
 
-          <motion.button
-            type="submit"
-            whileHover={reducedMotion ? undefined : { y: -4, scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
-            className="mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-amber-500 px-8 py-4 text-sm font-extrabold uppercase tracking-[.14em] text-black shadow-[0_0_30px_rgba(245,158,11,.4),0_0_110px_rgba(245,158,11,.18)] ring-1 ring-amber-300/60 transition-shadow hover:shadow-[0_0_45px_rgba(245,158,11,.62),0_0_140px_rgba(245,158,11,.28)] sm:w-auto"
-          >
-            Wyślij wiadomość <Send className="h-4 w-4" aria-hidden="true" />
-          </motion.button>
+          <div className="flex justify-center sm:justify-start">
+            <motion.button
+              type="submit"
+              whileHover={reducedMotion ? undefined : { y: -4, scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-amber-500 px-6 py-4 text-xs font-extrabold uppercase tracking-[.12em] text-black shadow-[0_0_30px_rgba(245,158,11,.4),0_0_110px_rgba(245,158,11,.18)] ring-1 ring-amber-300/60 transition-shadow hover:shadow-[0_0_45px_rgba(245,158,11,.62),0_0_140px_rgba(245,158,11,.28)] sm:w-auto sm:px-8 sm:text-sm sm:tracking-[.14em]"
+            >
+              Wyślij wiadomość <Send className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </motion.button>
+          </div>
 
           <p className="mt-5 max-w-xl text-xs leading-6 text-white/35">
             Klikając „Wyślij wiadomość”, potwierdzasz zapoznanie się z <a href="/polityka-prywatnosci" className="text-white/60 underline decoration-white/20 underline-offset-4 transition hover:text-gold">polityką prywatności</a>.

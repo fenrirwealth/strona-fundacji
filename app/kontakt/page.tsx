@@ -26,9 +26,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return <>
     <Header variant="dark" />
-    <main id="main" className="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row">
-      <div className="lg:w-1/2"><ContactInfo /></div>
-      <div className="lg:w-1/2"><InteractiveForm /></div>
+    <main id="main" className="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row overflow-x-hidden relative">
+      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex flex-col justify-center">
+        <ContactInfo />
+      </div>
+      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex items-center justify-center relative z-10">
+        <InteractiveForm />
+      </div>
     </main>
     <Footer variant="dark" />
   </>;
