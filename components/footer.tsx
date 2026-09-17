@@ -1,8 +1,8 @@
 import { foundation, reports } from '@/lib/content';
 import { SocialLinks } from './social-links';
 
-export function Footer() {
-  return <footer id="kontakt" className="footer"><div className="shell">
+export function Footer({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+  return <footer id="kontakt" className={`footer${variant === 'dark' ? ' footer-dark' : ''}`}><div className="shell">
     <div className="footer-main">
       <div><p className="eyebrow">Fundacja</p><h2>Lepszy Dom.<br /><em>Lepsze Jutro.</em></h2><p className="footer-mission">Dobro zaczyna się od gestu.<br />Razem możemy zmieniać jutro.</p><SocialLinks /></div>
       <div><h3>Skontaktuj się</h3><a className="footer-email" href={`mailto:${foundation.email}`}>{foundation.email}</a><a href="tel:+48570747779">{foundation.phone}</a><p>{foundation.address}</p></div>
