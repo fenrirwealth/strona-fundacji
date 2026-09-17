@@ -13,7 +13,7 @@ import {
 
 const CURTAIN_EASE = [0.22, 1, 0.36, 1] as const;
 const COVER_DURATION_MS = 620;
-const APP_ROUTES = new Set(['/', '/o-fundacji', '/dziekujemy', '/newsletter/potwierdz', '/newsletter/potwierdzono']);
+const APP_ROUTES = new Set(['/', '/o-fundacji', '/jak-pomagamy', '/dziekujemy', '/newsletter/potwierdz', '/newsletter/potwierdzono']);
 
 type TransitionNavigation = {
   navigate: (href: string, replace?: boolean) => Promise<void>;

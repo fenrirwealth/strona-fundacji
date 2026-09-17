@@ -62,7 +62,10 @@ jobs:
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           grep -q 'O Fundacji' /tmp/about.html
           grep -q 'KRS 0000971976' /tmp/about.html
-          grep -q 'Pomoc zaczyna się od konkretnej potrzeby' /tmp/how.html
+          grep -q 'Pomoc przybiera wiele form' /tmp/how.html
+          grep -q 'Wyprawka na lepsze jutro' /tmp/how.html
+          grep -q 'Magiczne Święta' /tmp/how.html
+          grep -q 'Wsparcie na co dzień' /tmp/how.html
           grep -q '+48 570 747 779' /tmp/contact.html
           grep -q '51 1090 2590 0000 0001 5074 2996' /tmp/contact.html
           grep -q 'Statut i sprawozdania' /tmp/transparency.html
