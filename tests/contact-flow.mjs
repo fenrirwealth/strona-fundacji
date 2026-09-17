@@ -12,6 +12,10 @@ const helpPage = fs.readFileSync(new URL('../jak-pomagamy.html', import.meta.url
 const transparencyPage = fs.readFileSync(new URL('../przejrzystosc.html', import.meta.url), 'utf8');
 const currentNeeds = fs.readFileSync(new URL('../components/current-needs.tsx', import.meta.url), 'utf8');
 const thankYouPage = fs.readFileSync(new URL('../app/dziekujemy/page.tsx', import.meta.url), 'utf8');
+const contactPage = fs.readFileSync(new URL('../app/kontakt/page.tsx', import.meta.url), 'utf8');
+const contactInfo = fs.readFileSync(new URL('../components/contact/ContactInfo.tsx', import.meta.url), 'utf8');
+const interactiveForm = fs.readFileSync(new URL('../components/contact/InteractiveForm.tsx', import.meta.url), 'utf8');
+const finalizeExport = fs.readFileSync(new URL('../scripts/finalize-export.mjs', import.meta.url), 'utf8');
 
 test('wezwania do pomocy prowadza do formularza z wybranym tematem', () => {
   assert.doesNotMatch(campaigns, /mailto:/);
@@ -23,14 +27,28 @@ test('wezwania do pomocy prowadza do formularza z wybranym tematem', () => {
   assert.match(transparencyPage, /\/kontakt\?temat=dokumenty#formularz/);
 });
 
-test('formularz zawiera szybki telefon, zgode i komunikaty statusu', () => {
-  assert.match(siteJs, /Masz szybkie pytanie\?/);
-  assert.match(siteJs, /data-contact-form/);
-  assert.match(siteJs, /polityka-prywatnosci/);
-  assert.match(siteJs, /aria-live="polite"/);
-  assert.match(nginx, /location = \/api\/kontakt/);
-  assert.match(siteJs, /value="dokumenty"/);
-  assert.match(siteJs, /navigateWithCurtain\('\/dziekujemy\?wyslano=1'\)/);
+test('kontakt jest trasa App Router ze split-screen i pelnymi danymi Fundacji', () => {
+  assert.match(contactPage, /canonical: '\/kontakt'/);
+  assert.match(contactPage, /min-h-screen bg-\[#050505\] text-white flex flex-col lg:flex-row/);
+  assert.match(contactPage, /<ContactInfo \/>/);
+  assert.match(contactPage, /<InteractiveForm \/>/);
+  assert.match(contactInfo, /kontakt@fundacjalepszydomlepszejutro\.pl|foundation\.email/);
+  assert.match(contactInfo, /\+48570747779/);
+  assert.match(contactInfo, /ul\. \$\{foundation\.address\}/);
+  assert.doesNotMatch(finalizeExport, /'kontakt\.html'/);
+});
+
+test('formularz konwersacyjny ma wymagane pola, walidacje i stan sukcesu', () => {
+  assert.match(interactiveForm, /Cześć, mam na imię/);
+  assert.match(interactiveForm, /Wsparciu zbiórki/);
+  assert.match(interactiveForm, /Wolontariacie/);
+  assert.match(interactiveForm, /Przekazaniu darów/);
+  assert.match(interactiveForm, /event\.preventDefault\(\)/);
+  assert.match(interactiveForm, /Wiadomość wysłana\./);
+  assert.match(interactiveForm, /Dziękujemy za Twój krok w stronę lepszego jutra!/);
+  assert.match(interactiveForm, /aria-live="polite"/);
+  assert.match(interactiveForm, /polityka-prywatnosci/);
+  assert.match(interactiveForm, /topicFromQuery/);
 });
 
 test('walidacja odrzuca niepelna wiadomosc i akceptuje poprawna', () => {
