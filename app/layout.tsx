@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import '@fontsource-variable/dm-sans';
+import '@fontsource/playfair-display/400.css';
 import './globals.css';
 import { ExperienceProvider } from '@/components/experience-provider';
 export const metadata: Metadata = {
@@ -8,10 +9,10 @@ export const metadata: Metadata = {
   description: 'Pomagaj razem z Fundacją Lepszy Dom Lepsze Jutro. Poznaj nasze działania, wybierz akcję i sprawdź, jak możesz wesprzeć dzieci oraz rodziny.',
   verification: { google: 'i4YKcpbmCKBDthyu7MHiKXgaQsJ_LpLArCfH--1wgO8' },
   alternates: { canonical: '/' }, robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
-  openGraph: { type: 'website', locale: 'pl_PL', url: '/', siteName: 'Fundacja Lepszy Dom Lepsze Jutro', title: 'Każdy gest ma siłę. Razem zmieniamy jutro.', description: 'Poznaj działania Fundacji i zobacz, jak możesz pomóc dzieciom oraz rodzinom.', images: [{ url: '/assets/generated/hero-wolontariusze-v1.webp', alt: 'Wolontariusze przygotowujący pomoc' }] },
+  openGraph: { type: 'website', locale: 'pl_PL', url: '/', siteName: 'Fundacja Lepszy Dom Lepsze Jutro', title: 'Razem zmieniamy jutro.', description: 'Poznaj działania Fundacji i zobacz, jak możesz pomóc dzieciom oraz rodzinom.', images: [{ url: '/assets/generated/hero-cinematic-v1.jpg', width: 1672, height: 941, alt: 'Dziecko patrzące z nadzieją w ciepłym świetle' }] },
   twitter: { card: 'summary_large_image' }, icons: { icon: '/assets/favicon-64.png', apple: '/assets/apple-touch-icon.png' },
 };
-export const viewport: Viewport = { themeColor: '#f8f6f1' };
+export const viewport: Viewport = { themeColor: '#050a14' };
 const organizationSchema = {
   '@context': 'https://schema.org', '@type': 'NGO',
   name: 'Fundacja Lepszy Dom Lepsze Jutro',
