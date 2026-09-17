@@ -70,7 +70,8 @@ jobs:
           grep -q 'Magiczne Święta' /tmp/how.html
           grep -q 'Wsparcie na co dzień' /tmp/how.html
           grep -q '+48 570 747 779' /tmp/contact.html
-          grep -q '51 1090 2590 0000 0001 5074 2996' /tmp/contact.html
+          grep -q 'Zacznijmy działać razem.' /tmp/contact.html
+          grep -q 'Jak możemy pomóc?' /tmp/contact.html
           grep -q 'Statut i sprawozdania' /tmp/transparency.html
           grep -q 'krojów pisma dostępnych w systemie użytkownika' /tmp/privacy.html
           ! grep -q 'fonts.googleapis.com' /tmp/privacy.html
