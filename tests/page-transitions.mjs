@@ -14,6 +14,7 @@ test('PageTransition korzysta z pathname i sekwencyjnego AnimatePresence', () =>
   assert.match(transition, /y: '0%'/);
   assert.match(transition, /y: '-100%'/);
   assert.match(transition, /0\.22, 1, 0\.36, 1/);
+  assert.match(transition, /'\/kontakt'/);
 });
 
 test('globalny provider zachowuje Lenis i owija zawartosc w PageTransition', () => {
