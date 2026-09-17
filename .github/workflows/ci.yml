@@ -37,6 +37,7 @@ jobs:
           tr -d '\r' < /tmp/gzip.headers > /tmp/gzip.clean
           curl -fsS http://127.0.0.1:18080/archiwum > /tmp/archiwum.html
           curl -fsS http://127.0.0.1:18080/aktualnosci > /tmp/aktualnosci.html
+          curl -fsS http://127.0.0.1:18080/aktualnosci/swieta-2025 > /tmp/swieta-2025.html
           curl -fsS http://127.0.0.1:18080/listy-do-swietego-mikolaja > /tmp/mikolaj.html
           curl -fsS http://127.0.0.1:18080/o-fundacji > /tmp/about.html
           curl -fsS http://127.0.0.1:18080/jak-pomagamy > /tmp/how.html
@@ -60,7 +61,9 @@ jobs:
           grep -q 'Wyprawka szkolna. Zbiórka w Polish Airports Academy zakończona.' /tmp/aktualnosci.html
           grep -q 'Wyprawka na lepsze jutro z Turbaza Studio' /tmp/aktualnosci.html
           grep -q 'Wielkanocny Zajączek dla dzieci z onkologii' /tmp/aktualnosci.html
-          grep -q 'Magiczne Święta: 4. edycja kampanii' /tmp/aktualnosci.html
+          grep -q 'Dzięki Wam 169 dzieci otrzymało wymarzone prezenty' /tmp/aktualnosci.html
+          grep -q '169 dzieci z 18 placówek oraz rodzin zastępczych' /tmp/swieta-2025.html
+          grep -q 'Ta pomoc miała swój blask' /tmp/swieta-2025.html
           grep -q 'FAQPage' /tmp/mikolaj.html
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           grep -q 'O Fundacji' /tmp/about.html

@@ -13,6 +13,8 @@ export type NewsItem = {
   excerpt: string;
   image: string;
   imageAlt: string;
+  href?: string;
+  imageFit?: 'cover' | 'contain';
   size: 'wide' | 'narrow' | 'full';
 };
 
