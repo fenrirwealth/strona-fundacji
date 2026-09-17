@@ -57,7 +57,10 @@ jobs:
           grep -qi "^content-security-policy:.*style-src 'self' 'unsafe-inline'; font-src 'self';" /tmp/index.headers
           grep -qi '^content-encoding: gzip$' /tmp/gzip.clean
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
-          grep -q 'Dary trafiły do rodzinnego domu dziecka' /tmp/aktualnosci.html
+          grep -q 'Wyprawka szkolna. Zbiórka w Polish Airports Academy zakończona.' /tmp/aktualnosci.html
+          grep -q 'Wyprawka na lepsze jutro z Turbaza Studio' /tmp/aktualnosci.html
+          grep -q 'Wielkanocny Zajączek dla dzieci z onkologii' /tmp/aktualnosci.html
+          grep -q 'Magiczne Święta: 4. edycja kampanii' /tmp/aktualnosci.html
           grep -q 'FAQPage' /tmp/mikolaj.html
           grep -q 'portal.fundacjalepszydomlepszejutro.pl' /tmp/mikolaj.html
           grep -q 'O Fundacji' /tmp/about.html
