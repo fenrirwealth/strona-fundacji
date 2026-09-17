@@ -29,6 +29,7 @@ const pages = [
   ["/archiwum/zebrane-dary", "../archiwum/zebrane-dary/index.html"],
   ["/archiwum/za-kulisami-dzialan", "../archiwum/za-kulisami-dzialan/index.html"]
 ];
+const appRoutes = ["/aktualnosci/swieta-2025"];
 
 const attr = (source, regex, label) => {
   const match = source.match(regex);
@@ -63,7 +64,8 @@ test("każda indeksowana strona ma spójny canonical, OG i podstawowe SEO", () =
 test("sitemap zawiera tylko czyste i unikalne adresy", () => {
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   assert.equal(urls.length, new Set(urls).size, "sitemap zawiera duplikaty");
-  assert.equal(urls.length, pages.length, "sitemap i lista publicznych stron są niespójne");
+  assert.equal(urls.length, pages.length + appRoutes.length, "sitemap i lista publicznych stron są niespójne");
+  for (const route of appRoutes) assert.ok(urls.includes(`${DOMAIN}${route}`), `brak ${route} w sitemap`);
   for (const url of urls) {
     assert.ok(url.startsWith(`${DOMAIN}/`));
     assert.doesNotMatch(url, /\.html(?:$|[?#])/);

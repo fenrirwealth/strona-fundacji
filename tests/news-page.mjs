@@ -10,7 +10,9 @@ test('strona aktualności ma kompletne dane redakcyjne i SEO', () => {
   assert.match(page, /Wyprawka szkolna\. Zbiórka w Polish Airports Academy zakończona\./);
   assert.match(page, /Wyprawka na lepsze jutro z Turbaza Studio/);
   assert.match(page, /Wielkanocny Zajączek dla dzieci z onkologii/);
-  assert.match(page, /Magiczne Święta: 4\. edycja kampanii/);
+  assert.match(page, /Dzięki Wam 169 dzieci otrzymało wymarzone prezenty/);
+  assert.match(page, /18 placówek oraz rodzin zastępczych/);
+  assert.match(page, /\/aktualnosci\/swieta-2025/);
   assert.match(page, /<NewsFeatured news=\{featuredNews\}/);
   assert.match(page, /<NewsFilter>/);
   assert.match(page, /<NewsGrid items=\{newsItems\}/);
@@ -47,6 +49,18 @@ test('karta ma efekt obrazu bez zasłaniającego treść wskaźnika', () => {
   assert.match(card, /scrub: 0\.7/);
   assert.doesNotMatch(card, />Odkryj /);
   assert.doesNotMatch(card, /useSpring/);
+  assert.match(card, /Czytaj relację/);
+  assert.match(card, /<Link href=\{item\.href\}/);
+});
+
+test('relacja Święta 2025 zawiera pełne podziękowanie i nową grafikę', () => {
+  const article = read('app/aktualnosci/swieta-2025/page.tsx');
+  assert.match(article, /169 dzieci/);
+  assert.match(article, /18 placówek oraz rodzin zastępczych/);
+  assert.match(article, /telefony o późnych porach/);
+  assert.match(article, /nerwy ze stali/);
+  assert.match(article, /Ta pomoc miała swój blask/);
+  assert.match(article, /swieta-2025-169-dzieci\.jpg/);
 });
 
 test('nowy indeks aktualności zastępuje statyczny, a relacje pozostają kopiowane', () => {

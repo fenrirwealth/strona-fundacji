@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useReducedMotion } from 'framer-motion';
@@ -33,17 +34,14 @@ export function NewsCard({ item }: { item: NewsItem }) {
     return () => context.revert();
   }, [reducedMotion]);
 
-  return <article
-    ref={articleRef}
-    className="group relative h-full min-h-[560px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.045] shadow-[0_32px_100px_rgba(0,0,0,.28)] backdrop-blur-md sm:min-h-[620px]"
-  >
+  const cardContent = <>
     <div ref={mediaRef} className="absolute -inset-8 overflow-hidden">
       <Image
         src={item.image}
         alt={item.imageAlt}
         fill
         sizes={item.size === 'narrow' ? '(min-width: 1024px) 34vw, 100vw' : '(min-width: 1024px) 70vw, 100vw'}
-        className="object-cover brightness-[.68] saturate-[.82] transition-[transform,filter] duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105 group-hover:brightness-[.82] group-hover:saturate-100"
+        className={`${item.imageFit === 'contain' ? 'object-contain' : 'object-cover'} brightness-[.68] saturate-[.82] transition-[transform,filter] duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105 group-hover:brightness-[.82] group-hover:saturate-100`}
       />
     </div>
     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,15,.08)_10%,rgba(5,8,15,.35)_48%,rgba(5,8,15,.96)_100%)]" aria-hidden="true" />
@@ -58,8 +56,17 @@ export function NewsCard({ item }: { item: NewsItem }) {
         <span className="mb-6 block h-px w-14 bg-gold/80 transition-all duration-700 group-hover:w-24" aria-hidden="true" />
         <h3 className="max-w-4xl text-balance font-display text-[clamp(2.5rem,5vw,5.4rem)] font-medium leading-[.92] tracking-[-.045em] text-cream">{item.title}</h3>
         <p className="mt-6 max-w-2xl text-sm leading-7 text-white/62 sm:text-base">{item.excerpt}</p>
+        {item.href && <span className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.16em] text-gold">Czytaj relację <span aria-hidden="true">↗</span></span>}
       </div>
     </div>
+  </>;
 
+  return <article
+    ref={articleRef}
+    className="group relative h-full min-h-[560px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#130b08] shadow-[0_32px_100px_rgba(0,0,0,.28)] backdrop-blur-md transition-colors focus-within:border-gold/50 sm:min-h-[620px]"
+  >
+    {item.href
+      ? <Link href={item.href} className="relative block h-full outline-none" aria-label={`Czytaj relację: ${item.title}`}>{cardContent}</Link>
+      : cardContent}
   </article>;
 }
