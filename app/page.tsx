@@ -1,5 +1,4 @@
 import { Header } from '@/components/header';
-import { Hero } from '@/components/hero';
 import { Impact } from '@/components/impact';
 import { Campaigns } from '@/components/campaigns';
 import { News } from '@/components/news';
@@ -10,13 +9,19 @@ import { Reveal } from '@/components/motion';
 import { Partners } from '@/components/partners';
 import { Footer } from '@/components/footer';
 import { NewsletterSignup } from '@/components/newsletter-signup';
+import HeroOverlay from '@/components/dom/HeroOverlay';
+import ImageStorytelling from '@/components/dom/ImageStorytelling';
+import SceneLoader from '@/components/webgl/SceneLoader';
 // Server-rendered content; only animation, counters and navigation hydrate on the client.
 export default function Home() {
   return <>
-    <Header />
-    <main id="main">
-      <Hero />
+    <div className="webgl-background" aria-hidden="true"><SceneLoader /></div>
+    <div className="cinematic-noise" aria-hidden="true" />
+    <Header variant="dark" />
+    <main id="main" className="cinematic-home">
+      <HeroOverlay />
       <Impact />
+      <ImageStorytelling />
       <Campaigns />
       <News />
       <CurrentNeeds />
