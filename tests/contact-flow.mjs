@@ -30,7 +30,7 @@ test('formularz zawiera szybki telefon, zgode i komunikaty statusu', () => {
   assert.match(siteJs, /aria-live="polite"/);
   assert.match(nginx, /location = \/api\/kontakt/);
   assert.match(siteJs, /value="dokumenty"/);
-  assert.match(siteJs, /location\.assign\('\/dziekujemy\?wyslano=1'\)/);
+  assert.match(siteJs, /navigateWithCurtain\('\/dziekujemy\?wyslano=1'\)/);
 });
 
 test('walidacja odrzuca niepelna wiadomosc i akceptuje poprawna', () => {
