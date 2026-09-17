@@ -18,17 +18,17 @@ export const metadata: Metadata = {
     title: 'Za każdą pomocą stoją ludzie.',
     description: 'Poznaj historię, misję i wartości Fundacji Lepszy Dom Lepsze Jutro.',
     images: [{
-      url: '/assets/generated/wolontariat-cinematic-v1.jpg',
+      url: '/assets/generated/rodzina-cinematic-v1.jpg',
       width: 1536,
       height: 1024,
-      alt: 'Wolontariusze Fundacji przygotowujący pomoc dla dzieci i rodzin',
+      alt: 'Rodzina spędzająca wspólnie spokojny wieczór w bezpiecznym domu',
     }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Za każdą pomocą stoją ludzie.',
     description: 'Poznaj historię, misję i wartości Fundacji Lepszy Dom Lepsze Jutro.',
-    images: ['/assets/generated/wolontariat-cinematic-v1.jpg'],
+    images: ['/assets/generated/rodzina-cinematic-v1.jpg'],
   },
 };
 

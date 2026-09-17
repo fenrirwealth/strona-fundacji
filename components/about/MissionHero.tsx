@@ -13,12 +13,12 @@ export function MissionHero() {
   return <section className="relative flex min-h-[100svh] items-end overflow-hidden px-5 pb-16 pt-32 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24 xl:px-24" aria-labelledby="mission-heading">
     <div className="absolute inset-0" aria-hidden="true">
       <Image
-        src="/assets/generated/wolontariat-cinematic-v1.jpg"
+        src="/assets/generated/rodzina-cinematic-v1.jpg"
         alt=""
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center opacity-40"
+        className="object-cover object-[58%_center] opacity-45"
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,8,15,.97)_0%,rgba(5,8,15,.72)_55%,rgba(5,8,15,.38)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,15,.45)_0%,rgba(5,8,15,.12)_38%,#05080f_100%)]" />
