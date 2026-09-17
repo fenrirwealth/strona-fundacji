@@ -19,7 +19,7 @@ const milestones = [
   {
     year: '2026',
     title: 'Skala działania',
-    description: 'Pomoc dotarła już do setek dzieci oraz dziesiątek placówek i rodzin. Rosnąca skala nie zmieniła najważniejszej zasady: za każdą liczbą widzimy konkretnego człowieka.',
+    description: 'Dziś działania Fundacji obejmują wsparcie dzieci, rodzin i placówek, a także pomoc w nagłych kryzysach i po klęskach żywiołowych. Zakres jest szeroki, ale zasada pozostaje ta sama: zawsze widzimy konkretnego człowieka i jego realną potrzebę.',
   },
 ] as const;
 
@@ -84,7 +84,7 @@ export function InteractiveTimeline() {
           <p className="mb-5 text-xs font-bold uppercase tracking-[.25em] text-gold">Droga, którą tworzymy razem</p>
           <h2 id="timeline-heading" className="max-w-4xl font-display text-5xl font-medium leading-[.94] tracking-[-.04em] text-cream sm:text-6xl lg:text-8xl">Od pierwszego gestu do realnej skali pomocy.</h2>
         </div>
-        <p className="max-w-md text-base leading-8 text-white/58 lg:col-span-4 lg:justify-self-end">Nie mierzymy historii Fundacji wyłącznie latami. Każdy etap to kolejne relacje, spełnione potrzeby i zaufanie budowane działaniem.</p>
+        <p className="max-w-md text-base leading-8 text-white/58 lg:col-span-4 lg:justify-self-end">Nie mierzymy historii Fundacji wyłącznie latami. Każdy etap to nowe relacje, odpowiedź na pilne i długofalowe potrzeby oraz zaufanie budowane konkretnym działaniem.</p>
       </div>
 
       <div ref={trackRef} className="relative mt-20 sm:mt-28 lg:mt-36">

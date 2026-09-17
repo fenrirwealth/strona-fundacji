@@ -5,6 +5,7 @@ import { ArrowDown } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const headline = ['Za', 'każdą', 'pomocą', 'stoją', 'ludzie.'] as const;
+const areas = ['Dzieci i młodzież', 'Rodziny', 'Placówki', 'Pomoc kryzysowa'] as const;
 const editorialEase = [0.22, 1, 0.36, 1] as const;
 
 export function MissionHero() {
@@ -65,7 +66,12 @@ export function MissionHero() {
         transition={{ duration: reducedMotion ? 0 : 0.85, delay: reducedMotion ? 0 : 0.82, ease: editorialEase }}
         className="mt-8 flex max-w-4xl flex-col gap-8 border-t border-white/15 pt-7 sm:flex-row sm:items-end sm:justify-between"
       >
-        <p className="max-w-2xl text-base leading-8 text-white/68 sm:text-lg">Fundacja powstała z prostego przekonania: uważność, odpowiedzialność i wspólne działanie mogą przywrócić dziecku poczucie bezpieczeństwa oraz nadzieję na dobre jutro.</p>
+        <div className="max-w-2xl">
+          <p className="text-base leading-8 text-white/68 sm:text-lg">Dobra pomoc zaczyna się od uważności na człowieka. Wspieramy dzieci, rodziny i placówki, reagujemy w sytuacjach kryzysowych oraz pomagamy osobom dotkniętym skutkami klęsk żywiołowych — zawsze tam, gdzie wspólne działanie może przywrócić bezpieczeństwo i nadzieję.</p>
+          <ul className="mt-6 flex flex-wrap gap-2" aria-label="Główne obszary pomocy">
+            {areas.map(area => <li key={area} className="rounded-full border border-white/15 bg-white/[.045] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[.14em] text-white/60 backdrop-blur-md">{area}</li>)}
+          </ul>
+        </div>
         <a href="#historia" className="group inline-flex shrink-0 items-center gap-3 text-xs font-bold uppercase tracking-[.18em] text-white/72 transition-colors hover:text-gold">
           Nasza historia
           <span className="grid h-11 w-11 place-items-center rounded-full border border-white/20 transition duration-300 group-hover:border-gold/60 group-hover:bg-gold/10"><ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" aria-hidden="true" /></span>
