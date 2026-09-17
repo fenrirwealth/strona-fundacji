@@ -10,7 +10,7 @@ assert.match(html, />260 tys\. zł<\/dd>/);
 assert.match(html, /Prawdziwa zmiana zaczyna się od zauważenia człowieka/);
 assert.match(html, /Wesprzyj naszą misję/);
 assert.match(html, /51 1090 2590 0000 0001 5074 2996/);
-assert.match(html, /wolontariat-cinematic-v1\.jpg/);
+assert.match(html, /wolontariat-cinematic-v2\.jpg/);
 assert.match(html, /rodzina-cinematic-v1\.jpg/);
 assert.match(html, /portal\.fundacjalepszydomlepszejutro\.pl/);
 assert.doesNotMatch(html, /fonts\.(googleapis|gstatic)\.com/);

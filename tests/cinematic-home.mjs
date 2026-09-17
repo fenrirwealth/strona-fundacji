@@ -38,7 +38,7 @@ test('Lenis jest zsynchronizowany z GSAP i respektuje ograniczenie animacji', ()
 
 test('siatka historii korzysta z lokalnych zdjec i responsywnego bento', () => {
   const grid = read('components/StoryGrid.tsx');
-  assert.match(grid, /wolontariat-cinematic-v1\.jpg/);
+  assert.match(grid, /wolontariat-cinematic-v2\.jpg/);
   assert.match(grid, /rodzina-cinematic-v1\.jpg/);
   assert.match(grid, /md:grid-cols-12/);
   assert.match(grid, /group-hover:scale-105/);
