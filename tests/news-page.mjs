@@ -9,7 +9,7 @@ test('strona aktualności ma kompletne dane redakcyjne i SEO', () => {
   assert.match(page, /alternates: \{ canonical: '\/aktualnosci' \}/);
   assert.match(page, /Wyprawka szkolna\. Zbiórka w Polish Airports Academy zakończona\./);
   assert.match(page, /Wyprawka na lepsze jutro z Turbaza Studio/);
-  assert.match(page, /Wielkanocny Zajączek dla dzieci z onkologii/);
+  assert.doesNotMatch(page, /Wielkanocny Zajączek dla dzieci z onkologii/);
   assert.match(page, /Dzięki Wam 169 dzieci otrzymało wymarzone prezenty/);
   assert.match(page, /18 placówek oraz rodzin zastępczych/);
   assert.match(page, /\/aktualnosci\/swieta-2025/);
