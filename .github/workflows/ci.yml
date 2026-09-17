@@ -60,7 +60,7 @@ jobs:
           grep -q 'Listy do Świętego Mikołaja' /tmp/mikolaj.html
           grep -q 'Wyprawka szkolna. Zbiórka w Polish Airports Academy zakończona.' /tmp/aktualnosci.html
           grep -q 'Wyprawka na lepsze jutro z Turbaza Studio' /tmp/aktualnosci.html
-          grep -q 'Wielkanocny Zajączek dla dzieci z onkologii' /tmp/aktualnosci.html
+          ! grep -q 'Wielkanocny Zajączek dla dzieci z onkologii' /tmp/aktualnosci.html
           grep -q 'Dzięki Wam 169 dzieci otrzymało wymarzone prezenty' /tmp/aktualnosci.html
           grep -q '169 dzieci z 18 placówek oraz rodzin zastępczych' /tmp/swieta-2025.html
           grep -q 'Ta pomoc miała swój blask' /tmp/swieta-2025.html
