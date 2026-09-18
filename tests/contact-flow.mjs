@@ -29,10 +29,9 @@ test('wezwania do pomocy prowadza do formularza z wybranym tematem', () => {
 
 test('kontakt jest trasa App Router ze split-screen i pelnymi danymi Fundacji', () => {
   assert.match(contactPage, /canonical: '\/kontakt'/);
-  assert.match(contactPage, /min-h-screen bg-\[#050505\] text-white flex flex-col lg:flex-row/);
-  assert.match(contactPage, /overflow-x-hidden relative/);
-  assert.match(contactPage, /w-full lg:w-1\/2 p-6 lg:p-16 flex flex-col justify-center/);
-  assert.match(contactPage, /w-full lg:w-1\/2 p-6 lg:p-16 flex items-center justify-center relative z-10/);
+  assert.match(contactPage, /min-h-screen bg-\[#050505\] text-white flex flex-col lg:flex-row overflow-x-hidden w-full relative/);
+  assert.match(contactPage, /w-full lg:w-1\/2 flex flex-col justify-center p-6 lg:p-16/);
+  assert.match(contactPage, /w-full lg:w-1\/2 flex items-center justify-center p-6 lg:p-16 relative z-10/);
   assert.match(contactPage, /<ContactInfo \/>/);
   assert.match(contactPage, /<InteractiveForm \/>/);
   assert.match(contactInfo, /kontakt@fundacjalepszydomlepszejutro\.pl|foundation\.email/);
@@ -54,8 +53,11 @@ test('formularz konwersacyjny ma wymagane pola, walidacje i stan sukcesu', () =>
   assert.match(interactiveForm, /topicFromQuery/);
   assert.match(interactiveForm, /flex min-w-0 flex-wrap items-baseline/);
   assert.match(interactiveForm, /inline-block min-w-\[120px\] max-w-full/);
+  assert.match(interactiveForm, /w-full max-w-xl backdrop-blur-md bg-white\/5 border border-white\/10 rounded-2xl p-6 lg:p-12/);
+  assert.match(interactiveForm, /className=\{`\$\{fieldClass\} w-36 max-w-full`\}/);
+  assert.match(interactiveForm, /className=\{`\$\{fieldClass\} w-full min-w-0 max-w-full sm:w-60`\}/);
   assert.match(interactiveForm, /backdrop-blur-md/);
-  assert.match(contactInfo, /break-all/);
+  assert.match(contactInfo, /break-all text-sm font-medium text-amber-500/);
 });
 
 test('walidacja odrzuca niepelna wiadomosc i akceptuje poprawna', () => {
