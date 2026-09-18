@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return <>
     <Header variant="dark" />
-    <main id="main" className="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row overflow-x-hidden relative">
-      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex flex-col justify-center">
+    <main id="main" className="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row overflow-x-hidden relative w-full">
+      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex flex-col justify-center min-w-0 max-w-full">
         <ContactInfo />
       </div>
-      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex items-center justify-center relative z-10">
+      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex items-center justify-center relative z-10 min-w-0 max-w-full">
         <InteractiveForm />
       </div>
     </main>
