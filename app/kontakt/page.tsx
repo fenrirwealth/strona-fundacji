@@ -27,10 +27,10 @@ export default function ContactPage() {
   return <>
     <Header variant="dark" />
     <main id="main" className="min-h-screen bg-[#050505] text-white flex flex-col lg:flex-row overflow-x-hidden relative w-full">
-      <div className="flex w-full min-w-0 max-w-full flex-col justify-center p-6 lg:w-1/2 lg:p-16">
+      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex flex-col justify-center min-w-0 max-w-full">
         <ContactInfo />
       </div>
-      <div className="relative z-10 flex w-full min-w-0 max-w-full items-center justify-center p-6 lg:w-1/2 lg:p-16">
+      <div className="w-full lg:w-1/2 p-6 lg:p-16 flex items-center justify-center relative z-10 min-w-0 max-w-full">
         <InteractiveForm />
       </div>
     </main>
