@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { ArrowUpRight, CheckCircle2, ChevronDown, RotateCcw } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -51,7 +51,9 @@ export function InteractiveForm() {
   return (
     <motion.section
       className="relative flex w-full min-w-0 max-w-full items-center justify-center pb-20 pt-8 lg:min-h-[calc(100svh-8rem)] lg:py-20"
-      initial={reducedMotion ? false : { opacity: 0, y: 28 }}
+      // Keep the form visible in the server-rendered HTML so delayed
+      // hydration can never leave visitors looking at an empty black screen.
+      initial={reducedMotion ? false : { opacity: 1, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: reducedMotion ? 0 : 0.85,
@@ -109,7 +111,7 @@ export function InteractiveForm() {
               key="form"
               className="flex w-full min-w-0 max-w-full flex-col"
               onSubmit={submitForm}
-              initial={reducedMotion ? false : { opacity: 0 }}
+              initial={reducedMotion ? false : { opacity: 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, y: -12 }}
             >
