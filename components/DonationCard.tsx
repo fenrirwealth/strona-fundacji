@@ -54,8 +54,15 @@ export function DonationCard(): ReactElement {
             <p className="text-[11px] font-bold uppercase tracking-[.2em] text-white/45">Rachunek Fundacji</p>
             <p className="mt-2 text-sm text-white/70">Erste Bank Polska</p>
           </div>
-          <div className="inline-flex w-fit rounded-xl bg-[#2870ed] px-3 py-2">
-            <Image src="/assets/banks/erste-bank-polska.svg" alt="Erste Bank Polska" width={148} height={42} className="h-auto w-36" />
+          <div className="inline-flex h-14 w-44 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-[#2870ed] px-5 py-3 shadow-[0_10px_30px_rgba(40,112,237,.18)]">
+            <Image
+              src="/assets/banks/erste-bank-polska.svg"
+              alt="Logo Erste Bank Polska"
+              width={523}
+              height={151}
+              className="block h-auto max-h-8 w-full max-w-full object-contain"
+              sizes="176px"
+            />
           </div>
         </div>
 

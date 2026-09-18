@@ -23,6 +23,9 @@ test('karta darowizny publikuje poprawny rachunek i bezpieczne kopiowanie', () =
   const donation = read('components/DonationCard.tsx');
   assert.match(donation, /51 1090 2590 0000 0001 5074 2996/);
   assert.match(donation, /navigator\.clipboard\.writeText/);
+  assert.match(donation, /h-14 w-44 shrink-0 items-center justify-center/);
+  assert.match(donation, /max-h-8 w-full max-w-full object-contain/);
+  assert.match(donation, /width=\{523\}[\s\S]*height=\{151\}/);
   assert.match(donation, /3_000/);
   assert.match(donation, /Skopiowano\. Dziękujemy!/);
   assert.match(donation, /<PaymentGateway \/>/);
