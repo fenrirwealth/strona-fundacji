@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Mail, MapPin, Phone, type LucideIcon } from 'lucide-react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
@@ -45,7 +45,9 @@ const containerVariants: Variants = {
 };
 
 const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  // Keep the server-rendered content visible while React hydrates. This
+  // prevents a blank page on slow devices or when client JavaScript fails.
+  hidden: { opacity: 1, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
