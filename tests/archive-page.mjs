@@ -28,17 +28,17 @@ test('hero Archiwum ma kinowa typografie i wskaznik przewijania', () => {
   assert.match(hero, /to-\[#050505\]/);
 });
 
-test('filmstrip przelacza animacje przez useGSAP i matchMedia', () => {
+test('filmstrip zachowuje poziomy desktop i natychmiastowy pionowy mobile', () => {
   assert.match(filmstrip, /from '@gsap\/react'/);
   assert.match(filmstrip, /useGSAP\(/);
   assert.match(filmstrip, /gsap\.matchMedia\(\)/);
-  assert.match(filmstrip, /max-width: 1023px/);
   assert.match(filmstrip, /min-width: 1024px/);
   assert.match(filmstrip, /pin: true/);
   assert.match(filmstrip, /xPercent: getXPercent/);
   assert.match(filmstrip, /gsap\.quickSetter/);
   assert.match(filmstrip, /gsap\.utils\.clamp\(-10, 10\)/);
-  assert.match(filmstrip, /y: 50, opacity: 0/);
+  assert.match(filmstrip, /flex w-full flex-col/);
+  assert.doesNotMatch(filmstrip, /\by\s*:|translateY|yPercent/);
 });
 
 test('filmstrip publikuje wskazane trzy akcje', () => {

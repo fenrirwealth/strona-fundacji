@@ -14,11 +14,10 @@ test('podstrona O Fundacji sklada kompletna historie i metadane', () => {
   assert.match(page, /<Footer variant="dark"/);
 });
 
-test('hero animuje slowa z rozmyciem i przesunieciem', () => {
+test('hero renderuje kompletna tresc bez pionowej animacji wejscia', () => {
   const hero = read('components/about/MissionHero.tsx');
   assert.match(hero, /Za.*każdą.*pomocą.*stoją.*ludzie\./s);
-  assert.match(hero, /blur\(14px\)/);
-  assert.match(hero, /y: reducedMotion \? 0 : 50/);
+  assert.doesNotMatch(hero, /\by\s*:|staggerChildren|delayChildren/);
   assert.match(hero, /min-h-\[100svh\]/);
   assert.match(hero, /rodzina-cinematic-v1\.jpg/);
   assert.doesNotMatch(hero, /wolontariat-cinematic-v1\.jpg/);
@@ -30,15 +29,13 @@ test('cytat Prezesa ma poprawna tresc i podpis', () => {
   assert.match(quote, /Nie zmienimy całego świata/);
   assert.match(quote, /Michał Synal/);
   assert.match(quote, /Prezes Zarządu/);
-  assert.match(quote, /whileInView/);
+  assert.doesNotMatch(quote, /whileInView|\by\s*:/);
 });
 
-test('timeline korzysta z GSAP ScrollTrigger i wszystkich kamieni milowych', () => {
+test('timeline jest widoczny natychmiast i zawiera wszystkie kamienie milowe', () => {
   const timeline = read('components/about/InteractiveTimeline.tsx');
-  assert.match(timeline, /ScrollTrigger/);
-  assert.match(timeline, /scrub: 0\.6/);
+  assert.doesNotMatch(timeline, /ScrollTrigger|gsap|scaleY|\by\s*:/);
   for (const year of ['2022', '2025', '2026']) assert.match(timeline, new RegExp(year));
-  assert.match(timeline, /scaleY: 1/);
   assert.match(timeline, /klęskach żywiołowych/);
 });
 

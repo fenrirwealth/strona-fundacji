@@ -66,24 +66,11 @@ export function PillarsStack() {
         const wrapper = wrapperRefs.current[index];
         if (!card || !wrapper) return;
 
-        gsap.fromTo(card, { y: index === 0 ? 40 : 110, autoAlpha: index === 0 ? 0.8 : 0.45 }, {
-          y: 0,
-          autoAlpha: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: index === 0 ? 'top 88%' : 'top bottom',
-            end: index === 0 ? 'top 62%' : 'top 72%',
-            scrub: 0.55,
-          },
-        });
-
         const nextWrapper = wrapperRefs.current[index + 1];
         if (!nextWrapper) return;
         const dimmer = card.querySelector('[data-card-dimmer]');
         gsap.to(card, {
           scale: 0.945,
-          y: -18,
           filter: 'brightness(.62)',
           ease: 'none',
           scrollTrigger: { trigger: nextWrapper, start: 'top 82%', end: 'top 18%', scrub: 0.6 },

@@ -1,19 +1,7 @@
-'use client';
-
-import { motion, useReducedMotion } from 'framer-motion';
-
-const editorialEase = [0.22, 1, 0.36, 1] as const;
-
 export function FounderQuote() {
-  const reducedMotion = useReducedMotion();
-
   return <section className="relative overflow-hidden px-5 py-24 sm:px-10 lg:px-16 lg:py-40 xl:px-24" aria-label="Słowa Prezesa Zarządu">
-    <div className="absolute left-1/2 top-1/2 h-[34rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[.045] blur-[140px]" aria-hidden="true" />
-    <motion.figure
-      initial={{ opacity: 0, y: reducedMotion ? 0 : 48 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: reducedMotion ? 0 : 1, ease: editorialEase }}
+    <div className="absolute inset-0 m-auto h-[34rem] w-[60rem] rounded-full bg-gold/[.045] blur-[140px]" aria-hidden="true" />
+    <figure
       className="relative mx-auto max-w-content border-y border-white/10 py-12 sm:py-16 lg:py-24"
     >
       <span className="absolute -top-2 left-0 font-display text-[8rem] leading-none text-gold drop-shadow-[0_0_28px_rgba(216,174,99,.35)] sm:text-[11rem]" aria-hidden="true">“</span>
@@ -29,6 +17,6 @@ export function FounderQuote() {
           </div>
         </div>
       </figcaption>
-    </motion.figure>
+    </figure>
   </section>;
 }

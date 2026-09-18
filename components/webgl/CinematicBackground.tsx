@@ -18,7 +18,6 @@ function seededRandom(seed: number): () => number {
 
 function GoldenDust(): ReactElement {
   const points = useRef<THREE.Points<THREE.BufferGeometry, THREE.PointsMaterial>>(null);
-  const targetRotation = useMemo(() => new THREE.Vector2(), []);
   const positions = useMemo(() => {
     const random = seededRandom(20260917);
     const data = new Float32Array(PARTICLE_COUNT * 3);
@@ -37,12 +36,10 @@ function GoldenDust(): ReactElement {
 
   useFrame((state, delta) => {
     if (!points.current) return;
-    targetRotation.set(state.pointer.y * 0.055, state.pointer.x * 0.09);
+    const targetRotationX = state.pointer.y * 0.055;
     const damping = 1 - Math.exp(-delta * 1.8);
-    points.current.rotation.x = THREE.MathUtils.lerp(points.current.rotation.x, targetRotation.x, damping);
-    points.current.rotation.y = THREE.MathUtils.lerp(points.current.rotation.y, targetRotation.y, damping);
+    points.current.rotation.x = THREE.MathUtils.lerp(points.current.rotation.x, targetRotationX, damping);
     points.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.055) * 0.045;
-    points.current.position.y = Math.sin(state.clock.elapsedTime * 0.12) * 0.08;
   });
 
   return <points ref={points} frustumCulled={false}>

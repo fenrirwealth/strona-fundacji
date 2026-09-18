@@ -1,13 +1,11 @@
 'use client';
-import { animate, motion, useInView, useReducedMotion } from 'framer-motion';
+import { animate, useInView, useReducedMotion } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 /** Content is visible in SSR and without JS; motion only enhances it. */
 export function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: .12 });
-  const reduce = useReducedMotion();
-  return <motion.div ref={ref} className={className} initial={false} animate={{ y: inView || reduce ? 0 : 20, opacity: inView || reduce ? 1 : .72 }} transition={{ duration: reduce ? 0 : .7, delay, ease: [.22, 1, .36, 1] }}>{children}</motion.div>;
+  void delay;
+  return <div className={className}>{children}</div>;
 }
 
 /** Screen readers receive the final number, never every animation frame. */

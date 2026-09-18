@@ -53,36 +53,6 @@ export function HybridFilmstrip() {
 
       media.add(
         {
-          mobile: '(max-width: 1023px)',
-          reducedMotion: '(prefers-reduced-motion: reduce)',
-        },
-        (context) => {
-          const { mobile, reducedMotion } = context.conditions ?? {};
-          if (!mobile || reducedMotion) return;
-
-          cards.forEach((card, index) => {
-            gsap.fromTo(
-              card,
-              { y: 50, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.9,
-                delay: Math.min(index * 0.06, 0.18),
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: card,
-                  start: 'top 88%',
-                  toggleActions: 'play none none reverse',
-                },
-              },
-            );
-          });
-        },
-      );
-
-      media.add(
-        {
           desktop: '(min-width: 1024px)',
           reducedMotion: '(prefers-reduced-motion: reduce)',
         },

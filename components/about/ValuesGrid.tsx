@@ -66,10 +66,7 @@ function TiltCard({ value, index }: Readonly<{ value: Value; index: number }>) {
   }
 
   return <motion.article
-    initial={{ opacity: 0, y: reducedMotion ? 0 : 38 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.25 }}
-    transition={{ duration: reducedMotion ? 0 : 0.75, delay: reducedMotion ? 0 : index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+    initial={false}
     onPointerMove={handlePointerMove}
     onPointerLeave={resetTilt}
     onPointerCancel={resetTilt}
@@ -105,7 +102,7 @@ export function ValuesGrid() {
       </div>
       <div className="mt-14 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-2xl text-sm leading-7 text-white/52">Chcesz poznać dokumenty Fundacji, dane rejestrowe i zasady naszej działalności?</p>
-        <a href="/przejrzystosc" className="inline-flex min-h-12 items-center justify-center rounded-full border border-gold/40 bg-gold/[.08] px-7 text-xs font-bold uppercase tracking-[.16em] text-gold transition duration-300 hover:-translate-y-1 hover:bg-gold hover:text-night">Zobacz przejrzystość</a>
+        <a href="/przejrzystosc" className="inline-flex min-h-12 items-center justify-center rounded-full border border-gold/40 bg-gold/[.08] px-7 text-xs font-bold uppercase tracking-[.16em] text-gold transition duration-300 hover:bg-gold hover:text-night">Zobacz przejrzystość</a>
       </div>
     </div>
   </section>;
