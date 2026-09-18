@@ -22,7 +22,7 @@ export default function GlassStatsCards(): ReactElement {
     gsap.registerPlugin(ScrollTrigger);
     if (!groupRef.current) return;
     const context = gsap.context(() => {
-      gsap.to(groupRef.current!.rotation, { y: Math.PI * 0.7, x: 0.18, ease: 'none', scrollTrigger: { trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: 1.4 } });
+      gsap.to(groupRef.current!.rotation, { x: 0.18, ease: 'none', scrollTrigger: { trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: 1.4 } });
     });
     return () => context.revert();
   }, []);

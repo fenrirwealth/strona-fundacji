@@ -18,11 +18,10 @@ test('strona aktualności ma kompletne dane redakcyjne i SEO', () => {
   assert.match(page, /<NewsGrid items=\{newsItems\}/);
 });
 
-test('hero aktualności ma kinowe zdjęcie, animację i prawdziwy link', () => {
+test('hero aktualności ma kinowe zdjęcie, natychmiastowa tresc i prawdziwy link', () => {
   const featured = read('components/news/NewsFeatured.tsx');
   assert.match(featured, /min-h-\[80svh\]/);
-  assert.match(featured, /staggerChildren/);
-  assert.match(featured, /filter: 'blur\(10px\)'/);
+  assert.doesNotMatch(featured, /staggerChildren|delayChildren|\by\s*:/);
   assert.match(featured, /Czytaj relację/);
   assert.match(featured, /<Image/);
   assert.match(featured, /<Link href=\{news\.href\}/);
@@ -38,15 +37,14 @@ test('filtry i magazynowa siatka są interaktywne', () => {
   assert.match(grid, /md:col-span-7 lg:col-span-8/);
   assert.match(grid, /md:col-span-5 lg:col-span-4/);
   assert.match(grid, /useNewsFilter\(\)/);
-  assert.match(grid, /AnimatePresence mode="popLayout"/);
+  assert.doesNotMatch(grid, /AnimatePresence|\bexit=/);
 });
 
 test('karta ma efekt obrazu bez zasłaniającego treść wskaźnika', () => {
   const card = read('components/news/NewsCard.tsx');
   assert.match(card, /group-hover:scale-105/);
   assert.match(card, /group-hover:brightness-\[\.82\]/);
-  assert.match(card, /ScrollTrigger/);
-  assert.match(card, /scrub: 0\.7/);
+  assert.doesNotMatch(card, /ScrollTrigger|yPercent/);
   assert.doesNotMatch(card, />Odkryj /);
   assert.doesNotMatch(card, /useSpring/);
   assert.match(card, /Czytaj relację/);

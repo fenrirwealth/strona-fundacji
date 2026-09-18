@@ -4,16 +4,12 @@ import fs from 'node:fs';
 
 const read = path => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('PageTransition korzysta z pathname i sekwencyjnego AnimatePresence', () => {
+test('PageTransition renderuje nowy widok natychmiast bez animacji wyjścia', () => {
   const transition = read('components/transitions/PageTransition.tsx');
-  assert.match(transition, /usePathname/);
-  assert.match(transition, /<AnimatePresence mode="wait">/);
-  assert.match(transition, /key=\{pathname\}/);
-  assert.match(transition, /fixed inset-0 z-\[9999\]/);
-  assert.match(transition, /y: '100%'/);
-  assert.match(transition, /y: '0%'/);
-  assert.match(transition, /y: '-100%'/);
-  assert.match(transition, /0\.22, 1, 0\.36, 1/);
+  assert.match(transition, /router\.push\(nextHref\)/);
+  assert.match(transition, /\{children\}/);
+  assert.doesNotMatch(transition, /AnimatePresence|\bexit=|useAnimationControls|await .*start/);
+  assert.doesNotMatch(transition, /\by\s*:/);
   assert.match(transition, /'\/kontakt'/);
 });
 
@@ -32,14 +28,10 @@ test('NavLink odroznia kotwice, linki zewnetrzne i zmodyfikowane klikniecia', ()
   assert.match(navLink, /event\.preventDefault\(\)/);
 });
 
-test('statyczne podstrony otrzymuja zgodna kurtyne i obsluge bfcache', () => {
+test('statyczne podstrony nie opozniaja nawigacji kurtyna', () => {
   const script = read('assets/site.js');
   const styles = read('assets/site.css');
-  assert.match(script, /navigateWithCurtain/);
-  assert.match(script, /transitionDestination/);
-  assert.match(script, /event\.persisted/);
-  assert.match(script, /prefers-reduced-motion: reduce/);
-  assert.match(styles, /\.static-page-curtain/);
-  assert.match(styles, /\.is-ready\.is-covering/);
-  assert.match(styles, /cubic-bezier\(\.22,1,\.36,1\)/);
+  assert.match(script, /navigateImmediately/);
+  assert.doesNotMatch(script, /navigateWithCurtain|transitionDestination|pageNavigationPending|setTimeout\([^\n]*(location|navigate)/);
+  assert.doesNotMatch(styles, /\.static-page-curtain|data-page-transition/);
 });

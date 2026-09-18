@@ -68,7 +68,6 @@ export default function InteractiveParticles(): ReactElement {
     }
     positionAttribute.needsUpdate = true;
     points.rotation.z = Math.sin(elapsed * 0.055) * 0.08;
-    points.rotation.y = Math.cos(elapsed * 0.04) * 0.06;
   });
 
   return <points ref={pointsRef} frustumCulled={false}>

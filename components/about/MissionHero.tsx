@@ -2,15 +2,10 @@
 
 import Image from 'next/image';
 import { ArrowDown } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 const headline = ['Za', 'każdą', 'pomocą', 'stoją', 'ludzie.'] as const;
 const areas = ['Dzieci i młodzież', 'Rodziny', 'Placówki', 'Pomoc kryzysowa'] as const;
-const editorialEase = [0.22, 1, 0.36, 1] as const;
-
 export function MissionHero() {
-  const reducedMotion = useReducedMotion();
-
   return <section className="relative flex min-h-[100svh] items-end overflow-hidden px-5 pb-16 pt-32 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24 xl:px-24" aria-labelledby="mission-heading">
     <div className="absolute inset-0" aria-hidden="true">
       <Image
@@ -28,44 +23,24 @@ export function MissionHero() {
     </div>
 
     <div className="relative z-10 mx-auto w-full max-w-content">
-      <motion.p
-        initial={{ opacity: 0, y: reducedMotion ? 0 : 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reducedMotion ? 0 : 0.7, ease: editorialEase }}
-        className="mb-7 flex items-center gap-4 text-[11px] font-bold uppercase tracking-[.28em] text-gold sm:text-xs"
-      >
+      <p className="mb-7 flex items-center gap-4 text-[11px] font-bold uppercase tracking-[.28em] text-gold sm:text-xs">
         <span className="h-px w-12 bg-gold" />
         Poznaj nas bliżej
-      </motion.p>
+      </p>
 
-      <motion.h1
+      <h1
         id="mission-heading"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: {},
-          visible: { transition: { delayChildren: reducedMotion ? 0 : 0.12, staggerChildren: reducedMotion ? 0 : 0.1 } },
-        }}
         className="max-w-[11ch] font-display text-[clamp(3.7rem,9vw,8.8rem)] font-medium leading-[.84] tracking-[-.055em] text-cream"
       >
-        {headline.map((word, index) => <motion.span
+        {headline.map((word, index) => <span
           key={word}
           className="mr-[.2em] inline-block"
-          variants={{
-            hidden: { opacity: 0, y: reducedMotion ? 0 : 50, filter: reducedMotion ? 'blur(0px)' : 'blur(14px)' },
-            visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: reducedMotion ? 0 : 0.9, ease: editorialEase } },
-          }}
         >
           {word}{index === headline.length - 1 ? '' : ' '}
-        </motion.span>)}
-      </motion.h1>
+        </span>)}
+      </h1>
 
-      <motion.div
-        initial={{ opacity: 0, y: reducedMotion ? 0 : 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reducedMotion ? 0 : 0.85, delay: reducedMotion ? 0 : 0.82, ease: editorialEase }}
-        className="mt-8 flex max-w-4xl flex-col gap-8 border-t border-white/15 pt-7 sm:flex-row sm:items-end sm:justify-between"
-      >
+      <div className="mt-8 flex max-w-4xl flex-col gap-8 border-t border-white/15 pt-7 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-2xl">
           <p className="text-base leading-8 text-white/68 sm:text-lg">Dobra pomoc zaczyna się od uważności na człowieka. Wspieramy dzieci, rodziny i placówki, reagujemy w sytuacjach kryzysowych oraz pomagamy osobom dotkniętym skutkami klęsk żywiołowych — zawsze tam, gdzie wspólne działanie może przywrócić bezpieczeństwo i nadzieję.</p>
           <ul className="mt-6 flex flex-wrap gap-2" aria-label="Główne obszary pomocy">
@@ -74,9 +49,9 @@ export function MissionHero() {
         </div>
         <a href="#historia" className="group inline-flex shrink-0 items-center gap-3 text-xs font-bold uppercase tracking-[.18em] text-white/72 transition-colors hover:text-gold">
           Nasza historia
-          <span className="grid h-11 w-11 place-items-center rounded-full border border-white/20 transition duration-300 group-hover:border-gold/60 group-hover:bg-gold/10"><ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" aria-hidden="true" /></span>
+          <span className="grid h-11 w-11 place-items-center rounded-full border border-white/20 transition duration-300 group-hover:border-gold/60 group-hover:bg-gold/10"><ArrowDown className="h-4 w-4" aria-hidden="true" /></span>
         </a>
-      </motion.div>
+      </div>
     </div>
   </section>;
 }

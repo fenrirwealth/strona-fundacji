@@ -37,7 +37,7 @@ export function DonationCard(): ReactElement {
   }
 
   return <section id="wsparcie" className="relative px-5 py-24 sm:px-10 lg:px-16 lg:py-36 xl:px-24" aria-labelledby="donation-heading">
-    <div className="absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[.09] blur-[140px]" aria-hidden="true" />
+    <div className="absolute inset-0 m-auto h-[36rem] w-[36rem] rounded-full bg-gold/[.09] blur-[140px]" aria-hidden="true" />
     <div className="relative mx-auto grid max-w-content gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:gap-20">
       <div>
         <div className="mb-7 grid h-14 w-14 place-items-center rounded-full border border-gold/35 bg-gold/10 text-gold">
@@ -70,7 +70,7 @@ export function DonationCard(): ReactElement {
           <button
             type="button"
             onClick={copyAccount}
-            className={cn('inline-flex min-h-14 flex-1 items-center justify-center gap-3 rounded-full px-6 text-sm font-bold transition duration-300', copied ? 'bg-emerald-400 text-night' : 'bg-gold text-night shadow-glow hover:-translate-y-1')}
+            className={cn('inline-flex min-h-14 flex-1 items-center justify-center gap-3 rounded-full px-6 text-sm font-bold transition duration-300', copied ? 'bg-emerald-400 text-night' : 'bg-gold text-night shadow-glow')}
             aria-live="polite"
           >
             {copied ? <Check className="h-5 w-5" aria-hidden="true" /> : <Copy className="h-5 w-5" aria-hidden="true" />}

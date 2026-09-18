@@ -12,11 +12,11 @@ test('strona Jak pomagamy sklada kompletna trase App Router', () => {
   assert.match(page, /<Footer variant="dark"/);
 });
 
-test('hero posiada maskowany blur-in i wymagany komunikat', () => {
+test('hero pokazuje wymagany komunikat bez pionowej animacji wejscia', () => {
   const hero = read('components/how-we-help/HelpHero.tsx');
   assert.match(hero, /Pomoc przybiera.*wiele form\./s);
   assert.match(hero, /overflow-hidden/);
-  assert.match(hero, /blur\(12px\)/);
+  assert.doesNotMatch(hero, /\by\s*:|staggerChildren|delayChildren/);
   assert.match(hero, /min-h-\[72svh\]/);
 });
 

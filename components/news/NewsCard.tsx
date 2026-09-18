@@ -2,40 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useReducedMotion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
 import type { NewsItem } from './NewsGrid';
 
 export function NewsCard({ item }: { item: NewsItem }) {
-  const reducedMotion = useReducedMotion();
-  const articleRef = useRef<HTMLElement>(null);
-  const mediaRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const article = articleRef.current;
-    const media = mediaRef.current;
-    if (!article || !media || reducedMotion) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-    const context = gsap.context(() => {
-      gsap.fromTo(media, { yPercent: -3 }, {
-        yPercent: 3,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: article,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.7,
-        },
-      });
-    }, article);
-    return () => context.revert();
-  }, [reducedMotion]);
-
   const cardContent = <>
-    <div ref={mediaRef} className="absolute -inset-8 overflow-hidden">
+    <div className="absolute -inset-8 overflow-hidden">
       <Image
         src={item.image}
         alt={item.imageAlt}
@@ -62,7 +33,6 @@ export function NewsCard({ item }: { item: NewsItem }) {
   </>;
 
   return <article
-    ref={articleRef}
     className="group relative h-full min-h-[560px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#130b08] shadow-[0_32px_100px_rgba(0,0,0,.28)] backdrop-blur-md transition-colors focus-within:border-gold/50 sm:min-h-[620px]"
   >
     {item.href

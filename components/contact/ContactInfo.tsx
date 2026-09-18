@@ -1,7 +1,6 @@
 "use client";
 
 import { Mail, MapPin, Phone, type LucideIcon } from 'lucide-react';
-import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { foundation } from '@/lib/content';
 
 type ContactItem = {
@@ -34,65 +33,31 @@ const contactItems: ContactItem[] = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 0.12,
-      staggerChildren: 0.11,
-    },
-  },
-};
-
-const fadeUpVariants: Variants = {
-  // Keep the server-rendered content visible while React hydrates. This
-  // prevents a blank page on slow devices or when client JavaScript fails.
-  hidden: { opacity: 1, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
 export function ContactInfo() {
-  const reducedMotion = useReducedMotion();
-
   return (
-    <motion.section
+    <section
       className="relative flex w-full min-w-0 max-w-full flex-col justify-center pb-10 pt-28 lg:min-h-[calc(100svh-8rem)] lg:py-20"
-      variants={containerVariants}
-      initial={reducedMotion ? false : 'hidden'}
-      animate="visible"
       aria-labelledby="contact-heading"
     >
-      <motion.div
-        variants={fadeUpVariants}
-        className="mb-7 flex min-w-0 items-center gap-4"
-      >
+      <div className="mb-7 flex min-w-0 items-center gap-4">
         <span className="h-px w-12 shrink-0 bg-amber-500" aria-hidden="true" />
         <p className="m-0 text-[11px] font-bold uppercase tracking-[0.28em] text-amber-500">
           Kontakt
         </p>
-      </motion.div>
+      </div>
 
-      <motion.h1
+      <h1
         id="contact-heading"
-        variants={fadeUpVariants}
         className="max-w-[11ch] font-display text-4xl font-medium leading-[0.98] tracking-[-0.04em] text-[#FFF9F0] sm:text-5xl lg:text-6xl"
       >
         Zacznijmy działać razem.
-      </motion.h1>
+      </h1>
 
-      <motion.p
-        variants={fadeUpVariants}
-        className="mt-7 max-w-xl font-sans text-base leading-8 text-neutral-400 lg:mt-8 lg:text-lg"
-      >
+      <p className="mt-7 max-w-xl font-sans text-base leading-8 text-neutral-400 lg:mt-8 lg:text-lg">
         Napisz do nas, zadzwoń lub odwiedź nas w Warszawie. Każdy gest ma znaczenie.
-      </motion.p>
+      </p>
 
-      <motion.div
-        variants={fadeUpVariants}
+      <div
         className="mt-9 grid w-full min-w-0 max-w-xl gap-2 lg:mt-12"
         aria-label="Dane kontaktowe Fundacji"
       >
@@ -124,14 +89,11 @@ export function ContactInfo() {
             </span>
           </a>
         ))}
-      </motion.div>
+      </div>
 
-      <motion.p
-        variants={fadeUpVariants}
-        className="mt-8 max-w-lg border-l border-amber-500/50 pl-4 text-xs leading-6 text-white/40"
-      >
+      <p className="mt-8 max-w-lg border-l border-amber-500/50 pl-4 text-xs leading-6 text-white/40">
         Odpowiadamy tak szybko, jak to możliwe. W sprawach wymagających pilnego kontaktu zadzwoń do nas bezpośrednio.
-      </motion.p>
-    </motion.section>
+      </p>
+    </section>
   );
 }

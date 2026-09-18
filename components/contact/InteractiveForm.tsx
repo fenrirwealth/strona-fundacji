@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpRight, CheckCircle2, ChevronDown, RotateCcw } from 'lucide-react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState, type FormEvent } from 'react';
 
 type Topic = 'wsparcie-zbiorki' | 'wolontariat' | 'przekazanie-darow' | 'inne';
@@ -20,7 +19,6 @@ const fieldClass =
   'w-full max-w-full bg-transparent border-0 border-b border-white/20 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:border-amber-500 focus:ring-0 transition-colors text-sm lg:text-base';
 
 export function InteractiveForm() {
-  const reducedMotion = useReducedMotion();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [topic, setTopic] = useState<Topic>('wsparcie-zbiorki');
@@ -49,21 +47,12 @@ export function InteractiveForm() {
   }
 
   return (
-    <motion.section
+    <section
       className="relative flex w-full min-w-0 max-w-full items-center justify-center pb-20 pt-8 lg:min-h-[calc(100svh-8rem)] lg:py-20"
-      // Keep the form visible in the server-rendered HTML so delayed
-      // hydration can never leave visitors looking at an empty black screen.
-      initial={reducedMotion ? false : { opacity: 1, y: 28 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: reducedMotion ? 0 : 0.85,
-        delay: reducedMotion ? 0 : 0.22,
-        ease: [0.22, 1, 0.36, 1],
-      }}
       aria-labelledby="form-heading"
     >
       <div
-        className="pointer-events-none absolute inset-x-10 top-1/2 h-64 -translate-y-1/2 rounded-full bg-amber-500/[0.08] blur-[110px]"
+        className="pointer-events-none absolute inset-x-10 inset-y-0 my-auto h-64 rounded-full bg-amber-500/[0.08] blur-[110px]"
         aria-hidden="true"
       />
 
@@ -76,14 +65,9 @@ export function InteractiveForm() {
           aria-hidden="true"
         />
 
-        <AnimatePresence mode="wait">
           {isSubmitted ? (
-            <motion.div
+            <div
               key="success"
-              initial={reducedMotion ? false : { opacity: 0, y: 18, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: reducedMotion ? 0 : 0.5 }}
               className="flex min-h-[30rem] w-full max-w-full flex-col items-center justify-center text-center"
               role="status"
               aria-live="polite"
@@ -105,15 +89,12 @@ export function InteractiveForm() {
                 <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
                 Napisz ponownie
               </button>
-            </motion.div>
+            </div>
           ) : (
-            <motion.form
+            <form
               key="form"
               className="flex w-full min-w-0 max-w-full flex-col"
               onSubmit={submitForm}
-              initial={reducedMotion ? false : { opacity: 1 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, y: -12 }}
             >
               <div className="mb-8 min-w-0 max-w-full">
                 <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.26em] text-amber-500">
@@ -200,7 +181,7 @@ export function InteractiveForm() {
                       </option>
                     </select>
                     <ChevronDown
-                      className="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+                      className="pointer-events-none absolute inset-y-0 right-1 my-auto h-4 w-4 text-neutral-500"
                       aria-hidden="true"
                     />
                   </div>
@@ -227,18 +208,16 @@ export function InteractiveForm() {
                 </div>
               </div>
 
-              <motion.button
+              <button
                 type="submit"
-                whileHover={reducedMotion ? undefined : { y: -2 }}
-                whileTap={{ scale: 0.985 }}
                 className="group mt-10 inline-flex min-h-13 w-full max-w-full items-center justify-center gap-3 rounded-full border border-amber-500/40 bg-amber-500/[0.08] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-amber-400 shadow-[0_0_0_rgba(245,158,11,0)] transition duration-300 hover:border-amber-400/70 hover:bg-amber-500/[0.12] hover:shadow-[0_0_32px_rgba(245,158,11,0.16)] sm:w-auto"
               >
                 Wyślij wiadomość
                 <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
                   aria-hidden="true"
                 />
-              </motion.button>
+              </button>
 
               <small className="mt-4 block max-w-full text-center text-[10px] uppercase tracking-widest text-neutral-500">
                 Klikając wyślij, akceptujesz{' '}
@@ -250,10 +229,9 @@ export function InteractiveForm() {
                 </a>
                 .
               </small>
-            </motion.form>
+            </form>
           )}
-        </AnimatePresence>
       </div>
-    </motion.section>
+    </section>
   );
 }
