@@ -1,6 +1,6 @@
 import { cpSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
-// Preserve established static URLs. App Router owns /kontakt and must not be overwritten here.
-for (const file of ['archiwum.html', 'listy-do-swietego-mikolaja.html', 'przejrzystosc.html', 'polityka-prywatnosci.html', '404.html']) cpSync(file, `out/${file}`);
+// Preserve established static URLs. App Router owns /archiwum and /kontakt, so neither may be overwritten here.
+for (const file of ['listy-do-swietego-mikolaja.html', 'przejrzystosc.html', 'polityka-prywatnosci.html', '404.html']) cpSync(file, `out/${file}`);
 cpSync('aktualnosci', 'out/aktualnosci', { recursive: true });
 cpSync('archiwum', 'out/archiwum', { recursive: true });
 function optimize(dir) {
