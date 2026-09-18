@@ -40,23 +40,25 @@ test('kontakt jest trasa App Router ze split-screen i pelnymi danymi Fundacji', 
   assert.doesNotMatch(finalizeExport, /'kontakt\.html'/);
 });
 
-test('formularz konwersacyjny ma wymagane pola, walidacje i stan sukcesu', () => {
-  assert.match(interactiveForm, /Cześć, mam na imię/);
-  assert.match(interactiveForm, /Wsparciu zbiórki/);
-  assert.match(interactiveForm, /Wolontariacie/);
-  assert.match(interactiveForm, /Przekazaniu darów/);
+test('minimalistyczny formularz kontaktowy ma pionowy uklad i stan sukcesu', () => {
+  assert.doesNotMatch(interactiveForm, /Cześć, mam na imię/);
+  assert.match(interactiveForm, /Imię i nazwisko/);
+  assert.match(interactiveForm, /Adres e-mail/);
+  assert.match(interactiveForm, /Twoja wiadomość/);
+  assert.match(interactiveForm, /rows=\{4\}/);
   assert.match(interactiveForm, /event\.preventDefault\(\)/);
   assert.match(interactiveForm, /Wiadomość wysłana\./);
-  assert.match(interactiveForm, /Dziękujemy za Twój krok w stronę lepszego jutra!/);
+  assert.match(interactiveForm, /Dziękujemy!/);
   assert.match(interactiveForm, /aria-live="polite"/);
   assert.match(interactiveForm, /polityka-prywatnosci/);
   assert.match(interactiveForm, /topicFromQuery/);
-  assert.match(interactiveForm, /flex min-w-0 flex-wrap items-baseline/);
-  assert.match(interactiveForm, /inline-block min-w-\[120px\] max-w-full/);
-  assert.match(interactiveForm, /w-full max-w-xl backdrop-blur-md bg-white\/5 border border-white\/10 rounded-2xl p-6 lg:p-12/);
-  assert.match(interactiveForm, /className=\{`\$\{fieldClass\} w-36 max-w-full`\}/);
-  assert.match(interactiveForm, /className=\{`\$\{fieldClass\} w-full min-w-0 max-w-full sm:w-60`\}/);
-  assert.match(interactiveForm, /backdrop-blur-md/);
+  assert.match(interactiveForm, /className="flex w-full min-w-0 max-w-full flex-col"/);
+  assert.match(interactiveForm, /w-full max-w-full bg-transparent border-0 border-b border-white\/20/);
+  assert.match(interactiveForm, /focus:border-amber-500/);
+  assert.match(interactiveForm, /appearance-none cursor-pointer/);
+  assert.match(interactiveForm, /p-8 lg:p-12 backdrop-blur-md bg-white\/5 border border-white\/10 rounded-2xl w-full max-w-xl/);
+  assert.match(interactiveForm, /className=\{fieldClass\}/);
+  assert.match(interactiveForm, /className=\{`\$\{fieldClass\} resize-none`\}/);
   assert.match(contactInfo, /break-all text-sm font-medium text-amber-500/);
 });
 
