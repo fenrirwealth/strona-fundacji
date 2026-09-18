@@ -68,8 +68,8 @@ export function InteractiveForm() {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: reducedMotion ? 0 : 0.85, delay: reducedMotion ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="mb-9 flex items-start justify-between gap-6">
-        <div>
+      <div className="mb-9 flex min-w-0 max-w-full items-start justify-between gap-6">
+        <div className="min-w-0 max-w-full">
           <p className="text-[10px] font-bold uppercase tracking-[.24em] text-gold">Opowiedz nam krótko</p>
           <h2 id="form-heading" className="mt-3 font-display text-4xl font-medium tracking-[-.035em] text-cream sm:text-5xl">Jak możemy pomóc?</h2>
         </div>
@@ -122,7 +122,7 @@ export function InteractiveForm() {
               value={name}
               onChange={event => setName(event.target.value)}
               placeholder="Imię"
-              className={`${fieldClass} w-36`}
+              className={`${fieldClass} w-36 max-w-full`}
             />.
             <span>Piszę w imieniu</span>
             <label className="sr-only" htmlFor="contact-representation">Reprezentuję</label>
@@ -163,7 +163,7 @@ export function InteractiveForm() {
               value={email}
               onChange={event => setEmail(event.target.value)}
               placeholder="E-mail"
-              className={`${fieldClass} w-full min-w-0 sm:w-60 sm:min-w-[120px]`}
+              className={`${fieldClass} w-full min-w-0 max-w-full sm:w-60 sm:min-w-[120px]`}
             />.
           </div>
 
