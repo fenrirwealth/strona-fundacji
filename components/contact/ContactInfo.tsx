@@ -101,7 +101,9 @@ export function ContactInfo() {
           </span>
           <span className="min-w-0 flex-1">
             <span className="block text-[10px] font-bold uppercase tracking-[.2em] text-white/35">{label}</span>
-            <span className={`mt-1 block text-sm font-medium text-white/85 sm:text-base ${label === 'E-mail' ? 'break-all' : 'break-words'}`}>{value}</span>
+            <span className="mt-1 block min-w-0 max-w-full break-words text-sm font-medium text-white/85 sm:text-base">
+              {label === 'E-mail' ? <span className="break-all">{value}</span> : value}
+            </span>
           </span>
         </motion.a>)}
       </div>
