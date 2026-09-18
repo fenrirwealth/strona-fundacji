@@ -6,11 +6,21 @@ const read = path => fs.readFileSync(new URL(`../${path}`, import.meta.url), 'ut
 
 test('PageTransition renderuje nowy widok natychmiast bez animacji wyjścia', () => {
   const transition = read('components/transitions/PageTransition.tsx');
-  assert.match(transition, /router\.push\(nextHref\)/);
+  assert.match(transition, /router\.push\(nextHref, \{ scroll: true \}\)/);
   assert.match(transition, /\{children\}/);
   assert.doesNotMatch(transition, /AnimatePresence|\bexit=|useAnimationControls|await .*start/);
   assert.doesNotMatch(transition, /\by\s*:/);
   assert.match(transition, /'\/kontakt'/);
+});
+
+test('zmiana podstrony zawsze resetuje przewijanie do początku', () => {
+  const smoothScroll = read('components/SmoothScroll.tsx');
+  const staticScript = read('assets/site.js');
+  assert.match(smoothScroll, /usePathname\(\)/);
+  assert.match(smoothScroll, /scrollRestoration = 'manual'/);
+  assert.match(smoothScroll, /lenisRef\.current\?\.scrollTo\(0, \{ immediate: true, force: true \}\)/);
+  assert.match(smoothScroll, /window\.scrollTo\(\{ top: 0, left: 0, behavior: 'auto' \}\)/);
+  assert.match(staticScript, /history\.scrollRestoration='manual'/);
 });
 
 test('globalny provider zachowuje Lenis i owija zawartosc w PageTransition', () => {

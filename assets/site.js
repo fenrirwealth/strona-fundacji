@@ -3,6 +3,12 @@ function navigateImmediately(href,replace=false){
   if(replace) location.replace(destination.href); else location.assign(destination.href);
 }
 
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+if(!location.hash){
+  scrollTo({top:0,left:0,behavior:'auto'});
+  addEventListener('pageshow',()=>scrollTo({top:0,left:0,behavior:'auto'}),{once:true});
+}
+
 const header=document.querySelector('header');
 const progress=document.querySelector('.progress span');
 const menu=document.querySelector('.menu');

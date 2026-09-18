@@ -79,8 +79,8 @@ export function PageTransition({ children }: Readonly<{ children: ReactNode }>) 
 
     if (APP_ROUTES.has(destinationPath)) {
       const nextHref = `${destination.pathname}${destination.search}${destination.hash}`;
-      if (replace) router.replace(nextHref);
-      else router.push(nextHref);
+      if (replace) router.replace(nextHref, { scroll: true });
+      else router.push(nextHref, { scroll: true });
       return;
     }
 
