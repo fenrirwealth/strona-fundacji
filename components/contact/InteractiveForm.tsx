@@ -3,7 +3,7 @@
 import { ArrowUpRight, CheckCircle2, ChevronDown, RotateCcw } from 'lucide-react';
 import { useEffect, useState, type FormEvent } from 'react';
 
-type Topic = 'wsparcie-zbiorki' | 'wolontariat' | 'przekazanie-darow' | 'inne';
+type Topic = 'wsparcie-zbiorki' | 'wolontariat' | 'przekazanie-darow' | 'wspolpraca-firmy' | 'inne';
 
 const topicFromQuery: Record<string, Topic> = {
   'chce-pomoc': 'wsparcie-zbiorki',
@@ -11,6 +11,7 @@ const topicFromQuery: Record<string, Topic> = {
   'paczka-swiateczna': 'wsparcie-zbiorki',
   wolontariat: 'wolontariat',
   'biezace-potrzeby': 'przekazanie-darow',
+  'wspolpraca-firmy': 'wspolpraca-firmy',
   dokumenty: 'inne',
   inne: 'inne',
 };
@@ -175,6 +176,9 @@ export function InteractiveForm() {
                       </option>
                       <option className="bg-[#111111]" value="przekazanie-darow">
                         Przekazanie darów
+                      </option>
+                      <option className="bg-[#111111]" value="wspolpraca-firmy">
+                        Współpraca z firmą
                       </option>
                       <option className="bg-[#111111]" value="inne">
                         Inny temat

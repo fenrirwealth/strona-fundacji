@@ -29,7 +29,7 @@ const pages = [
   ["/archiwum/zebrane-dary", "../archiwum/zebrane-dary/index.html"],
   ["/archiwum/za-kulisami-dzialan", "../archiwum/za-kulisami-dzialan/index.html"]
 ];
-const appRoutes = ["/aktualnosci/swieta-2025"];
+const appRoutes = ["/aktualnosci/swieta-2025", "/dla-firm"];
 
 const attr = (source, regex, label) => {
   const match = source.match(regex);

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { foundation } from '@/lib/content';
 import { NavLink } from './ui/NavLink';
-const links = [['O Fundacji', '/o-fundacji'], ['Jak pomagamy', '/jak-pomagamy'], ['Aktualności', '/aktualnosci'], ['Archiwum', '/archiwum'], ['Kontakt', '/kontakt'], ['Jak pomóc', '#wsparcie']];
+const links = [['O Fundacji', '/o-fundacji'], ['Jak pomagamy', '/jak-pomagamy'], ['Dla firm', '/dla-firm'], ['Aktualności', '/aktualnosci'], ['Kontakt', '/kontakt'], ['Jak pomóc', '/#wsparcie']];
 export function Header({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
   const [open, setOpen] = useState(false);
   const header = useRef<HTMLElement>(null);
