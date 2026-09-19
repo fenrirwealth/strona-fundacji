@@ -8,6 +8,7 @@ const read = (path) => fs.readFileSync(new URL(path, import.meta.url), "utf8");
 const sitemap = read("../sitemap.xml");
 const robots = read("../robots.txt");
 const notFound = read("../404.html");
+const nginx = read("../nginx.conf");
 
 const pages = [
   ["/", "../index.html"],
@@ -76,6 +77,11 @@ test("robots.txt wskazuje produkcyjną mapę strony", () => {
   assert.match(robots, /^User-agent: \*/m);
   assert.match(robots, /^Allow: \/$/m);
   assert.match(robots, new RegExp(`^Sitemap: ${DOMAIN.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/sitemap\\.xml$`, "m"));
+});
+
+test("nginx serwuje podstronę dla firm pod czystym adresem", () => {
+  assert.match(nginx, /location = \/dla-firm\s*\{[\s\S]*try_files \/dla-firm\.html =404;/);
+  assert.match(nginx, /location = \/dla-firm\/\s*\{[\s\S]*return 301 \/dla-firm;/);
 });
 
 test("strona 404 nie jest przeznaczona do indeksowania", () => {
