@@ -216,7 +216,7 @@ export default function BusinessPage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[#8c1735] px-5 py-20 text-white sm:px-10 lg:px-16 lg:py-28 xl:px-24">
+        <section className="relative overflow-hidden bg-[#123d32] px-5 py-20 text-white sm:px-10 lg:px-16 lg:py-28 xl:px-24">
           <div className="absolute -right-32 -top-44 h-[520px] w-[520px] rounded-full border border-white/12 shadow-[0_0_0_75px_rgba(255,255,255,.025),0_0_0_150px_rgba(255,255,255,.018)]" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-content items-end gap-12 lg:grid-cols-[1fr_auto]">
             <div><p className="mb-5 text-xs font-bold uppercase tracking-[.24em] text-[#efd49a]">Zacznijmy od rozmowy</p><h2 className="max-w-4xl font-display text-5xl font-medium leading-[.95] tracking-[-.04em] sm:text-7xl">Dobierzemy formę współpracy do Państwa możliwości.</h2><p className="mt-7 max-w-2xl text-base leading-8 text-white/72">Napiszą Państwo do nas — po naszej stronie przygotujemy propozycję działania i komplet potrzebnych dokumentów.</p></div>
