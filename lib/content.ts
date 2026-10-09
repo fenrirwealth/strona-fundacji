@@ -6,6 +6,8 @@ export const foundation = {
   portal: 'https://portal.fundacjalepszydomlepszejutro.pl',
   address: 'Złota 75A/7, 00-819 Warszawa',
   krs: '0000971976', nip: '5273002294', regon: '522030190',
+  legalName: 'FUNDACJA LEPSZY DOM LEPSZE JUTRO',
+  registeredAddress: 'Złota 75 A / 7, 00-819 Warszawa, Polska',
   bankName: 'Erste Bank Polska',
   bankAccount: '51 1090 2590 0000 0001 5074 2996',
   siepomagaProfile: 'https://www.siepomaga.pl/lepszy-dom-lepsze-jutro',

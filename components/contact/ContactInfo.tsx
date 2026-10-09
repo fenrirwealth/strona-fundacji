@@ -91,6 +91,28 @@ export function ContactInfo() {
         ))}
       </div>
 
+      <section
+        className="mt-8 w-full max-w-xl rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-5 sm:px-6"
+        aria-labelledby="contact-registry-heading"
+      >
+        <p id="contact-registry-heading" className="m-0 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35">
+          Dane rejestrowe
+        </p>
+        <p className="mb-0 mt-3 text-sm font-semibold tracking-[0.06em] text-[#FFF9F0]">{foundation.legalName}</p>
+        <dl className="mb-0 mt-4 grid grid-cols-3 gap-3 text-sm">
+          {([['KRS', foundation.krs], ['NIP', foundation.nip], ['REGON', foundation.regon]] as const).map(([term, value]) => (
+            <div key={term} className="min-w-0">
+              <dt className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">{term}</dt>
+              <dd className="m-0 mt-1 break-all font-medium tabular-nums text-white/85">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mb-0 mt-5 text-sm text-white/60">
+          <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Adres siedziby</span>
+          <span className="mt-1 block text-white/85">{foundation.registeredAddress}</span>
+        </p>
+      </section>
+
       <p className="mt-8 max-w-lg border-l border-amber-500/50 pl-4 text-xs leading-6 text-white/40">
         Odpowiadamy tak szybko, jak to możliwe. W sprawach wymagających pilnego kontaktu zadzwoń do nas bezpośrednio.
       </p>
