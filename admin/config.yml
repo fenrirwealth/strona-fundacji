@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: fenrirwealth/strona-fundacji
+  branch: main
+  base_url: https://fundacjalepszydomlepszejutro.pl
+  auth_endpoint: api/auth
+  commit_messages:
+    create: 'Aktualność: dodano „{{slug}}”'
+    update: 'Aktualność: zmieniono „{{slug}}”'
+    delete: 'Aktualność: usunięto „{{slug}}”'
+    uploadMedia: 'Aktualność: dodano zdjęcie {{path}}'
+    deleteMedia: 'Aktualność: usunięto zdjęcie {{path}}'
+publish_mode: simple
+locale: pl
+site_url: https://fundacjalepszydomlepszejutro.pl
+display_url: https://fundacjalepszydomlepszejutro.pl/aktualnosci
+media_folder: content/aktualnosci/zdjecia
+public_folder: /assets/aktualnosci/cms
+collections:
+  - name: aktualnosci
+    label: Aktualności
+    label_singular: Aktualność
+    folder: content/aktualnosci
+    extension: md
+    format: frontmatter
+    create: true
+    slug: '{{slug}}'
+    summary: '{{title}} — {{date}}'
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Tytuł, widget: string }
+      - { name: date, label: Data publikacji, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false, format: 'YYYY-MM-DD' }
+      - { name: category, label: Etykieta nad tytułem (np. Domy dziecka), widget: string, required: false, default: Aktualności }
+      - { name: filters, label: Filtry na liście, widget: select, multiple: true, required: false, options: ['Akcje Szkolne', 'Święta', 'Współprace'] }
+      - { name: excerpt, label: Krótki opis (lista i media społecznościowe), widget: text }
+      - { name: image, label: Zdjęcie główne, widget: image, choose_url: false }
+      - { name: imageAlt, label: Opis zdjęcia (dla niewidomych), widget: string }
+      - name: gallery
+        label: Galeria
+        widget: list
+        required: false
+        fields:
+          - { name: image, label: Zdjęcie, widget: image, choose_url: false }
+          - { name: alt, label: Opis zdjęcia, widget: string }
+      - { name: draft, label: Szkic (nie pokazuj na stronie), widget: boolean, default: false, required: false }
+      - { name: body, label: Treść, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list], editor_components: [], modes: [rich_text] }

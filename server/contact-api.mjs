@@ -1,4 +1,5 @@
 import { createServer } from 'node:http';
+import { handleAuthStart, handleAuthCallback } from './oauth.mjs';
 import { pathToFileURL } from 'node:url';
 import { handleNewsletterConfirmation, handleNewsletterSubscription } from './newsletter.mjs';
 
@@ -124,7 +125,11 @@ const server = createServer(async (incoming, outgoing) => {
     body: ['GET', 'HEAD'].includes(incoming.method) ? undefined : Buffer.concat(chunks),
   });
   const pathname = new URL(request.url).pathname;
-  const response = pathname === '/api/newsletter'
+  const response = pathname === '/api/auth' && incoming.method === 'GET'
+    ? handleAuthStart(request)
+    : pathname === '/api/auth/callback' && incoming.method === 'GET'
+      ? await handleAuthCallback(request)
+    : pathname === '/api/newsletter'
     ? await handleNewsletterSubscription(request)
     : pathname === '/api/newsletter/potwierdz'
       ? await handleNewsletterConfirmation(request)

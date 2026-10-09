@@ -31,3 +31,4 @@ public/robots.txt
 public/sitemap.xml
 public/site.webmanifest
 *.tsbuildinfo
+public/admin/
