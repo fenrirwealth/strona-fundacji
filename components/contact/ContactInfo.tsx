@@ -92,25 +92,25 @@ export function ContactInfo() {
       </div>
 
       <section
-        className="mt-8 w-full max-w-xl rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-5 sm:px-6"
+        className="mt-10 w-full max-w-xl rounded-2xl border border-amber-500/40 bg-amber-500/[0.06] px-5 py-6 sm:px-7 sm:py-7"
         aria-labelledby="contact-registry-heading"
       >
-        <p id="contact-registry-heading" className="m-0 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35">
+        <p id="contact-registry-heading" className="m-0 text-[11px] font-bold uppercase tracking-[0.24em] text-amber-500">
           Dane rejestrowe
         </p>
-        <p className="mb-0 mt-3 text-sm font-semibold tracking-[0.06em] text-[#FFF9F0]">{foundation.legalName}</p>
-        <dl className="mb-0 mt-4 grid grid-cols-3 gap-3 text-sm">
+        <p className="mb-0 mt-3 text-lg font-semibold tracking-[0.04em] text-[#FFF9F0] sm:text-xl">{foundation.legalName}</p>
+        <dl className="mb-0 mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {([['KRS', foundation.krs], ['NIP', foundation.nip], ['REGON', foundation.regon]] as const).map(([term, value]) => (
-            <div key={term} className="min-w-0">
-              <dt className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">{term}</dt>
-              <dd className="m-0 mt-1 break-all font-medium tabular-nums text-white/85">{value}</dd>
+            <div key={term} className="min-w-0 border-t border-white/10 pt-3">
+              <dt className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-500/80">{term}</dt>
+              <dd className="m-0 mt-1 text-lg font-semibold tabular-nums tracking-[0.02em] text-[#FFF9F0] sm:text-xl">{value}</dd>
             </div>
           ))}
         </dl>
-        <p className="mb-0 mt-5 text-sm text-white/60">
-          <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Adres siedziby</span>
-          <span className="mt-1 block text-white/85">{foundation.registeredAddress}</span>
-        </p>
+        <div className="mt-5 border-t border-white/10 pt-3">
+          <p className="m-0 text-[11px] font-bold uppercase tracking-[0.2em] text-amber-500/80">Adres siedziby</p>
+          <p className="mb-0 mt-1 text-base font-medium text-[#FFF9F0] sm:text-lg">{foundation.registeredAddress}</p>
+        </div>
       </section>
 
       <p className="mt-8 max-w-lg border-l border-amber-500/50 pl-4 text-xs leading-6 text-white/40">
