@@ -62,25 +62,25 @@ const scenes: Array<{ text: string; photos: Photo[] }> = [
 export default function WinterInChildrensHomeArticle() {
   return <>
     <Header variant="dark" />
-    <main id="main" className="relative overflow-hidden bg-[#05080f] pb-28 pt-36 text-cream sm:pt-44 lg:pb-40">
+    <main id="main" className="relative overflow-hidden bg-[#05080f] pb-28 pt-40 text-cream sm:pt-52 lg:pb-40">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-gold/[.08] blur-[170px]" aria-hidden="true" />
       <div className="page-curtain-noise pointer-events-none absolute inset-0 opacity-[.025]" aria-hidden="true" />
 
       <article className="relative mx-auto max-w-6xl px-5 sm:px-10 lg:px-16">
-        <Link href="/aktualnosci" className="mb-12 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[.16em] text-white/55 transition hover:text-gold">
+        <Link href="/aktualnosci" className="mb-14 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[.16em] text-white/55 transition hover:text-gold">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Wszystkie aktualności
         </Link>
 
         <header className="max-w-5xl">
-          <div className="mb-7 flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[.2em]">
+          <div className="mb-8 flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[.2em]">
             <span className="rounded-full border border-gold/30 bg-gold/[.08] px-4 py-2 text-gold">Domy dziecka</span>
             <time dateTime="2026-10" className="text-white/45">Październik 2026</time>
           </div>
-          <h1 className="text-balance font-display text-[clamp(3.25rem,7vw,7rem)] font-medium leading-[.9] tracking-[-.05em]">Tak wyglądała tu ubiegła zima. <span className="text-gold">Chcemy, żeby ta była inna.</span></h1>
-          <p className="mt-8 max-w-3xl text-lg leading-9 text-white/58 sm:text-xl">To tylko jeden dom. W Polsce ponad 78 tysięcy dzieci dorasta poza własną rodziną. Ponad 17 tysięcy z nich mieszka w placówkach, takich jak ta.</p>
+          <h1 className="text-balance font-display text-[clamp(2.6rem,5.2vw,5rem)] font-medium leading-[1.05] tracking-[-.04em]">Tak wyglądała tu ubiegła zima. <span className="text-gold">Chcemy, żeby ta była inna.</span></h1>
+          <p className="mt-12 max-w-3xl text-lg leading-9 text-white/70 sm:mt-14 sm:text-xl sm:leading-10">To tylko jeden dom. W Polsce ponad 78 tysięcy dzieci dorasta poza własną rodziną. Ponad 17 tysięcy z nich mieszka w placówkach, takich jak ta.</p>
         </header>
 
-        <div className="mx-auto mt-14 max-w-3xl space-y-8 text-base leading-8 text-white/72 sm:mt-20 sm:text-lg sm:leading-9">
+        <div className="mx-auto mt-16 max-w-3xl space-y-8 text-base leading-8 text-white/78 sm:mt-24 sm:text-lg sm:leading-9">
           <p>To prawdziwe zdjęcia z domu dziecka. Zrobiliśmy je sami, zimą, podczas wizyty w placówce. Nie ma na nich twarzy, bo dzieci nie pokazujemy. Ale wystarczy popatrzeć na rzeczy.</p>
         </div>
 
@@ -103,19 +103,19 @@ export default function WinterInChildrensHomeArticle() {
                   />
                 </div>)}
               </div>
-              <figcaption className="mx-auto mt-7 max-w-3xl border-l border-gold/40 pl-6 text-base leading-8 text-white/72 sm:pl-9 sm:text-lg sm:leading-9">{scene.text}</figcaption>
+              <figcaption className="mx-auto mt-7 max-w-3xl border-l border-gold/40 pl-6 text-base leading-8 text-white/78 sm:pl-9 sm:text-lg sm:leading-9">{scene.text}</figcaption>
             </figure>;
           })}
         </div>
 
-        <div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-white/72 sm:text-lg sm:leading-9">
+        <div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-white/78 sm:text-lg sm:leading-9">
           <p>To nie jest niczyja zła wola. Opiekunowie robią, co mogą, z tym, co mają. Tylko że mają za mało.</p>
 
           <p>A dziecko, które już raz straciło dom, nie powinno dorastać w poczuciu, że należy mu się tylko to, co stare, sklejone i „po kimś”. <strong className="font-semibold text-cream">Warunki, w jakich się dorasta, uczą, ile jest się wartym.</strong></p>
 
           <p>Idzie kolejna zima. Chcemy, żeby te dzieci spędziły ją w porządnych łóżkach, z szafą na własne rzeczy i w łazience, której nie trzeba się wstydzić. To zwyczajne rzeczy. W każdym domu są oczywiste.</p>
 
-          <p className="font-display text-3xl leading-tight text-cream sm:text-4xl">Dom to nie budynek.<br />To poczucie, że komuś na Tobie zależy.</p>
+          <p className="font-display text-3xl leading-[1.2] text-cream sm:text-4xl">Dom to nie budynek.<br />To poczucie, że komuś na Tobie zależy.</p>
 
           <div className="pt-5">
             <Link href="/#wsparcie" className="group inline-flex min-h-14 items-center gap-8 rounded-full border border-white/24 bg-white/[.075] px-6 text-sm font-semibold text-cream shadow-[0_18px_50px_rgba(0,0,0,.22)] backdrop-blur-xl transition-colors duration-500 hover:border-gold/65 hover:bg-gold/12">
