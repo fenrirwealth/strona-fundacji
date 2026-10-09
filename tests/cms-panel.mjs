@@ -69,3 +69,9 @@ test('konfiguracja panelu i nginx są spójne', () => {
   assert.match(nginx, /location \^~ \/admin\//);
   assert.match(nginx, /X-Robots-Tag "noindex/);
 });
+
+test('stara domena .com przekierowuje na .pl z zachowaniem ścieżki', () => {
+  const nginx = fs.readFileSync(new URL('../nginx.conf', import.meta.url), 'utf8');
+  assert.match(nginx, /\(www\\\.\)\?fundacjalepszydomlepszejutro\\\.com\$/);
+  assert.match(nginx, /return 301 https:\/\/fundacjalepszydomlepszejutro\.pl\$request_uri;/);
+});
