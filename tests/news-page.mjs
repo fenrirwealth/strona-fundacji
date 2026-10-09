@@ -66,7 +66,7 @@ test('relacja z zimowej wizyty w domu dziecka ma pełną treść i sześć zdję
   const article = read('app/aktualnosci/zima-w-domu-dziecka/page.tsx');
   assert.match(page, /\/aktualnosci\/zima-w-domu-dziecka/);
   assert.match(article, /ponad 78 tysięcy dzieci/);
-  assert.match(article, /Około 17 tysięcy/);
+  assert.match(article, /Ponad 17 tysięcy z nich/);
   assert.match(article, /dzieci nie pokazujemy/);
   assert.match(article, /Dom to nie budynek/);
   for (const n of [1, 2, 3, 4, 5, 6]) {

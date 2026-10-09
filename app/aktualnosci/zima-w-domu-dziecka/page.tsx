@@ -77,7 +77,7 @@ export default function WinterInChildrensHomeArticle() {
             <time dateTime="2026-10" className="text-white/45">Październik 2026</time>
           </div>
           <h1 className="text-balance font-display text-[clamp(3.25rem,7vw,7rem)] font-medium leading-[.9] tracking-[-.05em]">Tak wyglądała tu ubiegła zima. <span className="text-gold">Chcemy, żeby ta była inna.</span></h1>
-          <p className="mt-8 max-w-3xl text-lg leading-9 text-white/58 sm:text-xl">To tylko jeden dom. W Polsce ponad 78 tysięcy dzieci dorasta poza własną rodziną. Około 17 tysięcy z nich mieszka w placówkach, takich jak ta.</p>
+          <p className="mt-8 max-w-3xl text-lg leading-9 text-white/58 sm:text-xl">To tylko jeden dom. W Polsce ponad 78 tysięcy dzieci dorasta poza własną rodziną. Ponad 17 tysięcy z nich mieszka w placówkach, takich jak ta.</p>
         </header>
 
         <div className="mx-auto mt-14 max-w-3xl space-y-8 text-base leading-8 text-white/72 sm:mt-20 sm:text-lg sm:leading-9">
