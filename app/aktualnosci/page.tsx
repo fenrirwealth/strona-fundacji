@@ -42,6 +42,18 @@ const featuredNews: FeaturedNews = {
 
 const newsItems: NewsItem[] = [
   {
+    id: 'zima-w-domu-dziecka',
+    title: 'Tak wyglądała tu ubiegła zima. Chcemy, żeby ta była inna.',
+    category: 'Domy dziecka',
+    filters: ['Domy dziecka'],
+    date: 'Październik 2026',
+    excerpt: 'Prawdziwe zdjęcia z domu dziecka, zrobione podczas naszej wizyty. Nie ma na nich twarzy. Wystarczy popatrzeć na rzeczy.',
+    image: '/assets/aktualnosci/zima-w-domu-dziecka-2.webp',
+    imageAlt: 'Metalowe piętrowe łóżko w domu dziecka z ramą sklejoną taśmą i pluszakami ustawionymi pod ścianą',
+    href: '/aktualnosci/zima-w-domu-dziecka',
+    size: 'full',
+  },
+  {
     id: 'wyprawka-turbaza',
     title: 'Wyprawka na lepsze jutro z Turbaza Studio',
     category: 'Akcje Szkolne',

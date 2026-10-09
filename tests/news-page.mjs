@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const read = path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
@@ -59,6 +59,20 @@ test('relacja Święta 2025 zawiera pełne podziękowanie i nową grafikę', () 
   assert.match(article, /nerwy ze stali/);
   assert.match(article, /Ta pomoc miała swój blask/);
   assert.match(article, /swieta-2025-169-dzieci\.jpg/);
+});
+
+test('relacja z zimowej wizyty w domu dziecka ma pełną treść i sześć zdjęć', () => {
+  const page = read('app/aktualnosci/page.tsx');
+  const article = read('app/aktualnosci/zima-w-domu-dziecka/page.tsx');
+  assert.match(page, /\/aktualnosci\/zima-w-domu-dziecka/);
+  assert.match(article, /ponad 78 tysięcy dzieci/);
+  assert.match(article, /Ponad 17 tysięcy z nich/);
+  assert.match(article, /dzieci nie pokazujemy/);
+  assert.match(article, /Dom to nie budynek/);
+  for (const n of [1, 2, 3, 4, 5, 6]) {
+    assert.match(article, new RegExp(`img\\(${n}, `));
+    assert.ok(existsSync(new URL(`../assets/aktualnosci/zima-w-domu-dziecka-${n}.webp`, import.meta.url)), `brak zdjęcia ${n}`);
+  }
 });
 
 test('nowy indeks aktualności zastępuje statyczny, a relacje pozostają kopiowane', () => {
