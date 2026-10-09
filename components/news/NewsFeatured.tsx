@@ -31,10 +31,10 @@ export function NewsFeatured({ news }: { news: FeaturedNews }) {
       <div className="mb-7 flex flex-wrap items-center gap-3">
         {news.tags.map(tag => <span key={tag} className="rounded-full border border-white/16 bg-black/20 px-4 py-2 text-[10px] font-bold uppercase tracking-[.2em] text-white/72 backdrop-blur-md">{tag}</span>)}
       </div>
-      <h1 id="featured-news-title" className="max-w-5xl text-balance font-display text-[clamp(3.4rem,7vw,7.4rem)] font-medium leading-[.88] tracking-[-.05em] text-cream">
+      <h1 id="featured-news-title" className="max-w-5xl text-balance font-display text-[clamp(2.8rem,6vw,6.4rem)] font-medium leading-[.98] tracking-[-.045em] text-cream">
         {news.title}
       </h1>
-      <p className="mt-7 max-w-2xl text-base leading-8 text-white/68 sm:text-lg">{news.excerpt}</p>
+      <p className="mt-9 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">{news.excerpt}</p>
       <div className="mt-9">
         <Link href={news.href} className="group inline-flex min-h-14 items-center gap-8 rounded-full border border-white/24 bg-white/[.075] px-6 text-sm font-semibold text-cream shadow-[0_18px_50px_rgba(0,0,0,.22)] backdrop-blur-xl transition-colors duration-500 hover:border-gold/65 hover:bg-gold/12">
           Czytaj relację
