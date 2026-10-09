@@ -4,6 +4,7 @@ import { Header } from '@/components/header';
 import { NewsFeatured, type FeaturedNews } from '@/components/news/NewsFeatured';
 import { NewsFilter } from '@/components/news/NewsFilter';
 import { NewsGrid, type NewsItem } from '@/components/news/NewsGrid';
+import { getPosts } from '@/lib/news-content.mjs';
 
 export const metadata: Metadata = {
   title: 'Aktualności | Fundacja Lepszy Dom Lepsze Jutro',
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-const featuredNews: FeaturedNews = {
+const legacyFeatured: FeaturedNews = {
   tags: ['Domy dziecka', 'Październik 2026'],
   title: 'Tak wyglądała tu ubiegła zima. Chcemy, żeby ta była inna.',
   excerpt: 'Prawdziwe zdjęcia z domu dziecka, zrobione zimą podczas naszej wizyty. Nie ma na nich twarzy. Wystarczy popatrzeć na rzeczy.',
@@ -40,7 +41,7 @@ const featuredNews: FeaturedNews = {
   href: '/aktualnosci/zima-w-domu-dziecka',
 };
 
-const newsItems: NewsItem[] = [
+const legacyItems: NewsItem[] = [
   {
     id: 'polish-airports-academy',
     title: 'Wyprawka szkolna. Zbiórka w Polish Airports Academy zakończona.',
@@ -79,7 +80,45 @@ const newsItems: NewsItem[] = [
   },
 ];
 
+const zimaCard: NewsItem = {
+  id: 'zima-w-domu-dziecka',
+  title: legacyFeatured.title,
+  category: 'Domy dziecka',
+  filters: ['Święta'],
+  date: 'Październik 2026',
+  excerpt: legacyFeatured.excerpt,
+  image: legacyFeatured.image,
+  imageAlt: legacyFeatured.imageAlt,
+  href: legacyFeatured.href,
+  size: 'full',
+};
+
 export default function NewsPage() {
+  const posts = getPosts();
+  const [newest, ...older] = posts;
+  const featuredNews: FeaturedNews = newest
+    ? {
+        tags: [newest.category, newest.dateLabel],
+        title: newest.title,
+        excerpt: newest.excerpt,
+        image: newest.image,
+        imageAlt: newest.imageAlt,
+        href: `/aktualnosci/${newest.slug}`,
+      }
+    : legacyFeatured;
+  const cmsItems: NewsItem[] = older.map(post => ({
+    id: post.slug,
+    title: post.title,
+    category: post.category,
+    filters: post.filters,
+    date: post.dateLabel,
+    excerpt: post.excerpt,
+    image: post.image,
+    imageAlt: post.imageAlt,
+    href: `/aktualnosci/${post.slug}`,
+    size: 'full' as const,
+  }));
+  const newsItems = newest ? [...cmsItems, zimaCard, ...legacyItems] : legacyItems;
   return <>
     <Header variant="dark" />
     <main id="main" className="relative z-10 overflow-clip bg-night text-cream">

@@ -15,4 +15,7 @@ function optimize(dir) {
     }
   }
 }
+// Pusty wpis zastępczy (wymagany przez generateStaticParams, gdy nie ma żadnych wpisów z panelu).
+import { rmSync, readdirSync as ls } from 'node:fs';
+for (const name of ls('out/aktualnosci')) if (name.startsWith('_brak') || name.includes('._brak')) rmSync(`out/aktualnosci/${name}`, { recursive: true, force: true });
 optimize('out');

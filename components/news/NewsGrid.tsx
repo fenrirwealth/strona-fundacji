@@ -6,7 +6,7 @@ import { useNewsFilter, type NewsCategory } from './NewsFilter';
 export type NewsItem = {
   id: string;
   title: string;
-  category: Exclude<NewsCategory, 'Wszystkie' | 'Współprace'>;
+  category: string;
   filters: Array<Exclude<NewsCategory, 'Wszystkie'>>;
   date: string;
   excerpt: string;

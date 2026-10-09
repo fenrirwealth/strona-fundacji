@@ -1,0 +1,24 @@
+export type NewsPost = {
+  slug: string;
+  title: string;
+  date: string;
+  dateLabel: string;
+  dateLong: string;
+  category: string;
+  filters: Array<'Akcje Szkolne' | 'Święta' | 'Współprace'>;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+  gallery: Array<{ image: string; alt: string }>;
+  bodyHtml: string;
+};
+export const CONTENT_DIR: string;
+export const FILTERS: string[];
+export function renderMarkdown(source: string): string;
+export function formatMonth(date: Date): string;
+export function formatDay(date: Date): string;
+export function resolveImage(src: string, root?: string): string;
+export function parsePost(raw: string, slug: string, root?: string): NewsPost | null;
+export function getPosts(dir?: string, root?: string): NewsPost[];
+export function getPost(slug: string, dir?: string, root?: string): NewsPost | null;
+export function listContentImages(dir?: string): string[];
