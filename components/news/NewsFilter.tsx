@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
 
-export type NewsCategory = 'Wszystkie' | 'Akcje Szkolne' | 'Święta' | 'Współprace';
+export type NewsCategory = 'Wszystkie' | 'Akcje Szkolne' | 'Święta' | 'Współprace' | 'Domy dziecka';
 
-const categories: NewsCategory[] = ['Wszystkie', 'Akcje Szkolne', 'Święta', 'Współprace'];
+const categories: NewsCategory[] = ['Wszystkie', 'Akcje Szkolne', 'Święta', 'Współprace', 'Domy dziecka'];
 const NewsFilterContext = createContext<NewsCategory>('Wszystkie');
 
 export function useNewsFilter(): NewsCategory {
