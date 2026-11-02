@@ -164,3 +164,13 @@
 .news-prose hr{border:0;border-top:1px solid rgb(255 255 255 / .12);margin:3rem 0}
 
 .footer-registry{margin:0;display:grid;gap:9px;font-size:13px;color:var(--muted)}.footer-registry>div{display:flex;gap:10px;align-items:baseline}.footer-registry dt{min-width:46px;font-size:10px;font-weight:650;letter-spacing:.1em;text-transform:uppercase}.footer-registry dd{margin:0;font-variant-numeric:tabular-nums}.footer-registry-name{font-size:12px;font-weight:650;letter-spacing:.06em;color:var(--ink)}.footer-registry-address{flex-direction:column;gap:4px!important;margin-top:4px}.footer-dark .footer-registry{color:rgba(255,255,255,.58)}.footer-dark .footer-registry-name{color:#fff9f0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* A gentle seasonal illustration; no motion when reduced motion is requested. */
+.workshop-arm-left { transform-origin: 150px 103px; animation: workshop-wrap 3s ease-in-out infinite; transform-box: view-box; }
+.workshop-arm-right { transform-origin: 450px 103px; animation: workshop-wrap 3s ease-in-out -1.5s infinite reverse; transform-box: view-box; }
+.workshop-parcel { animation: workshop-parcel 6s ease-in-out infinite; }
+.workshop-light { animation: workshop-light 4s ease-in-out infinite; }
+@keyframes workshop-wrap { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(7deg); } }
+@keyframes workshop-parcel { 0%,20%,100% { transform: translateX(-24px); } 50%,70% { transform: translateX(24px); } }
+@keyframes workshop-light { 0%,100% { opacity: .65; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .christmas-workshop * { animation: none !important; } }
