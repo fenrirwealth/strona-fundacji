@@ -3,6 +3,7 @@ import { Partners } from '@/components/partners';
 import { Footer } from '@/components/footer';
 import { NewsletterSignup } from '@/components/newsletter-signup';
 import { Hero } from '@/components/Hero';
+import { ChristmasWorkshop } from '@/components/christmas-workshop';
 import { ChristmasCampaign } from '@/components/christmas-campaign';
 import { StoryGrid } from '@/components/StoryGrid';
 import { DonationCard } from '@/components/DonationCard';
@@ -16,6 +17,7 @@ export default function Home() {
     <main id="main" className="cinematic-home relative z-10 overflow-clip">
       <Hero />
       <ChristmasCampaign />
+      <ChristmasWorkshop />
       <StoryGrid />
       <DonationCard />
       <NewsletterSignup />

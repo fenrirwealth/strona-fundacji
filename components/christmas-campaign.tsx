@@ -1,4 +1,3 @@
-import { ChristmasWorkshop } from './christmas-workshop';
 import { Gift, Download, ArrowUpRight } from 'lucide-react';
 
 export function ChristmasCampaign() {
@@ -18,7 +17,6 @@ export function ChristmasCampaign() {
           <a href="/assets/kampanie/plakat-swieta-2026.png" download className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full border border-gold/50 px-7 py-4 text-sm font-semibold text-gold transition hover:bg-white/10"><Download className="h-4 w-4" aria-hidden="true" /> Pobierz plakat</a>
         </div>
         <p className="mt-5 text-sm leading-6 text-white/65">Powieś plakat w sklepie, biurze lub miejscu spotkań. Pomóż nam dotrzeć do kolejnych darczyńców.</p>
-        <ChristmasWorkshop />
       </div>
       <figure className="mx-auto w-full max-w-[440px]">
         <a href="/assets/kampanie/plakat-swieta-2026.png" target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-2xl border border-gold/30 shadow-2xl transition hover:border-gold" aria-label="Otwórz plakat 5. Świątecznej Zbiórki w pełnym rozmiarze">
