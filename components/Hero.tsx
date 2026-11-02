@@ -50,12 +50,12 @@ export function Hero(): ReactElement {
         <p className="text-base leading-8 text-white/72 sm:text-lg">Pomagamy dzieciom i rodzinom odzyskać bezpieczeństwo, sprawczość i wiarę, że dobra przyszłość naprawdę jest możliwa.</p>
         <div className="mt-9 flex flex-col gap-4 sm:flex-row">
           <motion.a
-            href="#wsparcie"
+            href="#swiateczna-zbiorka"
             whileHover={{ scale: 1.015 }}
             whileTap={{ scale: 0.98 }}
             className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-bold uppercase tracking-[.15em] text-night shadow-glow ring-1 ring-gold/60 transition-shadow hover:shadow-[0_0_34px_rgba(216,174,99,.5),0_0_100px_rgba(216,174,99,.22)]"
           >
-            Chcę pomóc <ArrowDown className="h-4 w-4" aria-hidden="true" />
+            Świąteczna zbiórka <ArrowDown className="h-4 w-4" aria-hidden="true" />
           </motion.a>
           <a href="https://portal.fundacjalepszydomlepszejutro.pl" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[.06] px-8 py-4 text-sm font-semibold uppercase tracking-[.13em] text-white backdrop-blur-glass transition duration-300 hover:border-gold/60 hover:bg-white/[.1]">
             Portal listów <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

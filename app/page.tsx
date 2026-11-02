@@ -3,6 +3,7 @@ import { Partners } from '@/components/partners';
 import { Footer } from '@/components/footer';
 import { NewsletterSignup } from '@/components/newsletter-signup';
 import { Hero } from '@/components/Hero';
+import { ChristmasCampaign } from '@/components/christmas-campaign';
 import { StoryGrid } from '@/components/StoryGrid';
 import { DonationCard } from '@/components/DonationCard';
 import CinematicBackground from '@/components/webgl/CinematicBackground';
@@ -14,6 +15,7 @@ export default function Home() {
     <Header variant="dark" />
     <main id="main" className="cinematic-home relative z-10 overflow-clip">
       <Hero />
+      <ChristmasCampaign />
       <StoryGrid />
       <DonationCard />
       <NewsletterSignup />
