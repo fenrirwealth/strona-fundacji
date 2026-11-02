@@ -1,7 +1,10 @@
+'use client';
+import { useState } from 'react';
 export function ChristmasWorkshop() {
-  return <div className="christmas-workshop mt-8 overflow-hidden rounded-2xl border border-gold/20 bg-[#180f1b] px-4 pt-4" role="img" aria-label="Animowana ilustracja: dwa elfy pakują świąteczne prezenty przy stole.">
+  const [paused, setPaused] = useState(false);
+  return <div data-paused={paused} className="christmas-workshop mt-8 overflow-hidden rounded-2xl border border-gold/20 bg-[#180f1b] px-4 pt-4">
     <p className="text-center text-xs font-semibold uppercase tracking-[.18em] text-gold">Razem przygotujmy świąteczną radość</p>
-    <svg viewBox="0 0 600 165" className="mx-auto block w-full max-w-[560px]" aria-hidden="true">
+    <svg role="img" aria-label="Dwa elfy pakują świąteczne prezenty przy stole" viewBox="0 0 600 165" className="mx-auto block w-full max-w-[560px]">
       <defs><linearGradient id="workshop-gift" x2="1" y2="1"><stop stopColor="#b83848"/><stop offset="1" stopColor="#791c31"/></linearGradient></defs>
       <path d="M30 20Q300 65 570 20" fill="none" stroke="#725b38" strokeWidth="2" />
       {[65,135,215,300,385,465,535].map((x,i)=><circle key={x} className="workshop-light" style={{animationDelay:`${i*.3}s`}} cx={x} cy={i===3?42:i===2||i===4?39:i===1||i===5?32:24} r="4" fill="#f2cd80" />)}
@@ -23,5 +26,6 @@ export function ChristmasWorkshop() {
       <g className="workshop-parcel"><rect x="264" y="96" width="72" height="43" rx="4" fill="url(#workshop-gift)"/><rect x="260" y="91" width="80" height="11" rx="3" fill="#bf4352"/><path d="M300 92V139" stroke="#e9c67b" strokeWidth="9"/><path d="M300 92C263 70 283 65 300 92C317 65 337 70 300 92Z" fill="none" stroke="#e9c67b" strokeWidth="4"/></g>
       <g fill="#d9b36b"><rect x="196" y="119" width="33" height="20" rx="2"/><rect x="370" y="111" width="35" height="28" rx="2"/></g><path d="M212 119V139M387 111V139" stroke="#f8e6bc" strokeWidth="4"/>
     </svg>
+    <button type="button" onClick={() => setPaused(!paused)} aria-pressed={paused} className="mx-auto mb-3 block rounded-full border border-gold/30 px-4 py-2 text-xs text-gold">{paused ? "Włącz animację" : "Wstrzymaj animację"}</button>
   </div>;
 }
