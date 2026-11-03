@@ -29,7 +29,7 @@ export function ChristmasCampaign() {
           <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.14em] text-gold"><Heart className="h-4 w-4 shrink-0" aria-hidden="true" /> Zbiórka na Siepomaga.pl</p>
           <h3 id="siepomaga-heading" className="mt-4 font-display text-3xl font-medium leading-tight text-cream">Zamień marzenia w prezenty.</h3>
           <p className="mt-4 text-base leading-7 text-white/85">Możesz pomóc także wpłatą. Za zebrane środki kupimy świąteczne prezenty dla dzieci i młodzieży: klocki, gry, książki, zabawki oraz upominki dopasowane do ich wieku i zainteresowań.</p>
-          <a href="https://www.siepomaga.pl/dzieciece-marzenia26" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-gold px-5 py-4 text-center text-sm font-bold text-night transition hover:bg-cream">Wesprzyj na Siepomaga.pl <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a>
+          <a href="https://www.siepomaga.pl/dzieciece-marzenia26" style={{ color: '#05080f' }} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-gold px-5 py-4 text-center text-sm font-bold text-night transition hover:bg-cream">Wesprzyj na Siepomaga.pl <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a>
           <p className="mt-3 text-center text-xs leading-5 text-white/65">Wpłać dowolną kwotę lub udostępnij zbiórkę.</p>
         </div>
       </aside>
