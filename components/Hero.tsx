@@ -61,6 +61,7 @@ export function Hero(): ReactElement {
             Portal listów <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
           </a>
         </div>
+        <a href="https://www.siepomaga.pl/dzieciece-marzenia26" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gold underline decoration-gold/40 underline-offset-4 transition hover:text-cream">Wesprzyj świąteczne prezenty na Siepomaga.pl <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a>
       </motion.div>
     </div>
   </section>;
