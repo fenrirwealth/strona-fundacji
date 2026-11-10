@@ -26,3 +26,6 @@
 .independence-is-paused .independence-haze{animation-play-state:paused}
 @media(max-width:850px){.independence{min-height:0}.independence h2{font-size:clamp(45px,10.5vw,76px)}.independence-title-main{margin-bottom:14px}.independence h2 em{font-size:.74em}.independence-atmosphere{background-position:61% center;background-image:linear-gradient(180deg,#050a12bb,transparent 60%,#050a12),url('/assets/generated/independence-cinema.webp')}.independence-caption{bottom:-5px;right:0}.independence-quote{font-size:21px}.independence-year{font-size:130px}}
 @media(prefers-reduced-motion:reduce){.independence-haze{animation:none}}
+
+/* Same photographic fabric in the no-WebGL fallback; no legacy procedural flag. */
+.independence-fallback{background:url('/assets/generated/flag-cinematic-real-v3.webp') center/contain no-repeat;aspect-ratio:4/3;width:88%;left:6%;top:16%;transform:none}
