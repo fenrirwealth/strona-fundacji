@@ -29,3 +29,9 @@
 
 /* Same photographic fabric in the no-WebGL fallback; no legacy procedural flag. */
 .independence-fallback{background:url('/assets/generated/flag-cinematic-real-v3.webp') center/contain no-repeat;aspect-ratio:4/3;width:88%;left:6%;top:16%;transform:none}
+
+/* Final responsive framing and comfortable touch controls. */
+.independence-pause{min-height:44px;font-size:12px;padding:10px 18px;color:#e7dfe3;background:#080e1a88}
+.independence-description{opacity:1;color:#d0d4dd}
+@media(min-width:540px) and (max-width:850px){.independence-art,.independence-flag{min-height:clamp(380px,60vw,480px)}}
+@media(max-width:850px){.independence-quote{text-shadow:0 2px 10px #000,0 0 24px #0008}.independence-caption span{color:#d4cbd2;text-shadow:0 1px 6px #000}}

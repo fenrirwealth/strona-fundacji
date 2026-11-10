@@ -34,17 +34,12 @@ export function IndependenceDay() {
       renderer.outputColorSpace = T.SRGBColorSpace;
       renderer.toneMapping = T.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.1;
-      renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = T.PCFSoftShadowMap;
       const scene = new T.Scene();
       const camera = new T.PerspectiveCamera(34, 1, .1, 30);
       camera.position.set(.1, .1, 8.8);
       camera.lookAt(0, 0, 0);
       scene.add(new T.HemisphereLight(0xc8ddff, 0x221826, .65));
-      const key = new T.DirectionalLight(0xfff5e6, 4.2); key.position.set(-3, 4, 2); key.castShadow = true; key.shadow.mapSize.set(1024, 1024);
-      key.shadow.camera.left = -4; key.shadow.camera.right = 4;
-      key.shadow.camera.top = 4; key.shadow.camera.bottom = -4;
-      key.shadow.bias = -.001; key.shadow.normalBias = .015; scene.add(key);
+      const key = new T.DirectionalLight(0xfff5e6, 4.2); key.position.set(-3, 4, 2); scene.add(key);
       const rim = new T.DirectionalLight(0xbfdcff, 3); rim.position.set(4, 3, -2); scene.add(rim);
       let map: InstanceType<typeof T.Texture>;
       try { map = await new T.TextureLoader().loadAsync('/assets/generated/flag-cinematic-real-v3.webp'); }
@@ -90,7 +85,7 @@ export function IndependenceDay() {
             .12 * u * wave + .035 * edge * Math.sin(v * 6 - time * 2));
         }
         pos.needsUpdate = true;
-        camera.position.set(.12 + Math.sin(time * .12) * .13, .12 + Math.cos(time * .16) * .08, 8.5 + Math.sin(time * .14) * .25);
+        camera.position.set(.12 + Math.sin(time * .12) * .13, .12 + Math.cos(time * .16) * .08, Math.max(8.5, 3.1 / (Math.tan(17 * Math.PI / 180) * camera.aspect)) + Math.sin(time * .14) * .25);
         camera.lookAt(0, -.08, 0);
         renderer.render(scene, camera); rendered = true;
       };
