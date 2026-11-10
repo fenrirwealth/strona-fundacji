@@ -9,3 +9,20 @@
 .independence-quote{border-left:2px solid #c83952;padding:0 0 0 20px;margin:30px 0 22px;max-width:460px;font-family:Georgia,serif;font-size:clamp(20px,1.8vw,27px);font-style:italic;line-height:1.5;color:#f7e8de}.independence-quote cite{display:block;margin-top:12px;font-family:Arial,sans-serif;font-size:10px;font-style:normal;text-transform:uppercase;letter-spacing:.18em;color:#d4b997}.independence-quote+.independence-description{font-size:14px;margin-top:20px}
 
 @media(max-width:850px){.independence-content{display:contents}.independence-kicker{order:0}.independence h2{order:1}.independence-art{order:2;min-height:290px;margin-top:0;margin-bottom:35px}.independence-flag{min-height:290px}.independence-quote{order:3;margin-top:10px}.independence-description{order:4}.independence-link{order:5;justify-self:start}}
+
+.independence h2{font-size:clamp(56px,6.15vw,99px);line-height:1.08}.independence h2 em{color:#eee6dc}.independence-art{background:radial-gradient(ellipse at 45% 45%,#899cc116,transparent 64%)}.independence-flag{width:110%;left:-5%}@media(max-width:850px){.independence h2{font-size:clamp(49px,9.8vw,76px)}.independence-art{min-height:340px}.independence-flag{min-height:340px}}
+
+/* Film-title treatment: restrained type, a full-bleed atmospheric plate and grazing light. */
+.independence{background:#050a12;min-height:94svh}
+.independence-atmosphere{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#050a12 0%,#050a12b0 37%,transparent 75%),url('/assets/generated/independence-cinema.webp') 65% center/cover no-repeat;opacity:.9}
+.independence-haze{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 85% 15%,#d5e7ff14,transparent 46%),radial-gradient(ellipse at 70% 90%,#c91f3b19,transparent 50%);animation:independence-haze-drift 18s ease-in-out infinite alternate}
+@keyframes independence-haze-drift{from{opacity:.35;transform:scale(1)}to{opacity:1;transform:scale(1.08)}}
+.independence h2{font-size:clamp(48px,5.1vw,82px);line-height:1.13;letter-spacing:-.04em;text-shadow:0 3px 30px #0008}
+.independence-title-main{display:block;font-size:1.14em;letter-spacing:-.045em;margin-bottom:18px;color:#fffaf0}
+.independence h2 em{display:block;color:#d2c9bf;font-style:normal;font-size:.75em;letter-spacing:-.025em;line-height:1.18}
+.independence-quote{margin-top:36px;font-size:clamp(20px,1.6vw,25px);font-weight:400;color:#f3e8db}
+.independence-description{opacity:.8}.independence-art{background:none}.independence-year{font-size:clamp(95px,12vw,185px);color:#ffffff09;top:4%;right:5%}.independence-year span{color:inherit}
+.independence-caption{left:auto;right:8%;bottom:8px;text-align:right;text-shadow:0 2px 8px #000}
+.independence-is-paused .independence-haze{animation-play-state:paused}
+@media(max-width:850px){.independence{min-height:0}.independence h2{font-size:clamp(45px,10.5vw,76px)}.independence-title-main{margin-bottom:14px}.independence h2 em{font-size:.74em}.independence-atmosphere{background-position:61% center;background-image:linear-gradient(180deg,#050a12bb,transparent 60%,#050a12),url('/assets/generated/independence-cinema.webp')}.independence-caption{bottom:-5px;right:0}.independence-quote{font-size:21px}.independence-year{font-size:130px}}
+@media(prefers-reduced-motion:reduce){.independence-haze{animation:none}}
