@@ -21,7 +21,7 @@ test('projekt nie zawiera pionowych animacji ani blokujacych przejsc widokow', (
     /translateY\s*\(/,
     /(?:^|[\s"'`])-?translate-y-/,
     /\byPercent\s*:/,
-    /\by\s*:/,
+    /(?<![\p{L}\p{N}_])y\s*:/u,
     /\.rotation\.y\s*=/,
     /\.position\.y\s*=/,
     /\bscaleY\s*:/,

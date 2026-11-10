@@ -2,6 +2,7 @@ import { Header } from '@/components/header';
 import { Partners } from '@/components/partners';
 import { Footer } from '@/components/footer';
 import { NewsletterSignup } from '@/components/newsletter-signup';
+import { IndependenceDay } from '@/components/independence-day';
 import { Hero } from '@/components/Hero';
 import { ChristmasWorkshop } from '@/components/christmas-workshop';
 import { ChristmasCampaign } from '@/components/christmas-campaign';
@@ -15,6 +16,7 @@ export default function Home() {
     <div className="cinematic-noise" aria-hidden="true" />
     <Header variant="dark" />
     <main id="main" className="cinematic-home relative z-10 overflow-clip">
+      <IndependenceDay />
       <Hero />
       <ChristmasCampaign />
       <ChristmasWorkshop />
