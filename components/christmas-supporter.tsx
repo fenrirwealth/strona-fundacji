@@ -9,7 +9,7 @@ export function ChristmasSupporter() {
       </div>
       <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:p-14">
         <p className="mb-6 text-xs font-bold uppercase tracking-[.2em] text-gold">Nasza świąteczna ekipa</p>
-        <h2 id="christmas-supporter-heading" className="font-display text-4xl font-medium leading-[1.08] tracking-[-.03em] sm:text-5xl">Polski Ken dołącza do naszej świątecznej paczki.</h2>
+        <h2 id="christmas-supporter-heading" className="font-display text-4xl font-medium leading-[1.08] tracking-[-.03em] sm:text-5xl">Do naszej akcji dołączył Polski Ken!</h2>
         <p className="mt-7 text-base leading-8 text-white/70">Michał Ken Przybyłowicz jest z nami! Dziękujemy za wsparcie świątecznej akcji dla dzieci z domów dziecka i rodzin zastępczych. W naszej ekipie jest miejsce także dla Ciebie.</p>
         <div className="mt-8 flex flex-wrap gap-4">
           <a href="https://www.siepomaga.pl/dzieciece-marzenia26" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center rounded-full bg-gold px-7 text-sm font-bold text-night transition hover:bg-cream">Wesprzyj świąteczną zbiórkę ↗</a>

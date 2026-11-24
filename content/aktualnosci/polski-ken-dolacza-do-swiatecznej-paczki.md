@@ -1,5 +1,5 @@
 ---
-title: "Polski Ken dołącza do naszej świątecznej paczki"
+title: "Do naszej akcji dołączył Polski Ken!"
 date: "2026-11-24T09:30:00+01:00"
 category: "Świąteczna ekipa"
 filters: ["Święta", "Współprace"]
@@ -9,7 +9,7 @@ imageAlt: "Michał Ken Przybyłowicz w białym swetrze na tle świątecznej choi
 draft: false
 ---
 
-**Nasza świąteczna ekipa się powiększa. Do akcji dołączył Michał Ken Przybyłowicz, znany jako Polski Ken. Michale, cieszymy się, że jesteś z nami!**
+**Do naszej akcji dołączył Michał Ken Przybyłowicz, znany jako Polski Ken. Michale, cieszymy się, że jesteś z nami!**
 
 Przed nami wspólna misja: zamienić dziecięce marzenia w prezenty. Wymarzone klocki, książka, gra na wspólne wieczory — każdy upominek wybieramy z myślą o dziecku, jego wieku i zainteresowaniach. Chcemy, by otwieraniu paczek towarzyszyły radość i poczucie, że ktoś pamięta o tych marzeniach.
 
