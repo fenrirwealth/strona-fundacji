@@ -6,6 +6,7 @@ import { IndependenceDay } from '@/components/independence-day';
 import { Hero } from '@/components/Hero';
 import { ChristmasWorkshop } from '@/components/christmas-workshop';
 import { ChristmasCampaign } from '@/components/christmas-campaign';
+import { ChristmasSupporter } from '@/components/christmas-supporter';
 import { StoryGrid } from '@/components/StoryGrid';
 import { DonationCard } from '@/components/DonationCard';
 import CinematicBackground from '@/components/webgl/CinematicBackground';
@@ -19,6 +20,7 @@ export default function Home() {
       <IndependenceDay />
       <Hero />
       <ChristmasCampaign />
+      <ChristmasSupporter />
       <ChristmasWorkshop />
       <StoryGrid />
       <DonationCard />
