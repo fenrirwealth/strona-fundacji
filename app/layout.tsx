@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://fundacjalepszydomlepszejutro.pl'),
   title: 'Razem zmieniamy jutro | Fundacja Lepszy Dom Lepsze Jutro',
   description: 'Pomagaj razem z Fundacją Lepszy Dom Lepsze Jutro. Poznaj nasze działania, wybierz akcję i sprawdź, jak możesz wesprzeć dzieci oraz rodziny.',
-  verification: { google: 'i4YKcpbmCKBDthyu7MHiKXgaQsJ_LpLArCfH--1wgO8' },
+  verification: { google: ['i4YKcpbmCKBDthyu7MHiKXgaQsJ_LpLArCfH--1wgO8', 'ElSn2mQH58A40LZyxdTRSgfgh_0AP3B5yq-ynWfyA8Q'] },
   alternates: { canonical: '/' }, robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   openGraph: { type: 'website', locale: 'pl_PL', url: '/', siteName: 'Fundacja Lepszy Dom Lepsze Jutro', title: 'Razem zmieniamy jutro.', description: 'Poznaj działania Fundacji i zobacz, jak możesz pomóc dzieciom oraz rodzinom.', images: [{ url: '/assets/generated/hero-cinematic-v1.jpg', width: 1672, height: 941, alt: 'Dziecko patrzące z nadzieją w ciepłym świetle' }] },
   twitter: { card: 'summary_large_image' }, icons: { icon: '/assets/favicon-64.png', apple: '/assets/apple-touch-icon.png' },
