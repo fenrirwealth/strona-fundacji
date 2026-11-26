@@ -42,9 +42,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NewsPostPage({ params }: Props) {
   const post = getPost((await params).slug);
   if (!post) notFound();
+  const origin = 'https://fundacjalepszydomlepszejutro.pl';
+  const url = `${origin}/aktualnosci/${post.slug}`;
+  const publisher = { '@type': 'Organization', name: 'Fundacja Lepszy Dom Lepsze Jutro', url: origin };
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'Article', headline: post.title, description: post.excerpt || post.title,
+        datePublished: post.date, mainEntityOfPage: url, inLanguage: 'pl-PL', articleSection: post.category,
+        author: publisher, publisher,
+        ...(post.image ? { image: new URL(post.image, origin).href } : {}),
+      },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Fundacja', item: origin + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Aktualności', item: origin + '/aktualnosci' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: url },
+      ] },
+    ],
+  };
 
   return <>
     <Header variant="dark" />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <main id="main" className="relative overflow-hidden bg-[#05080f] pb-28 pt-40 text-cream sm:pt-52 lg:pb-40">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-gold/[.08] blur-[170px]" aria-hidden="true" />
       <div className="page-curtain-noise pointer-events-none absolute inset-0 opacity-[.025]" aria-hidden="true" />

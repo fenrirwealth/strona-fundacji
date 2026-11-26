@@ -9,7 +9,7 @@ function optimize(dir) {
     if (entry.isDirectory()) optimize(path);
     else if (entry.name.endsWith('.html') && path !== 'out/index.html') {
       const html = readFileSync(path, 'utf8').split('\n').filter(line => !/fonts\.(googleapis|gstatic)\.com/.test(line)).join('\n')
-        .replace('</head>', '<link rel="stylesheet" href="/assets/performance-v7.css">\n</head>')
+        .replace('</head>', '<link rel="stylesheet" href="/assets/performance-v8.css">\n</head>')
         .replaceAll('loading="lazy"', 'loading="lazy" decoding="async"');
       writeFileSync(path, html);
     }
