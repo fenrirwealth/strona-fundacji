@@ -29,6 +29,7 @@ export function HelpHero() {
 
       <h1
         id="help-heading"
+        aria-label={lines.join(' ')}
         className="max-w-6xl font-display text-[clamp(3.7rem,9vw,8.5rem)] font-medium leading-[.84] tracking-[-.055em] text-cream"
       >
         {lines.map(line => <span key={line} className="block overflow-hidden pb-[.08em]">
