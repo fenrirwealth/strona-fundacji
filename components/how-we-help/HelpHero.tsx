@@ -43,6 +43,7 @@ export function HelpHero() {
           <span className="grid h-11 w-11 place-items-center rounded-full border border-white/20 transition duration-300 group-hover:border-gold/60 group-hover:bg-gold/10"><ArrowDown className="h-4 w-4" aria-hidden="true" /></span>
         </a>
       </div>
+      <a href="#jak-wesprzec" className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-gold underline underline-offset-4">Jak możesz wesprzeć Fundację? →</a>
     </div>
   </section>;
 }
