@@ -102,6 +102,9 @@ export default function BusinessPage() {
               <p className="mt-8 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
                 Razem możemy zapewnić dzieciom i rodzinom bezpieczny dom, potrzebne wyposażenie i wsparcie wtedy, gdy jest naprawdę pilne — nie tylko w grudniu.
               </p>
+              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/75">
+                Planujesz pierwszą akcję zespołową? <a href="/aktualnosci/jak-zorganizowac-zbiorke-w-firmie" className="underline decoration-gold/60 underline-offset-4 hover:text-gold">Przeczytaj plan organizacji zbiórki w firmie</a>.
+              </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a href="/kontakt?temat=wspolpraca-firmy#formularz" className="inline-flex min-h-14 items-center justify-center gap-4 rounded-full bg-gold px-7 text-sm font-bold text-night transition hover:bg-[#efd49a]">
                   Porozmawiajmy o współpracy <ArrowRight className="h-4 w-4" aria-hidden="true" />
