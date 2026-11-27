@@ -19,3 +19,20 @@ function optimize(dir) {
 import { rmSync, readdirSync as ls } from 'node:fs';
 for (const name of ls('out/aktualnosci')) if (name.startsWith('_brak') || name.includes('._brak')) rmSync(`out/aktualnosci/${name}`, { recursive: true, force: true });
 optimize('out');
+
+// Privacy controls on every public HTML page, including the App Router homepage.
+function addPrivacy(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = `${dir}/${entry.name}`;
+    if (entry.isDirectory() && entry.name !== 'admin') addPrivacy(path);
+    else if (entry.isFile() && entry.name.endsWith('.html')) {
+      let html = readFileSync(path, 'utf8');
+      if (!html.includes('/assets/analytics-consent.js')) {
+        html = html.replace('</head>', '<link rel="stylesheet" href="/assets/analytics-consent.css">\n</head>')
+          .replace('</body>', '<script src="/assets/analytics-consent.js" defer></script></body>');
+        writeFileSync(path, html);
+      }
+    }
+  }
+}
+addPrivacy('out');
