@@ -1,0 +1,31 @@
+name: MarketPilot draft delivery
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/marketpilot-agent.yml', 'scripts/marketpilot-agent.mjs']
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+concurrency:
+  group: marketpilot-draft-delivery
+  cancel-in-progress: false
+jobs:
+  deliver:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Deliver verified Markdown draft only
+        run: node scripts/marketpilot-agent.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
