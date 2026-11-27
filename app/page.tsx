@@ -6,6 +6,8 @@ import { IndependenceDay } from '@/components/independence-day';
 import { Hero } from '@/components/Hero';
 import { ChristmasWorkshop } from '@/components/christmas-workshop';
 import { ChristmasCampaign } from '@/components/christmas-campaign';
+import { ChristmasPreschool } from '@/components/christmas-preschool';
+import { PreschoolPartner } from '@/components/preschool-partner';
 import { ChristmasSupporter } from '@/components/christmas-supporter';
 import { StoryGrid } from '@/components/StoryGrid';
 import { DonationCard } from '@/components/DonationCard';
@@ -20,6 +22,8 @@ export default function Home() {
       <IndependenceDay />
       <Hero />
       <ChristmasCampaign />
+      <ChristmasPreschool />
+      <PreschoolPartner />
       <ChristmasSupporter />
       <ChristmasWorkshop />
       <StoryGrid />
