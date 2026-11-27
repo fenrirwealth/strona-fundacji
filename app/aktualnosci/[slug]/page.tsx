@@ -16,13 +16,19 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ slug: string }> };
 
+const BRAND = ' | Fundacja Lepszy Dom Lepsze Jutro';
+function seoTitle(title: string) {
+  return `${title}${BRAND}`.length <= 65 ? `${title}${BRAND}` : title;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPost((await params).slug);
   if (!post) return {};
   const url = `/aktualnosci/${post.slug}`;
   const description = post.excerpt || post.title;
   return {
-    title: `${post.title} | Fundacja Lepszy Dom Lepsze Jutro`,
+    // Google pokazuje ok. 60 znaków tytułu: nazwę Fundacji dopisujemy tylko wtedy, gdy się zmieści.
+    title: seoTitle(post.title),
     description,
     alternates: { canonical: url },
     openGraph: {
