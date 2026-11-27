@@ -1,0 +1,12 @@
+#fundacja-privacy{position:fixed;bottom:64px;left:20px;z-index:10000;box-sizing:border-box;width:min(480px,calc(100% - 40px));max-height:75dvh;overflow:auto;padding:24px;background:#fffaf1;color:#24221e;border:1px solid #ac8850;border-radius:16px;box-shadow:0 8px 40px #0003;font:15px/1.6 system-ui,sans-serif;text-align:left}
+#fundacja-privacy[hidden]{display:none!important}
+#fundacja-privacy h2{margin:0 0 8px;font:600 24px/1.2 Georgia,serif;color:#24221e}
+#fundacja-privacy p{margin:0 0 12px}
+#fundacja-privacy a{color:#655022;text-decoration:underline}
+#fundacja-privacy .privacy-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+#fundacja-privacy button,#fundacja-privacy-settings{appearance:none;cursor:pointer;font:600 14px/1.4 system-ui,sans-serif;border:1px solid #80612f;border-radius:8px;background:#fffaf1;color:#302817;padding:12px 14px;min-height:44px}
+#fundacja-privacy .privacy-actions button{flex:1 1 170px}
+#fundacja-privacy button:hover,#fundacja-privacy-settings:hover{background:#f1e6d0}
+#fundacja-privacy button:focus-visible,#fundacja-privacy a:focus-visible,#fundacja-privacy-settings:focus-visible{outline:3px solid #245da8;outline-offset:3px}
+#fundacja-privacy-settings{position:fixed;bottom:12px;left:20px;z-index:9999;box-shadow:0 2px 12px #0002;padding:9px 13px;font-size:12px}
+@media(max-width:480px){#fundacja-privacy{left:12px;bottom:68px;width:calc(100% - 24px);padding:18px}#fundacja-privacy-settings{left:12px}}
