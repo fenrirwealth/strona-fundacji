@@ -15,11 +15,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: '#050a14' };
 const organizationSchema = {
   '@context': 'https://schema.org', '@type': 'NGO',
+  '@id': 'https://fundacjalepszydomlepszejutro.pl/#organization',
   name: 'Fundacja Lepszy Dom Lepsze Jutro',
   url: 'https://fundacjalepszydomlepszejutro.pl/',
   logo: 'https://fundacjalepszydomlepszejutro.pl/assets/logo-fundacji.webp',
   identifier: 'KRS 0000971976', taxID: '5273002294', foundingDate: '2022-05-17',
   telephone: '+48570747779', email: 'kontakt@fundacjalepszydomlepszejutro.pl',
+  sameAs: ['https://www.facebook.com/LEPSZYDOMLEPSZEJUTRO', 'https://www.instagram.com/lepszy_dom_lepsze_jutro/'],
   address: { '@type': 'PostalAddress', streetAddress: 'Złota 75A/7', postalCode: '00-819', addressLocality: 'Warszawa', addressCountry: 'PL' },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
