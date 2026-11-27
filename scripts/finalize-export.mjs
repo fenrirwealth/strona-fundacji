@@ -27,11 +27,12 @@ function addPrivacy(dir) {
     if (entry.isDirectory() && entry.name !== 'admin') addPrivacy(path);
     else if (entry.isFile() && entry.name.endsWith('.html')) {
       let html = readFileSync(path, 'utf8');
+      if (!html.includes('/assets/marketing-events.js')) html=html.replace('</body>', '<script src="/assets/marketing-events.js" defer></script></body>');
       if (!html.includes('/assets/analytics-consent.js')) {
         html = html.replace('</head>', '<link rel="stylesheet" href="/assets/analytics-consent.css">\n</head>')
           .replace('</body>', '<script src="/assets/analytics-consent.js" defer></script></body>');
-        writeFileSync(path, html);
       }
+      writeFileSync(path, html);
     }
   }
 }
