@@ -123,8 +123,11 @@ test("jak pomagamy prowadzi do potwierdzonych form wsparcia", () => {
 test("przejrzystosc pokazuje dane i nie udaje brakujacych dokumentow", () => {
   assert.match(transparency, /KRS<\/dt><dd>0000971976/);
   assert.match(transparency, /Statut i sprawozdania/);
-  assert.match(transparency, /po ich przekazaniu i weryfikacji/);
-  assert.doesNotMatch(transparency, /href="[^"]+\.pdf"/);
+  assert.match(transparency, /Sprawozdania udostępnimy po sprawdzeniu/);
+  const pdfLinks = [...transparency.matchAll(/href="([^"]+\.pdf)"/g)];
+  assert.equal(pdfLinks.length, 1, "Only the approved statute is published");
+  const pdf = fs.readFileSync(new URL(".." + pdfLinks[0][1], import.meta.url));
+  assert.equal(pdf.subarray(0, 5).toString(), "%PDF-", "The published link must point to a real PDF");
 });
 
 test("rachunek darowizn jest poprawny i przypisany do Erste Bank Polska", () => {
