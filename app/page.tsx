@@ -36,3 +36,4 @@ export default function Home() {
     <Footer variant="dark" />
   </>;
 }
+
