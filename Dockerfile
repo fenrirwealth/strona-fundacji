@@ -7,6 +7,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 FROM node:22-alpine
+ENV MARKETING_EVENTS_ENABLED=true
 RUN apk add --no-cache nginx dumb-init
 WORKDIR /app
 COPY nginx.conf /etc/nginx/http.d/default.conf

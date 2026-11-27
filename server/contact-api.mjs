@@ -1,3 +1,5 @@
+import {createCounter} from './event-counter.mjs';
+const counter=createCounter({hostname:'fundacjalepszydomlepszejutro.pl',website:'f35da478-aff5-448b-8965-aad19c484e7c',clicks:['phone_clicked','email_clicked','support_opened','bank_details_copied','contact_opened'],serverEvents:['contact_accepted']});
 import { createServer } from 'node:http';
 import { handleAuthStart, handleAuthCallback } from './oauth.mjs';
 import { pathToFileURL } from 'node:url';
@@ -66,7 +68,7 @@ async function sendWithResend(apiKey, body) {
   if (!response.ok) throw new Error(`Resend: ${response.status}`);
 }
 
-async function handleContact(request) {
+export async function handleContact(request, {send=sendWithResend,emit=counter.emit}={}) {
   const allowedOrigin = process.env.CONTACT_ALLOWED_ORIGIN || 'https://fundacjalepszydomlepszejutro.pl';
   const origin = request.headers.get('origin');
   const cors = { 'access-control-allow-origin': allowedOrigin, vary: 'Origin' };
@@ -90,7 +92,7 @@ async function handleContact(request) {
   const topic = topicLabels[data.topic];
   const safe = Object.fromEntries(Object.entries(data).map(([key, value]) => [key, escapeHtml(value)]));
   try {
-    await sendWithResend(apiKey, {
+    await send(apiKey, {
       from,
       to: [to],
       reply_to: data.email,
@@ -98,7 +100,8 @@ async function handleContact(request) {
       text: `Imię i nazwisko: ${data.name}\nE-mail: ${data.email}\nTelefon: ${data.phone || 'nie podano'}\nTemat: ${topic}\n\n${data.message}`,
       html: `<h2>Nowa wiadomość ze strony Fundacji</h2><p><b>Imię i nazwisko:</b> ${safe.name}</p><p><b>E-mail:</b> ${safe.email}</p><p><b>Telefon:</b> ${safe.phone || 'nie podano'}</p><p><b>Temat:</b> ${escapeHtml(topic)}</p><p style="white-space:pre-wrap">${safe.message}</p>`,
     });
-    await sendWithResend(apiKey, {
+    void emit('contact_accepted',{server:true});
+    await send(apiKey, {
       from,
       to: [data.email],
       reply_to: to,
@@ -125,7 +128,7 @@ const server = createServer(async (incoming, outgoing) => {
     body: ['GET', 'HEAD'].includes(incoming.method) ? undefined : Buffer.concat(chunks),
   });
   const pathname = new URL(request.url).pathname;
-  const response = pathname === '/api/auth' && incoming.method === 'GET'
+  const response = pathname === '/api/marketing-event' ? request.method==='GET' ? json({ready:process.env.MARKETING_EVENTS_ENABLED==='true',version:1,contactReady:!!(process.env.RESEND_API_KEY&&process.env.CONTACT_TO_EMAIL&&process.env.CONTACT_FROM_EMAIL)},200,{'Cache-Control':'no-store'}) : await counter.handle(request) : pathname === '/api/auth' && incoming.method === 'GET'
     ? handleAuthStart(request)
     : pathname === '/api/auth/callback' && incoming.method === 'GET'
       ? await handleAuthCallback(request)
