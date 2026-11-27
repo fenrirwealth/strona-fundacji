@@ -6,7 +6,7 @@ filters: ["Współprace", "Świąteczna pomoc"]
 excerpt: "Witamy nowego partnera akcji „Listy do Świętego Mikołaja”. Przedszkolaki, rodzice i kadra Przedszkola nr 436 na Wilanowie włączają się w przygotowanie świątecznych paczek dla dzieci z rodzinnego domu dziecka na Mazowszu."
 image: "/assets/aktualnosci/przedszkole-436-nowy-partner.jpg"
 imageAlt: "Przedszkole nr 436 w Warszawie na Wilanowie dołączyło do akcji Listy do Świętego Mikołaja. Logo przedszkola i świąteczna ilustracja wspólnego pakowania prezentu."
-draft: false
+draft: true
 ---
 
 **Do grona partnerów naszej akcji „Listy do Świętego Mikołaja” dołączyło Przedszkole nr 436 w Warszawie na Wilanowie. Serdecznie witamy przedszkolaki, rodziców i całą kadrę!**
